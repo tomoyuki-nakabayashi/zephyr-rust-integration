@@ -3,7 +3,21 @@
 ## How to build
 
 ```
+# at a directory you can build Zephyr application
+# setup Zephyr build environment variables, e.g., using `zephyr-env.sh`
+git clone https://github.com/tomoyuki-nakabayashi/zephyr-rust-integration.git
+cd zephyr-rust-integration
+mkdir build && cd build
+cmake -GNinja -DBOARD=qemu_cortex_m3 ..
+ninja run
+```
 
+Then, you can finally see:
+
+```
+***** Booting Zephyr OS zephyr-v1.13.0-3321-g7f956a9 *****
+Hello World! qemu_cortex_m3
+Hello from Rust.
 ```
 
 ## prerequisite
