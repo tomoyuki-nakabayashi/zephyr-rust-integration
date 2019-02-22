@@ -66,7 +66,7 @@ struct net_pkt *build_reply_pkt(const char *name,
 		return NULL;
 	}
 
-	reply_pkt = net_app_get_net_pkt(ctx, net_pkt_family(pkt), BUF_TIMEOUT);
+	reply_pkt = net_app_get_net_pkt_from_rust(ctx, net_pkt_family(pkt));
 	if (!reply_pkt) {
 		return NULL;
 	}

@@ -1,0 +1,5 @@
+.vscode/
+build/
+rust_echo_server/lib/bindings.h
+rust_echo_server/lib/librust.a
+rust_echo_server/target/

@@ -11,6 +11,14 @@ pub extern "C" fn rust_main() {
     }
 }
 
+#[no_mangle]
+extern "C" fn net_app_get_net_pkt_from_rust(
+        ctx: *mut zephyr::net_app_ctx,
+        pkt: *mut zephyr::net_pkt) -> *mut zephyr::net_pkt
+{
+    unsafe { zephyr::net_app_get_net_pkt(ctx, (*pkt).family() as u16, 100) }
+}
+
 use core::panic::PanicInfo;
 #[panic_handler]
 #[no_mangle]
