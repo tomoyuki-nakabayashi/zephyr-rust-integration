@@ -1,11 +1,13 @@
 [package]
-name = "hello"
+name = "rust_echo_server"
 version = "0.1.0"
 authors = ["tomoyuki-nakabayashi <tomo.wait.for.it.yuki@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+cty = "0.2.0"
+bindings = { path = "../bindings" }
 
 [lib]
-name = "app"
+name = "rust_echo_server"
 crate-type = ["staticlib"]

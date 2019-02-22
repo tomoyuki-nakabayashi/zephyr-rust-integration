@@ -1,13 +1,14 @@
 #![no_std]
 
-extern "C" {
-    fn puts_c(c_str: *const u8);
-}
+use bindings as zephyr;
+use cty;
 
 #[no_mangle]
 pub extern "C" fn rust_main() {
-    const HELLO: &[u8] = b"Hello from Rust.\0";
-    unsafe { puts_c(HELLO.as_ptr()) };
+    unsafe {
+        zephyr::printk(b"Hello from %s\0".as_ptr() as *const cty::c_char,
+                       b"Rust\0".as_ptr());
+    }
 }
 
 use core::panic::PanicInfo;

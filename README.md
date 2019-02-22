@@ -6,7 +6,7 @@
 # at a directory you can build Zephyr application
 # setup Zephyr build environment variables, e.g., using `zephyr-env.sh`
 git clone https://github.com/tomoyuki-nakabayashi/zephyr-rust-integration.git
-cd zephyr-rust-integration
+cd zephyr-rust-integration/hello_rust
 mkdir build && cd build
 cmake -GNinja -DBOARD=qemu_cortex_m3 ..
 ninja run
