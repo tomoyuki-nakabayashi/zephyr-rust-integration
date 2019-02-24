@@ -27,24 +27,13 @@
 
 int main(void)
 {
-	int serv;
-	struct sockaddr_in bind_addr;
-	static int counter;
-
 	rust_main();
-	serv = socket_init();
+	int serv = socket_init();
 
 	printf("Single-threaded TCP echo server waits for a connection on port %d...\n", PORT);
 
 	while (1) {
-		struct sockaddr_in client_addr;
-		socklen_t client_addr_len = sizeof(client_addr);
-		char addr_str[32];
-		int client = accept(serv, (struct sockaddr *)&client_addr,
-				    &client_addr_len);
-		inet_ntop(client_addr.sin_family, &client_addr.sin_addr,
-			  addr_str, sizeof(addr_str));
-		printf("Connection #%d from %s\n", counter++, addr_str);
+		int client = establish_connection(serv);
 
 		while (1) {
 			char buf[128], *p;
@@ -72,6 +61,6 @@ int main(void)
 
 error:
 		close(client);
-		printf("Connection from %s closed\n", addr_str);
+		printf("Connection closed\n");
 	}
 }
