@@ -32,21 +32,7 @@ int main(void)
 	static int counter;
 
 	rust_main();
-	serv = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-
-	bind_addr.sin_family = AF_INET;
-	bind_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	bind_addr.sin_port = htons(PORT);
-
-	if (bind(serv, (struct sockaddr *)&bind_addr, sizeof(bind_addr)) < 0) {
-		printf("error: bind: %d\n", errno);
-		exit(1);
-	}
-
-	if (listen(serv, 5) < 0) {
-		printf("error: listen: %d\n", errno);
-		exit(1);
-	}
+	serv = socket_init();
 
 	printf("Single-threaded TCP echo server waits for a connection on port %d...\n", PORT);
 
