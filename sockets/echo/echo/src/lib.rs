@@ -9,10 +9,8 @@ const PORT: u16 = 4242u16;
 
 #[no_mangle]
 pub extern "C" fn rust_main() {
-    println!("Hello Rust!");
     let server_desc = socket_init();
-    unsafe { zephyr::printf("TCP echo server waits for a connection on port %u...\n\0".as_ptr()  as *const cty::c_char,
-        PORT as cty::c_uint); }
+    println!("TCP echo server waits for a connection on port {}...", PORT);
 
     loop {
         let client_desc = establish_connection(server_desc);
