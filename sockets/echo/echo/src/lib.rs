@@ -1,6 +1,7 @@
 #![no_std]
 
 use bindings::zephyr;
+use zephyr_ffi::{println, print};
 use core::mem::size_of;
 use cty;
 
@@ -8,6 +9,7 @@ const PORT: u16 = 4242u16;
 
 #[no_mangle]
 pub extern "C" fn rust_main() {
+    println!("Hello Rust!");
     let server_desc = socket_init();
     unsafe { zephyr::printf("TCP echo server waits for a connection on port %u...\n\0".as_ptr()  as *const cty::c_char,
         PORT as cty::c_uint); }
