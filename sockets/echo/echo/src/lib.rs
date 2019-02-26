@@ -3,6 +3,7 @@
 use bindings::zephyr;
 use core::mem::size_of;
 use cty;
+use zephyr_ffi::socket::{self, AddressFamily, SockProtocol, SockType, Ipv4Addr, InetAddr};
 use zephyr_ffi::{print, println};
 
 const PORT: u16 = 4242u16;
@@ -30,41 +31,17 @@ pub extern "C" fn rust_main() {
 /// Return the new socket file descriptor of server.
 #[no_mangle]
 pub extern "C" fn socket_init() -> i32 {
-    let server = unsafe {
-        zephyr::_impl_zsock_socket(
-            zephyr::AF_INET as i32,
-            zephyr::net_sock_type_SOCK_STREAM as i32,
-            zephyr::net_ip_protocol_IPPROTO_TCP as i32,
-        )
-    };
+    let server = socket::socket(AddressFamily::Inet, SockType::Stream, SockProtocol::Tcp)
+        .expect("fail to create socket...");
 
-    let bind_addr = {
-        // TODO: calculate statically.
-        let port = PORT.to_be_bytes();
-        let addr = (zephyr::INADDR_ANY).to_be_bytes();
-
-        let mut data: [u8; 6] = [0; 6];
-        for (pos, byte) in port.iter().chain(&addr).enumerate() {
-            data[pos] = *byte;
-        }
-
-        zephyr::sockaddr {
-            sa_family: zephyr::AF_INET as cty::c_ushort,
-            data,
-        }
-    };
-
-    if unsafe { zephyr::_impl_zsock_bind(server, &bind_addr, size_of::<zephyr::sockaddr>()) } < 0 {
-        println!("error: bind");
-        panic!();
-    }
+    let bind_addr = InetAddr::new(Ipv4Addr::any(), PORT);
+    socket::bind(server, &bind_addr).expect("fail to bind.");
 
     if unsafe { zephyr::_impl_zsock_listen(server, 5) } < 0 {
         println!("error: listen");
         panic!();
     }
 
-    //println!("Socket descriptor is {}", server);
     server
 }
 
@@ -133,7 +110,7 @@ pub extern "C" fn echo(client_desc: cty::c_int) -> cty::ssize_t {
 use core::panic::PanicInfo;
 #[panic_handler]
 #[no_mangle]
-pub fn panic(info: &PanicInfo) -> ! {
+pub fn panic(_info: &PanicInfo) -> ! {
     println!("panic!");
     loop {}
 }

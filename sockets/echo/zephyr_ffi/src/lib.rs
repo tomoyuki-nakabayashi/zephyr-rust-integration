@@ -5,4 +5,6 @@
 
 #![no_std]
 
+#[macro_use]
 pub mod io;
+pub mod socket;
