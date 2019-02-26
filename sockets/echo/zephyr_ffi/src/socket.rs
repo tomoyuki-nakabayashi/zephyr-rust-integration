@@ -139,7 +139,7 @@ pub fn accept(sockfd: RawFd) -> Result<RawFd, Errno> {
 
 /// Receive data from a connection-oriented socket. Returns the number of
 /// bytes read
-pub fn recv(sockfd: RawFd, buf: &mut [u8]) -> Result<i32, Errno> {
+pub fn recv(sockfd: RawFd, buf: &mut [u8]) -> Result<isize, Errno> {
     let len = unsafe {
         zephyr::_impl_zsock_recvfrom(
             sockfd,
@@ -151,21 +151,35 @@ pub fn recv(sockfd: RawFd, buf: &mut [u8]) -> Result<i32, Errno> {
         )
     };
 
-    make_result(len as i32)
+    if len < 0 {
+        Err(unsafe { *zephyr::_impl_z_errno() })
+    } else {
+        Ok(len)
+    }
 }
 
 /// Send data to a connection-oriented socket. Returns the number of bytes read
-pub fn send(fd: RawFd, buf: &[u8], len: usize) -> Result<i32, Errno> {
+pub fn send(fd: RawFd, buf: &[u8]) -> Result<isize, Errno> {
     let len = unsafe {
         zephyr::_impl_zsock_sendto(
             fd,
             buf.as_ptr() as *const cty::c_void,
-            len,
+            buf.len(),
             0,
             core::ptr::null_mut(),
             0,
         )
     };
 
-    make_result(len as i32)
+    if len < 0 {
+        Err(unsafe { *zephyr::_impl_z_errno() })
+    } else {
+        Ok(len)
+    }
+}
+
+/// Close socket
+pub fn close(sockfd: RawFd) -> Result<(), Errno> {
+    let res = unsafe { zephyr::_impl_zsock_close(sockfd) };
+    make_result(res).map(drop)
 }

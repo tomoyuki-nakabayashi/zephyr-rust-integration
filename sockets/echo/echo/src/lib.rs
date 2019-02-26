@@ -1,6 +1,5 @@
 #![no_std]
 
-use bindings::zephyr;
 use cty;
 use zephyr_ffi::socket::{self, RawFd, Errno, AddressFamily, InetAddr, Ipv4Addr, SockProtocol, SockType};
 use zephyr_ffi::{print, println};
@@ -16,12 +15,12 @@ pub extern "C" fn rust_main() {
         let client_desc = establish_connection(server_desc);
 
         loop {
-            if echo(client_desc) < 0 {
+            if echo(client_desc).is_err() {
                 break;
             }
         }
 
-        unsafe { zephyr::_impl_zsock_close(client_desc) };
+        socket::close(client_desc).expect("fail to close");
         println!("Connection closed");
     }
 }
@@ -50,15 +49,12 @@ pub extern "C" fn establish_connection(server_dsc: cty::c_int) -> i32 {
 }
 
 #[no_mangle]
-pub extern "C" fn echo(client_desc: cty::c_int) -> cty::ssize_t {
+pub extern "C" fn echo(client_desc: cty::c_int) -> Result<isize, Errno> {
     let mut buf: [cty::c_char; 128] = [0; 128];
-    let len = socket::recv(client_desc, &mut buf).expect("fail to recieve.");
+    let len = socket::recv(client_desc, &mut buf)?;
+    let buf = &buf[0..len as usize];
 
-    if len < 0 {
-        return len as cty::ssize_t;
-    }
-
-    socket::send(client_desc, &buf, len as usize).expect("fail to send.") as isize
+    socket::send(client_desc, &buf)
 }
 
 use core::panic::PanicInfo;

@@ -6,7 +6,6 @@ edition = "2018"
 
 [dependencies]
 cty = "0.2.0"
-bindings = { path = "../bindings" }
 zephyr_ffi = { path = "../zephyr_ffi" }
 
 [lib]
