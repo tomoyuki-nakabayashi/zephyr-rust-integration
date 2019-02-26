@@ -1,9 +1,9 @@
 #![no_std]
 
 use bindings::zephyr;
-use zephyr_ffi::{println, print};
 use core::mem::size_of;
 use cty;
+use zephyr_ffi::{print, println};
 
 const PORT: u16 = 4242u16;
 
@@ -22,7 +22,7 @@ pub extern "C" fn rust_main() {
         }
 
         unsafe { zephyr::_impl_zsock_close(client_desc) };
-        unsafe { zephyr::printf("Connection closed\n\0".as_ptr()  as *const cty::c_char); }
+        println!("Connection closed");
     }
 }
 
@@ -55,21 +55,16 @@ pub extern "C" fn socket_init() -> i32 {
     };
 
     if unsafe { zephyr::_impl_zsock_bind(server, &bind_addr, size_of::<zephyr::sockaddr>()) } < 0 {
-        unsafe { zephyr::printf(b"error: bind\n\0".as_ptr() as *const cty::c_char) };
+        println!("error: bind");
         panic!();
     }
 
     if unsafe { zephyr::_impl_zsock_listen(server, 5) } < 0 {
-        unsafe { zephyr::printf(b"error: listen\n\0".as_ptr() as *const cty::c_char) };
+        println!("error: listen");
         panic!();
     }
 
-    unsafe {
-        zephyr::printf(
-            b"Socket descriptor is %d\n\0".as_ptr() as *const cty::c_char,
-            server,
-        );
-    }
+    //println!("Socket descriptor is {}", server);
     server
 }
 
@@ -79,12 +74,7 @@ pub extern "C" fn socket_init() -> i32 {
 /// - return: client socket file descriptor.
 #[no_mangle]
 pub extern "C" fn establish_connection(server_dsc: cty::c_int) -> i32 {
-    unsafe {
-        zephyr::printf(
-            b"wait for client on socket #%d\n\0".as_ptr() as *const cty::c_char,
-            server_dsc,
-        )
-    };
+    println!("wait for client on socket #{}", server_dsc);
     let mut client_addr = zephyr::sockaddr {
         sa_family: 0,
         data: [0; 6],
@@ -94,20 +84,18 @@ pub extern "C" fn establish_connection(server_dsc: cty::c_int) -> i32 {
         unsafe { zephyr::_impl_zsock_accept(server_dsc, &mut client_addr, &mut client_addr_len) };
 
     if client_dsc < 0 {
-        unsafe { zephyr::printf(b"error: accept\n\0".as_ptr() as *const cty::c_char) };
+        println!("error: accept");
         panic!();
     }
 
     let ip_addr = &client_addr.data[2..];
-    unsafe {
-        zephyr::printf(
-            b"Connection from %d.%d.%d.%d\n\0".as_ptr() as *const cty::c_char,
-            u32::from(ip_addr[0]),
-            u32::from(ip_addr[1]),
-            u32::from(ip_addr[2]),
-            u32::from(ip_addr[3]),
-        );
-    }
+    println!(
+        "client connected from {}.{}.{}.{}",
+        u32::from(ip_addr[0]),
+        u32::from(ip_addr[1]),
+        u32::from(ip_addr[2]),
+        u32::from(ip_addr[3]),
+    );
 
     client_dsc
 }
@@ -145,9 +133,7 @@ pub extern "C" fn echo(client_desc: cty::c_int) -> cty::ssize_t {
 use core::panic::PanicInfo;
 #[panic_handler]
 #[no_mangle]
-pub fn panic(_info: &PanicInfo) -> ! {
-    unsafe {
-        zephyr::printf(b"panic!".as_ptr() as *const cty::c_char);
-    }
+pub fn panic(info: &PanicInfo) -> ! {
+    println!("panic!");
     loop {}
 }

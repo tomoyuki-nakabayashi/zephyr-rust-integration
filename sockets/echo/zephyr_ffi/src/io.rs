@@ -4,7 +4,9 @@ use bindings::zephyr::printf;
 use core::fmt;
 use cty;
 
-const WRITE_BUF_LEN: usize = 256;
+/// Provisional: This depends on the `CONFIG_MAIN_STACK_SIZE`.
+/// Currently, it's 1024.
+const WRITE_BUF_LEN: usize = 64;
 
 /// Pseudo writer which uses Zephyr `printf` API.
 /// Because `printf` does not guarantee its atomicity, this wrapper
