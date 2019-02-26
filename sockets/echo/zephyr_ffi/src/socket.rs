@@ -4,8 +4,8 @@
 use bindings::zephyr;
 use core::mem::size_of;
 
-type RawFd = cty::c_int;
-type Errno = cty::c_int;
+pub type RawFd = cty::c_int;
+pub type Errno = cty::c_int;
 
 /// Constants used in `socket()` to specify the domain to communicate;
 /// i.e., address family socket.
@@ -40,22 +40,24 @@ pub enum SockProtocol {
 pub struct Ipv4Addr(zephyr::in_addr);
 
 impl Ipv4Addr {
+    /// Create new IPv4 address.
     pub fn new(addr: u32) -> Ipv4Addr {
         use zephyr::in_addr__bindgen_ty_1 as in_addr_union;
-        Ipv4Addr(
-            zephyr::in_addr {
-                __bindgen_anon_1: in_addr_union { s_addr: addr.to_be() },
-            }
-        )
+        Ipv4Addr(zephyr::in_addr {
+            __bindgen_anon_1: in_addr_union {
+                s_addr: addr.to_be(),
+            },
+        })
     }
 
+    /// Create new IPv4 any address.
     pub fn any() -> Ipv4Addr {
         use zephyr::in_addr__bindgen_ty_1 as in_addr_union;
-        Ipv4Addr(
-            zephyr::in_addr {
-                __bindgen_anon_1: in_addr_union { s_addr: zephyr::INADDR_ANY.to_be() },
-            }
-        )
+        Ipv4Addr(zephyr::in_addr {
+            __bindgen_anon_1: in_addr_union {
+                s_addr: zephyr::INADDR_ANY.to_be(),
+            },
+        })
     }
 }
 
@@ -67,40 +69,103 @@ pub struct InetAddr(zephyr::sockaddr_in);
 impl InetAddr {
     /// Create new IPv4 address.
     pub fn new(ip: Ipv4Addr, port: u16) -> InetAddr {
-        InetAddr(
-            zephyr::sockaddr_in {
-                sin_family: AddressFamily::Inet as u16,
-                sin_port: port.to_be(),
-                sin_addr: ip.0,
-            }
-        )
+        InetAddr(zephyr::sockaddr_in {
+            sin_family: AddressFamily::Inet as u16,
+            sin_port: port.to_be(),
+            sin_addr: ip.0,
+        })
     }
 
     /// Conversion from nix's SockAddr type to the underlying libc sockaddr type.
+    /// safe: Because `sockaddr_in` is an alternative representation of sockaddr.
     pub unsafe fn as_ffi_pair(&self) -> (&zephyr::sockaddr, usize) {
         (core::mem::transmute(&self.0), size_of::<zephyr::sockaddr>())
     }
 }
 
-pub fn socket(domain: AddressFamily, ty: SockType, protocol: SockProtocol) -> Result<RawFd, Errno> {
-    let res = unsafe { zephyr::_impl_zsock_socket(domain as i32, ty as i32, protocol as i32) };
-
-    if res < 0 {
-        Err( unsafe { *zephyr::_impl_z_errno() } )
+// TODO: Must be moved.
+fn make_result(value: i32) -> Result<i32, Errno> {
+    if value < 0 {
+        Err(unsafe { *zephyr::_impl_z_errno() })
     } else {
-        Ok( res )
+        Ok(value)
     }
 }
 
+/// Create new socket.
+pub fn socket(domain: AddressFamily, ty: SockType, protocol: SockProtocol) -> Result<RawFd, Errno> {
+    let res = unsafe { zephyr::_impl_zsock_socket(domain as i32, ty as i32, protocol as i32) };
+    make_result(res)
+}
+
+/// Bind the `addr` for `fd`.
 pub fn bind(fd: RawFd, addr: &InetAddr) -> Result<(), Errno> {
     let res = unsafe {
         let (ptr, len) = addr.as_ffi_pair();
         zephyr::_impl_zsock_bind(fd, ptr, len)
     };
-    
-    if res < 0 {
-        Err( unsafe { *zephyr::_impl_z_errno() } )
-    } else {
-        Ok(())
-    }
+    make_result(res).map(drop)
+}
+
+/// Start to listen on 'fd`.
+pub fn listen(fd: RawFd, backlog: i32) -> Result<(), Errno> {
+    let res = unsafe { zephyr::_impl_zsock_listen(fd, backlog) };
+    make_result(res).map(drop)
+}
+
+fn print_ipv4(addr: &zephyr::sockaddr) {
+    let addr = &addr.data[2..];
+    println!(
+        "client connected from {}.{}.{}.{}",
+        u32::from(addr[0]),
+        u32::from(addr[1]),
+        u32::from(addr[2]),
+        u32::from(addr[3]),
+    );
+}
+
+/// Accept a connection on a socket.
+pub fn accept(sockfd: RawFd) -> Result<RawFd, Errno> {
+    let mut addr = zephyr::sockaddr {
+        sa_family: 0,
+        data: [0; 6],
+    };
+    let mut len = size_of::<zephyr::sockaddr>();
+
+    let res = unsafe { zephyr::_impl_zsock_accept(sockfd, &mut addr, &mut len) };
+    print_ipv4(&addr);
+    make_result(res)
+}
+
+/// Receive data from a connection-oriented socket. Returns the number of
+/// bytes read
+pub fn recv(sockfd: RawFd, buf: &mut [u8]) -> Result<i32, Errno> {
+    let len = unsafe {
+        zephyr::_impl_zsock_recvfrom(
+            sockfd,
+            buf.as_mut_ptr() as *mut cty::c_void,
+            buf.len(),
+            0,
+            core::ptr::null_mut(),
+            core::ptr::null_mut(),
+        )
+    };
+
+    make_result(len as i32)
+}
+
+/// Send data to a connection-oriented socket. Returns the number of bytes read
+pub fn send(fd: RawFd, buf: &[u8], len: usize) -> Result<i32, Errno> {
+    let len = unsafe {
+        zephyr::_impl_zsock_sendto(
+            fd,
+            buf.as_ptr() as *const cty::c_void,
+            len,
+            0,
+            core::ptr::null_mut(),
+            0,
+        )
+    };
+
+    make_result(len as i32)
 }

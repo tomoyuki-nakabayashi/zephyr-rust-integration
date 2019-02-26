@@ -1,16 +1,15 @@
 #![no_std]
 
 use bindings::zephyr;
-use core::mem::size_of;
 use cty;
-use zephyr_ffi::socket::{self, AddressFamily, SockProtocol, SockType, Ipv4Addr, InetAddr};
+use zephyr_ffi::socket::{self, RawFd, Errno, AddressFamily, InetAddr, Ipv4Addr, SockProtocol, SockType};
 use zephyr_ffi::{print, println};
 
 const PORT: u16 = 4242u16;
 
 #[no_mangle]
 pub extern "C" fn rust_main() {
-    let server_desc = socket_init();
+    let server_desc = socket_init().expect("fail to initialize socket.");
     println!("TCP echo server waits for a connection on port {}...", PORT);
 
     loop {
@@ -30,19 +29,14 @@ pub extern "C" fn rust_main() {
 /// Initialize socket.
 /// Return the new socket file descriptor of server.
 #[no_mangle]
-pub extern "C" fn socket_init() -> i32 {
-    let server = socket::socket(AddressFamily::Inet, SockType::Stream, SockProtocol::Tcp)
-        .expect("fail to create socket...");
+pub extern "C" fn socket_init() -> Result<RawFd, Errno> {
+    let fd = socket::socket(AddressFamily::Inet, SockType::Stream, SockProtocol::Tcp)?;
 
     let bind_addr = InetAddr::new(Ipv4Addr::any(), PORT);
-    socket::bind(server, &bind_addr).expect("fail to bind.");
+    socket::bind(fd, &bind_addr)?;
+    socket::listen(fd, 5)?;
 
-    if unsafe { zephyr::_impl_zsock_listen(server, 5) } < 0 {
-        println!("error: listen");
-        panic!();
-    }
-
-    server
+    Ok(fd)
 }
 
 /// Establish connection with a client.
@@ -52,59 +46,19 @@ pub extern "C" fn socket_init() -> i32 {
 #[no_mangle]
 pub extern "C" fn establish_connection(server_dsc: cty::c_int) -> i32 {
     println!("wait for client on socket #{}", server_dsc);
-    let mut client_addr = zephyr::sockaddr {
-        sa_family: 0,
-        data: [0; 6],
-    };
-    let mut client_addr_len = size_of::<zephyr::sockaddr>();
-    let client_dsc =
-        unsafe { zephyr::_impl_zsock_accept(server_dsc, &mut client_addr, &mut client_addr_len) };
-
-    if client_dsc < 0 {
-        println!("error: accept");
-        panic!();
-    }
-
-    let ip_addr = &client_addr.data[2..];
-    println!(
-        "client connected from {}.{}.{}.{}",
-        u32::from(ip_addr[0]),
-        u32::from(ip_addr[1]),
-        u32::from(ip_addr[2]),
-        u32::from(ip_addr[3]),
-    );
-
-    client_dsc
+    socket::accept(server_dsc).expect("fail to accept")
 }
 
 #[no_mangle]
 pub extern "C" fn echo(client_desc: cty::c_int) -> cty::ssize_t {
     let mut buf: [cty::c_char; 128] = [0; 128];
-    let len = unsafe {
-        zephyr::_impl_zsock_recvfrom(
-            client_desc,
-            buf.as_mut_ptr() as *mut cty::c_void,
-            buf.len(),
-            0,
-            core::ptr::null_mut(),
-            core::ptr::null_mut(),
-        )
-    };
+    let len = socket::recv(client_desc, &mut buf).expect("fail to recieve.");
 
     if len < 0 {
-        return len;
+        return len as cty::ssize_t;
     }
 
-    unsafe {
-        zephyr::_impl_zsock_sendto(
-            client_desc,
-            buf.as_mut_ptr() as *mut cty::c_void,
-            len as usize,
-            0,
-            core::ptr::null_mut(),
-            0,
-        )
-    }
+    socket::send(client_desc, &buf, len as usize).expect("fail to send.") as isize
 }
 
 use core::panic::PanicInfo;
