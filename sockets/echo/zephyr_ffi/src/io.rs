@@ -1,35 +1,24 @@
 //! IO wrapper which provides `safe` println macro using Zephyr API.
 
-use bindings::zephyr::printf;
+use bindings::zephyr;
 use core::fmt;
 use cty;
 
-/// Provisional: This depends on the `CONFIG_MAIN_STACK_SIZE`.
-/// Currently, it's 1024.
-const WRITE_BUF_LEN: usize = 64;
+/// FFI to get stdout file pointer which is defined as a macro.
+extern "C" {
+    pub fn stdout_as_ptr_mut() -> *mut zephyr::FILE;
+}
 
-/// Pseudo writer which uses Zephyr `printf` API.
-/// Because `printf` does not guarantee its atomicity, this wrapper
+/// Pseudo writer which uses Zephyr `fwrite` API.
+/// Because `fwrite` does not guarantee its atomicity, this wrapper
 /// does not provide any lock mechanism.
 pub struct DebugWriter {}
 
 impl fmt::Write for DebugWriter {
     fn write_str(&mut self, s: &str) -> fmt::Result {
-        // TODO: Remove the data copy.
-        // Now an additional copy is required because the argument `s` is NOT
-        // NULL terminated as C string.
-        // To solve this problem, we need a net format macro
-        // which inserts `\0` in the end of the argument `s`.
-        let iter = s.bytes().chain("\0".bytes());
-        let mut buf: [u8; WRITE_BUF_LEN] = [0; WRITE_BUF_LEN];
-        for (i, byte) in iter.enumerate() {
-            buf[i] = byte;
-        }
-
-        // safe: `printf` does not need to guarantee the atomicity.
-        // Both `fmt` and `buf` are null-terminated.
+        // safe: `fwrite` does not need to guarantee the atomicity.
         unsafe {
-            printf(b"%s\0".as_ptr() as *const cty::c_char, &buf);
+            zephyr::fwrite(s.as_ptr() as *const cty::c_void, s.len(), 1, stdout_as_ptr_mut());
         }
         Ok(())
     }

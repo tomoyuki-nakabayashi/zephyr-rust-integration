@@ -31,8 +31,8 @@ pub extern "C" fn rust_main() {
     }
 }
 
-fn echo(client_desc: cty::c_int) -> Result<isize, Errno> {
-    let mut buf: [cty::c_char; 128] = [0; 128];
+fn echo(client_desc: RawFd) -> Result<isize, Errno> {
+    let mut buf: [u8; 128] = [0; 128];
     let len = socket::recv(client_desc, &mut buf)?;
     let buf = &buf[0..len as usize];
 
