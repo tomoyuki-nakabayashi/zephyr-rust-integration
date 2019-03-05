@@ -61,6 +61,22 @@ impl Ipv4Addr {
     }
 }
 
+/// IPv4 address in socket API.
+#[derive(Clone, Copy)]
+pub struct Ipv6Addr(zephyr::in6_addr);
+
+impl Ipv6Addr {
+    /// Create new IPv6 any address.
+    pub fn any() -> Ipv6Addr {
+        use zephyr::in6_addr__bindgen_ty_1 as in6_addr_union;
+        Ipv6Addr(zephyr::in6_addr {
+            __bindgen_anon_1: in6_addr_union {
+                s6_addr16: [0; 8],
+            },
+        })
+    }
+}
+
 /// New type wrapping socket address.
 /// Current limitation: This only describes IPv4.
 /// TODO: Need higher level abstraction which contains both IPv4 and IPv6.
@@ -79,7 +95,29 @@ impl InetAddr {
     /// Conversion from nix's SockAddr type to the underlying libc sockaddr type.
     /// safe: Because `sockaddr_in` is an alternative representation of sockaddr.
     pub unsafe fn as_ffi_pair(&self) -> (&zephyr::sockaddr, usize) {
-        (core::mem::transmute(&self.0), size_of::<zephyr::sockaddr>())
+        (core::mem::transmute(&self.0), size_of::<zephyr::sockaddr_in>())
+    }
+}
+
+/// New type wrapping socket address.
+/// Current limitation: This only describes IPv6.
+pub struct InetAddr6(zephyr::sockaddr_in6);
+
+impl InetAddr6 {
+    /// Create new IPv6 address.
+    pub fn new(ip: Ipv6Addr, port: u16) -> InetAddr6 {
+        InetAddr6(zephyr::sockaddr_in6 {
+            sin6_family: AddressFamily::Inet6 as u16,
+            sin6_port: port.to_be(),
+            sin6_addr: ip.0,
+            sin6_scope_id: 0,
+        })
+    }
+
+    /// Conversion from nix's SockAddr type to the underlying libc sockaddr type.
+    /// safe: Because `sockaddr_in` is an alternative representation of sockaddr.
+    pub unsafe fn as_ffi_pair(&self) -> (&zephyr::sockaddr, usize) {
+        (core::mem::transmute(&self.0), size_of::<zephyr::sockaddr_in6>())
     }
 }
 
@@ -100,6 +138,15 @@ pub fn socket(domain: AddressFamily, ty: SockType, protocol: SockProtocol) -> Re
 
 /// Bind the `addr` for `fd`.
 pub fn bind(fd: RawFd, addr: &InetAddr) -> Result<(), Errno> {
+    let res = unsafe {
+        let (ptr, len) = addr.as_ffi_pair();
+        zephyr::_impl_zsock_bind(fd, ptr, len)
+    };
+    make_result(res).map(drop)
+}
+
+/// IPv6 version of bind the `addr` for `fd`.
+pub fn bind_v6(fd: RawFd, addr: &InetAddr6) -> Result<(), Errno> {
     let res = unsafe {
         let (ptr, len) = addr.as_ffi_pair();
         zephyr::_impl_zsock_bind(fd, ptr, len)
@@ -133,7 +180,7 @@ pub fn accept(sockfd: RawFd) -> Result<RawFd, Errno> {
     let mut len = size_of::<zephyr::sockaddr>();
 
     let res = unsafe { zephyr::_impl_zsock_accept(sockfd, &mut addr, &mut len) };
-    print_ipv4(&addr);
+    //print_ipv4(&addr);
     make_result(res)
 }
 
