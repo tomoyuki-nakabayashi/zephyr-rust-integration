@@ -10,9 +10,9 @@ pub extern "C" fn rust_main() {
     // Create a new socket.
     let server = socket::socket(AddressFamily::Inet6, SockType::Stream, SockProtocol::Tcp)
         .expect("fail to create new socket.");
-    let bind_addr = InetAddr::new(Ipv6Addr::any(), PORT);
 
     // Bind and listen on the created socket.
+    let bind_addr = InetAddr::new(Ipv6Addr::any(), PORT);
     socket::bind(server, &bind_addr).expect("fail to bind.");
     socket::listen(server, 5).expect("fail to listen.");
 
