@@ -1,0 +1,13 @@
+[package]
+name = "hello_driver"
+version = "0.1.0"
+authors = ["tomoyuki-nakabayashi <tomo.wait.for.it.yuki@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cty = "0.2.0"
+zephyr_ffi = { path = "../zephyr_ffi" }
+
+[lib]
+name = "rust_hello_driver"
+crate-type = ["staticlib"]
