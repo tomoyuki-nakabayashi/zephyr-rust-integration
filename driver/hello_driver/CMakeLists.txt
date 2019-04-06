@@ -16,7 +16,7 @@ macro(set_conf_file)
 endmacro()
 
 include($ENV{ZEPHYR_BASE}/cmake/app/boilerplate.cmake NO_POLICY_SCOPE)
-project(sockets_echo)
+project(rust_driver)
 
 FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE ${app_sources})
