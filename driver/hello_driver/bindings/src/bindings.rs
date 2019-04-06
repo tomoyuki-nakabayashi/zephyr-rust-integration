@@ -118,56 +118,12 @@ impl<T> ::core::clone::Clone for __IncompleteArrayField<T> {
         Self::new()
     }
 }
-#[repr(C)]
-pub struct __BindgenUnionField<T>(::core::marker::PhantomData<T>);
-impl<T> __BindgenUnionField<T> {
-    #[inline]
-    pub fn new() -> Self {
-        __BindgenUnionField(::core::marker::PhantomData)
-    }
-    #[inline]
-    pub unsafe fn as_ref(&self) -> &T {
-        ::core::mem::transmute(self)
-    }
-    #[inline]
-    pub unsafe fn as_mut(&mut self) -> &mut T {
-        ::core::mem::transmute(self)
-    }
-}
-impl<T> ::core::default::Default for __BindgenUnionField<T> {
-    #[inline]
-    fn default() -> Self {
-        Self::new()
-    }
-}
-impl<T> ::core::clone::Clone for __BindgenUnionField<T> {
-    #[inline]
-    fn clone(&self) -> Self {
-        Self::new()
-    }
-}
-impl<T> ::core::marker::Copy for __BindgenUnionField<T> {}
-impl<T> ::core::fmt::Debug for __BindgenUnionField<T> {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.write_str("__BindgenUnionField")
-    }
-}
-impl<T> ::core::hash::Hash for __BindgenUnionField<T> {
-    fn hash<H: ::core::hash::Hasher>(&self, _state: &mut H) {}
-}
-impl<T> ::core::cmp::PartialEq for __BindgenUnionField<T> {
-    fn eq(&self, _other: &__BindgenUnionField<T>) -> bool {
-        true
-    }
-}
-impl<T> ::core::cmp::Eq for __BindgenUnionField<T> {}
 pub const CONFIG_BOARD: &'static [u8; 15usize] = b"qemu_cortex_m3\0";
 pub const CONFIG_SOC: &'static [u8; 12usize] = b"ti_lm3s6965\0";
 pub const CONFIG_NUM_IRQS: u32 = 43;
 pub const CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC: u32 = 12000000;
 pub const CONFIG_ISR_STACK_SIZE: u32 = 2048;
 pub const CONFIG_SYS_CLOCK_TICKS_PER_SEC: u32 = 100;
-pub const CONFIG_UART_STELLARIS_PORT_0: u32 = 1;
 pub const CONFIG_UART_STELLARIS_PORT_1: u32 = 1;
 pub const CONFIG_UART_STELLARIS_PORT_2: u32 = 1;
 pub const CONFIG_TEXT_SECTION_OFFSET: u32 = 0;
@@ -220,7 +176,6 @@ pub const CONFIG_ATOMIC_OPERATIONS_BUILTIN: u32 = 1;
 pub const CONFIG_TIMESLICING: u32 = 1;
 pub const CONFIG_TIMESLICE_SIZE: u32 = 0;
 pub const CONFIG_TIMESLICE_PRIORITY: u32 = 0;
-pub const CONFIG_POLL: u32 = 1;
 pub const CONFIG_NUM_MBOX_ASYNC_MSGS: u32 = 10;
 pub const CONFIG_NUM_PIPE_ASYNC_MSGS: u32 = 10;
 pub const CONFIG_HEAP_MEM_POOL_SIZE: u32 = 0;
@@ -242,115 +197,19 @@ pub const CONFIG_CONSOLE_INPUT_MAX_LINE_LEN: u32 = 128;
 pub const CONFIG_CONSOLE_HAS_DRIVER: u32 = 1;
 pub const CONFIG_UART_CONSOLE: u32 = 1;
 pub const CONFIG_UART_CONSOLE_INIT_PRIORITY: u32 = 60;
-pub const CONFIG_UART_PIPE: u32 = 1;
-pub const CONFIG_ETHERNET_LOG_LEVEL: u32 = 0;
-pub const CONFIG_ETH_INIT_PRIORITY: u32 = 80;
-pub const CONFIG_SLIP: u32 = 1;
-pub const CONFIG_SLIP_DRV_NAME: &'static [u8; 5usize] = b"slip\0";
-pub const CONFIG_SLIP_MTU: u32 = 1500;
-pub const CONFIG_SLIP_LOG_LEVEL: u32 = 0;
-pub const CONFIG_SLIP_TAP: u32 = 1;
-pub const CONFIG_SLIP_MAC_ADDR: &'static [u8; 1usize] = b"\0";
 pub const CONFIG_SERIAL: u32 = 1;
 pub const CONFIG_SERIAL_HAS_DRIVER: u32 = 1;
 pub const CONFIG_SERIAL_SUPPORT_INTERRUPT: u32 = 1;
-pub const CONFIG_UART_INTERRUPT_DRIVEN: u32 = 1;
 pub const CONFIG_UART_STELLARIS: u32 = 1;
 pub const CONFIG_CORTEX_M_SYSTICK: u32 = 1;
 pub const CONFIG_SYSTEM_CLOCK_INIT_PRIORITY: u32 = 0;
 pub const CONFIG_TICKLESS_CAPABLE: u32 = 1;
-pub const CONFIG_ENTROPY_GENERATOR: u32 = 1;
-pub const CONFIG_ENTROPY_NAME: &'static [u8; 10usize] = b"ENTROPY_0\0";
 pub const CONFIG_NEWLIB_LIBC: u32 = 1;
 pub const CONFIG_STDOUT_CONSOLE: u32 = 1;
 pub const CONFIG_POSIX_MAX_FDS: u32 = 4;
 pub const CONFIG_STD_CPP11: u32 = 1;
 pub const CONFIG_PRINTK: u32 = 1;
 pub const CONFIG_EARLY_CONSOLE: u32 = 1;
-pub const CONFIG_NET_BUF: u32 = 1;
-pub const CONFIG_NET_BUF_USER_DATA_SIZE: u32 = 4;
-pub const CONFIG_NETWORKING: u32 = 1;
-pub const CONFIG_NET_L2_ETHERNET: u32 = 1;
-pub const CONFIG_NET_L2_ETHERNET_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_ARP: u32 = 1;
-pub const CONFIG_NET_ARP_TABLE_SIZE: u32 = 2;
-pub const CONFIG_NET_ARP_GRATUITOUS: u32 = 1;
-pub const CONFIG_NET_ARP_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_QEMU_SLIP: u32 = 1;
-pub const CONFIG_NET_INIT_PRIO: u32 = 90;
-pub const CONFIG_NET_DEFAULT_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_MAX_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_CORE_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_IF_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_TC_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_UTILS_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_CONTEXT_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_PKT_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_CONN_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_ROUTE_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_IPV4: u32 = 1;
-pub const CONFIG_NET_INITIAL_TTL: u32 = 64;
-pub const CONFIG_NET_IF_MAX_IPV4_COUNT: u32 = 1;
-pub const CONFIG_NET_IF_UNICAST_IPV4_ADDR_COUNT: u32 = 1;
-pub const CONFIG_NET_IF_MCAST_IPV4_ADDR_COUNT: u32 = 1;
-pub const CONFIG_NET_ICMPV4_ACCEPT_BROADCAST: u32 = 1;
-pub const CONFIG_NET_IPV4_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_ICMPV4_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_TC_TX_COUNT: u32 = 1;
-pub const CONFIG_NET_TC_RX_COUNT: u32 = 1;
-pub const CONFIG_NET_TC_MAPPING_STRICT: u32 = 1;
-pub const CONFIG_NET_TX_DEFAULT_PRIORITY: u32 = 1;
-pub const CONFIG_NET_IP_ADDR_CHECK: u32 = 1;
-pub const CONFIG_NET_MAX_ROUTERS: u32 = 1;
-pub const CONFIG_NET_TCP: u32 = 1;
-pub const CONFIG_NET_TCP_CHECKSUM: u32 = 1;
-pub const CONFIG_NET_TCP_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_TCP_BACKLOG_SIZE: u32 = 1;
-pub const CONFIG_NET_TCP_TIME_WAIT_DELAY: u32 = 250;
-pub const CONFIG_NET_TCP_ACK_TIMEOUT: u32 = 1000;
-pub const CONFIG_NET_TCP_INIT_RETRANSMISSION_TIMEOUT: u32 = 200;
-pub const CONFIG_NET_TCP_RETRY_COUNT: u32 = 9;
-pub const CONFIG_NET_UDP: u32 = 1;
-pub const CONFIG_NET_UDP_CHECKSUM: u32 = 1;
-pub const CONFIG_NET_UDP_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_MAX_CONN: u32 = 4;
-pub const CONFIG_NET_MAX_CONTEXTS: u32 = 6;
-pub const CONFIG_NET_CONTEXT_SYNC_RECV: u32 = 1;
-pub const CONFIG_NET_CONTEXT_CHECK: u32 = 1;
-pub const CONFIG_NET_SLIP_TAP: u32 = 1;
-pub const CONFIG_NET_PKT_RX_COUNT: u32 = 14;
-pub const CONFIG_NET_PKT_TX_COUNT: u32 = 14;
-pub const CONFIG_NET_BUF_RX_COUNT: u32 = 36;
-pub const CONFIG_NET_BUF_TX_COUNT: u32 = 36;
-pub const CONFIG_NET_BUF_DATA_SIZE: u32 = 128;
-pub const CONFIG_NET_DEFAULT_IF_FIRST: u32 = 1;
-pub const CONFIG_NET_TX_STACK_SIZE: u32 = 1200;
-pub const CONFIG_NET_RX_STACK_SIZE: u32 = 1500;
-pub const CONFIG_NET_RX_STACK_RPL: u32 = 0;
-pub const CONFIG_NET_MGMT: u32 = 1;
-pub const CONFIG_NET_MGMT_EVENT: u32 = 1;
-pub const CONFIG_NET_MGMT_EVENT_STACK_SIZE: u32 = 512;
-pub const CONFIG_NET_MGMT_EVENT_THREAD_PRIO: u32 = 7;
-pub const CONFIG_NET_MGMT_EVENT_QUEUE_SIZE: u32 = 2;
-pub const CONFIG_NET_MGMT_EVENT_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_CONFIG_AUTO_INIT: u32 = 1;
-pub const CONFIG_NET_CONFIG_INIT_PRIO: u32 = 95;
-pub const CONFIG_NET_CONFIG_INIT_TIMEOUT: u32 = 30;
-pub const CONFIG_NET_CONFIG_NEED_IPV4: u32 = 1;
-pub const CONFIG_NET_CONFIG_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_CONFIG_SETTINGS: u32 = 1;
-pub const CONFIG_NET_CONFIG_MY_IPV4_ADDR: &'static [u8; 10usize] = b"192.0.2.1\0";
-pub const CONFIG_NET_CONFIG_MY_IPV4_NETMASK: &'static [u8; 14usize] = b"255.255.255.0\0";
-pub const CONFIG_NET_CONFIG_MY_IPV4_GW: &'static [u8; 1usize] = b"\0";
-pub const CONFIG_NET_CONFIG_PEER_IPV4_ADDR: &'static [u8; 10usize] = b"192.0.2.2\0";
-pub const CONFIG_NET_APP: u32 = 1;
-pub const CONFIG_NET_APP_LOG_LEVEL: u32 = 0;
-pub const CONFIG_NET_SOCKETS: u32 = 1;
-pub const CONFIG_NET_SOCKETS_POSIX_NAMES: u32 = 1;
-pub const CONFIG_NET_SOCKETS_POLL_MAX: u32 = 3;
-pub const CONFIG_NET_SOCKETS_LOG_LEVEL: u32 = 0;
-pub const CONFIG_TEST_RANDOM_GENERATOR: u32 = 1;
-pub const CONFIG_TIMER_RANDOM_GENERATOR: u32 = 1;
 pub const CONFIG_HAS_CMSIS: u32 = 1;
 pub const CONFIG_LIBMETAL_SRC_PATH: &'static [u8; 9usize] = b"libmetal\0";
 pub const CONFIG_OPENAMP_SRC_PATH: &'static [u8; 9usize] = b"open-amp\0";
@@ -365,11 +224,445 @@ pub const CONFIG_KERNEL_BIN_NAME: &'static [u8; 7usize] = b"zephyr\0";
 pub const CONFIG_OUTPUT_STAT: u32 = 1;
 pub const CONFIG_OUTPUT_DISASSEMBLY: u32 = 1;
 pub const CONFIG_OUTPUT_PRINT_MEMORY_USAGE: u32 = 1;
+pub const _STDIO_H: u32 = 1;
+pub const _FEATURES_H: u32 = 1;
+pub const _DEFAULT_SOURCE: u32 = 1;
+pub const __USE_ISOC11: u32 = 1;
+pub const __USE_ISOC99: u32 = 1;
+pub const __USE_ISOC95: u32 = 1;
+pub const __USE_POSIX_IMPLICITLY: u32 = 1;
+pub const _POSIX_SOURCE: u32 = 1;
+pub const _POSIX_C_SOURCE: u32 = 200809;
+pub const __USE_POSIX: u32 = 1;
+pub const __USE_POSIX2: u32 = 1;
+pub const __USE_POSIX199309: u32 = 1;
+pub const __USE_POSIX199506: u32 = 1;
+pub const __USE_XOPEN2K: u32 = 1;
+pub const __USE_XOPEN2K8: u32 = 1;
+pub const _ATFILE_SOURCE: u32 = 1;
+pub const __USE_MISC: u32 = 1;
+pub const __USE_ATFILE: u32 = 1;
+pub const __USE_FORTIFY_LEVEL: u32 = 0;
+pub const __GLIBC_USE_DEPRECATED_GETS: u32 = 0;
+pub const _STDC_PREDEF_H: u32 = 1;
+pub const __STDC_IEC_559__: u32 = 1;
+pub const __STDC_IEC_559_COMPLEX__: u32 = 1;
+pub const __STDC_ISO_10646__: u32 = 201706;
+pub const __STDC_NO_THREADS__: u32 = 1;
+pub const __GNU_LIBRARY__: u32 = 6;
+pub const __GLIBC__: u32 = 2;
+pub const __GLIBC_MINOR__: u32 = 27;
+pub const _SYS_CDEFS_H: u32 = 1;
+pub const __glibc_c99_flexarr_available: u32 = 1;
+pub const __WORDSIZE: u32 = 32;
+pub const __WORDSIZE32_SIZE_ULONG: u32 = 0;
+pub const __WORDSIZE32_PTRDIFF_LONG: u32 = 0;
+pub const __WORDSIZE_TIME64_COMPAT32: u32 = 0;
+pub const __HAVE_GENERIC_SELECTION: u32 = 1;
+pub const __GLIBC_USE_LIB_EXT2: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_BFP_EXT: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_FUNCS_EXT: u32 = 0;
+pub const __GLIBC_USE_IEC_60559_TYPES_EXT: u32 = 0;
+pub const _BITS_TYPES_H: u32 = 1;
+pub const _BITS_TYPESIZES_H: u32 = 1;
+pub const __RLIM_T_MATCHES_RLIM64_T: u32 = 0;
+pub const __FD_SETSIZE: u32 = 1024;
+pub const ____FILE_defined: u32 = 1;
+pub const __FILE_defined: u32 = 1;
+pub const _BITS_LIBIO_H: u32 = 1;
+pub const _BITS_G_CONFIG_H: u32 = 1;
+pub const ____mbstate_t_defined: u32 = 1;
+pub const _G_HAVE_MMAP: u32 = 1;
+pub const _G_HAVE_MREMAP: u32 = 1;
+pub const _G_IO_IO_FILE_VERSION: u32 = 131073;
+pub const _G_BUFSIZ: u32 = 8192;
+pub const _IO_BUFSIZ: u32 = 8192;
+pub const __GNUC_VA_LIST: u32 = 1;
+pub const _IO_UNIFIED_JUMPTABLES: u32 = 1;
+pub const EOF: i32 = -1;
+pub const _IOS_INPUT: u32 = 1;
+pub const _IOS_OUTPUT: u32 = 2;
+pub const _IOS_ATEND: u32 = 4;
+pub const _IOS_APPEND: u32 = 8;
+pub const _IOS_TRUNC: u32 = 16;
+pub const _IOS_NOCREATE: u32 = 32;
+pub const _IOS_NOREPLACE: u32 = 64;
+pub const _IOS_BIN: u32 = 128;
+pub const _IO_MAGIC: u32 = 4222418944;
+pub const _OLD_STDIO_MAGIC: u32 = 4206624768;
+pub const _IO_MAGIC_MASK: u32 = 4294901760;
+pub const _IO_USER_BUF: u32 = 1;
+pub const _IO_UNBUFFERED: u32 = 2;
+pub const _IO_NO_READS: u32 = 4;
+pub const _IO_NO_WRITES: u32 = 8;
+pub const _IO_EOF_SEEN: u32 = 16;
+pub const _IO_ERR_SEEN: u32 = 32;
+pub const _IO_DELETE_DONT_CLOSE: u32 = 64;
+pub const _IO_LINKED: u32 = 128;
+pub const _IO_IN_BACKUP: u32 = 256;
+pub const _IO_LINE_BUF: u32 = 512;
+pub const _IO_TIED_PUT_GET: u32 = 1024;
+pub const _IO_CURRENTLY_PUTTING: u32 = 2048;
+pub const _IO_IS_APPENDING: u32 = 4096;
+pub const _IO_IS_FILEBUF: u32 = 8192;
+pub const _IO_BAD_SEEN: u32 = 16384;
+pub const _IO_USER_LOCK: u32 = 32768;
+pub const _IO_FLAGS2_MMAP: u32 = 1;
+pub const _IO_FLAGS2_NOTCANCEL: u32 = 2;
+pub const _IO_FLAGS2_USER_WBUF: u32 = 8;
+pub const _IO_SKIPWS: u32 = 1;
+pub const _IO_LEFT: u32 = 2;
+pub const _IO_RIGHT: u32 = 4;
+pub const _IO_INTERNAL: u32 = 8;
+pub const _IO_DEC: u32 = 16;
+pub const _IO_OCT: u32 = 32;
+pub const _IO_HEX: u32 = 64;
+pub const _IO_SHOWBASE: u32 = 128;
+pub const _IO_SHOWPOINT: u32 = 256;
+pub const _IO_UPPERCASE: u32 = 512;
+pub const _IO_SHOWPOS: u32 = 1024;
+pub const _IO_SCIENTIFIC: u32 = 2048;
+pub const _IO_FIXED: u32 = 4096;
+pub const _IO_UNITBUF: u32 = 8192;
+pub const _IO_STDIO: u32 = 16384;
+pub const _IO_DONT_CLOSE: u32 = 32768;
+pub const _IO_BOOLALPHA: u32 = 65536;
+pub const _IOFBF: u32 = 0;
+pub const _IOLBF: u32 = 1;
+pub const _IONBF: u32 = 2;
+pub const BUFSIZ: u32 = 8192;
+pub const SEEK_SET: u32 = 0;
+pub const SEEK_CUR: u32 = 1;
+pub const SEEK_END: u32 = 2;
+pub const P_tmpdir: &'static [u8; 5usize] = b"/tmp\0";
+pub const _BITS_STDIO_LIM_H: u32 = 1;
+pub const L_tmpnam: u32 = 20;
+pub const TMP_MAX: u32 = 238328;
+pub const FILENAME_MAX: u32 = 4096;
+pub const L_ctermid: u32 = 9;
+pub const FOPEN_MAX: u32 = 16;
+pub const _ERRNO_H: u32 = 1;
+pub const _BITS_ERRNO_H: u32 = 1;
+pub const EPERM: u32 = 1;
+pub const ENOENT: u32 = 2;
+pub const ESRCH: u32 = 3;
+pub const EINTR: u32 = 4;
+pub const EIO: u32 = 5;
+pub const ENXIO: u32 = 6;
+pub const E2BIG: u32 = 7;
+pub const ENOEXEC: u32 = 8;
+pub const EBADF: u32 = 9;
+pub const ECHILD: u32 = 10;
+pub const EAGAIN: u32 = 11;
+pub const ENOMEM: u32 = 12;
+pub const EACCES: u32 = 13;
+pub const EFAULT: u32 = 14;
+pub const ENOTBLK: u32 = 15;
+pub const EBUSY: u32 = 16;
+pub const EEXIST: u32 = 17;
+pub const EXDEV: u32 = 18;
+pub const ENODEV: u32 = 19;
+pub const ENOTDIR: u32 = 20;
+pub const EISDIR: u32 = 21;
+pub const EINVAL: u32 = 22;
+pub const ENFILE: u32 = 23;
+pub const EMFILE: u32 = 24;
+pub const ENOTTY: u32 = 25;
+pub const ETXTBSY: u32 = 26;
+pub const EFBIG: u32 = 27;
+pub const ENOSPC: u32 = 28;
+pub const ESPIPE: u32 = 29;
+pub const EROFS: u32 = 30;
+pub const EMLINK: u32 = 31;
+pub const EPIPE: u32 = 32;
+pub const EDOM: u32 = 33;
+pub const ERANGE: u32 = 34;
+pub const EDEADLK: u32 = 35;
+pub const ENAMETOOLONG: u32 = 36;
+pub const ENOLCK: u32 = 37;
+pub const ENOSYS: u32 = 38;
+pub const ENOTEMPTY: u32 = 39;
+pub const ELOOP: u32 = 40;
+pub const EWOULDBLOCK: u32 = 11;
+pub const ENOMSG: u32 = 42;
+pub const EIDRM: u32 = 43;
+pub const ECHRNG: u32 = 44;
+pub const EL2NSYNC: u32 = 45;
+pub const EL3HLT: u32 = 46;
+pub const EL3RST: u32 = 47;
+pub const ELNRNG: u32 = 48;
+pub const EUNATCH: u32 = 49;
+pub const ENOCSI: u32 = 50;
+pub const EL2HLT: u32 = 51;
+pub const EBADE: u32 = 52;
+pub const EBADR: u32 = 53;
+pub const EXFULL: u32 = 54;
+pub const ENOANO: u32 = 55;
+pub const EBADRQC: u32 = 56;
+pub const EBADSLT: u32 = 57;
+pub const EDEADLOCK: u32 = 35;
+pub const EBFONT: u32 = 59;
+pub const ENOSTR: u32 = 60;
+pub const ENODATA: u32 = 61;
+pub const ETIME: u32 = 62;
+pub const ENOSR: u32 = 63;
+pub const ENONET: u32 = 64;
+pub const ENOPKG: u32 = 65;
+pub const EREMOTE: u32 = 66;
+pub const ENOLINK: u32 = 67;
+pub const EADV: u32 = 68;
+pub const ESRMNT: u32 = 69;
+pub const ECOMM: u32 = 70;
+pub const EPROTO: u32 = 71;
+pub const EMULTIHOP: u32 = 72;
+pub const EDOTDOT: u32 = 73;
+pub const EBADMSG: u32 = 74;
+pub const EOVERFLOW: u32 = 75;
+pub const ENOTUNIQ: u32 = 76;
+pub const EBADFD: u32 = 77;
+pub const EREMCHG: u32 = 78;
+pub const ELIBACC: u32 = 79;
+pub const ELIBBAD: u32 = 80;
+pub const ELIBSCN: u32 = 81;
+pub const ELIBMAX: u32 = 82;
+pub const ELIBEXEC: u32 = 83;
+pub const EILSEQ: u32 = 84;
+pub const ERESTART: u32 = 85;
+pub const ESTRPIPE: u32 = 86;
+pub const EUSERS: u32 = 87;
+pub const ENOTSOCK: u32 = 88;
+pub const EDESTADDRREQ: u32 = 89;
+pub const EMSGSIZE: u32 = 90;
+pub const EPROTOTYPE: u32 = 91;
+pub const ENOPROTOOPT: u32 = 92;
+pub const EPROTONOSUPPORT: u32 = 93;
+pub const ESOCKTNOSUPPORT: u32 = 94;
+pub const EOPNOTSUPP: u32 = 95;
+pub const EPFNOSUPPORT: u32 = 96;
+pub const EAFNOSUPPORT: u32 = 97;
+pub const EADDRINUSE: u32 = 98;
+pub const EADDRNOTAVAIL: u32 = 99;
+pub const ENETDOWN: u32 = 100;
+pub const ENETUNREACH: u32 = 101;
+pub const ENETRESET: u32 = 102;
+pub const ECONNABORTED: u32 = 103;
+pub const ECONNRESET: u32 = 104;
+pub const ENOBUFS: u32 = 105;
+pub const EISCONN: u32 = 106;
+pub const ENOTCONN: u32 = 107;
+pub const ESHUTDOWN: u32 = 108;
+pub const ETOOMANYREFS: u32 = 109;
+pub const ETIMEDOUT: u32 = 110;
+pub const ECONNREFUSED: u32 = 111;
+pub const EHOSTDOWN: u32 = 112;
+pub const EHOSTUNREACH: u32 = 113;
+pub const EALREADY: u32 = 114;
+pub const EINPROGRESS: u32 = 115;
+pub const ESTALE: u32 = 116;
+pub const EUCLEAN: u32 = 117;
+pub const ENOTNAM: u32 = 118;
+pub const ENAVAIL: u32 = 119;
+pub const EISNAM: u32 = 120;
+pub const EREMOTEIO: u32 = 121;
+pub const EDQUOT: u32 = 122;
+pub const ENOMEDIUM: u32 = 123;
+pub const EMEDIUMTYPE: u32 = 124;
+pub const ECANCELED: u32 = 125;
+pub const ENOKEY: u32 = 126;
+pub const EKEYEXPIRED: u32 = 127;
+pub const EKEYREVOKED: u32 = 128;
+pub const EKEYREJECTED: u32 = 129;
+pub const EOWNERDEAD: u32 = 130;
+pub const ENOTRECOVERABLE: u32 = 131;
+pub const ERFKILL: u32 = 132;
+pub const EHWPOISON: u32 = 133;
+pub const ENOTSUP: u32 = 95;
+pub const _STDINT_H: u32 = 1;
+pub const _BITS_WCHAR_H: u32 = 1;
+pub const _BITS_STDINT_INTN_H: u32 = 1;
+pub const _BITS_STDINT_UINTN_H: u32 = 1;
+pub const INT8_MIN: i32 = -128;
+pub const INT16_MIN: i32 = -32768;
+pub const INT32_MIN: i32 = -2147483648;
+pub const INT8_MAX: u32 = 127;
+pub const INT16_MAX: u32 = 32767;
+pub const INT32_MAX: u32 = 2147483647;
+pub const UINT8_MAX: u32 = 255;
+pub const UINT16_MAX: u32 = 65535;
+pub const UINT32_MAX: u32 = 4294967295;
+pub const INT_LEAST8_MIN: i32 = -128;
+pub const INT_LEAST16_MIN: i32 = -32768;
+pub const INT_LEAST32_MIN: i32 = -2147483648;
+pub const INT_LEAST8_MAX: u32 = 127;
+pub const INT_LEAST16_MAX: u32 = 32767;
+pub const INT_LEAST32_MAX: u32 = 2147483647;
+pub const UINT_LEAST8_MAX: u32 = 255;
+pub const UINT_LEAST16_MAX: u32 = 65535;
+pub const UINT_LEAST32_MAX: u32 = 4294967295;
+pub const INT_FAST8_MIN: i32 = -128;
+pub const INT_FAST16_MIN: i32 = -2147483648;
+pub const INT_FAST32_MIN: i32 = -2147483648;
+pub const INT_FAST8_MAX: u32 = 127;
+pub const INT_FAST16_MAX: u32 = 2147483647;
+pub const INT_FAST32_MAX: u32 = 2147483647;
+pub const UINT_FAST8_MAX: u32 = 255;
+pub const UINT_FAST16_MAX: u32 = 4294967295;
+pub const UINT_FAST32_MAX: u32 = 4294967295;
+pub const INTPTR_MIN: i32 = -2147483648;
+pub const INTPTR_MAX: u32 = 2147483647;
+pub const UINTPTR_MAX: u32 = 4294967295;
+pub const PTRDIFF_MIN: i32 = -2147483648;
+pub const PTRDIFF_MAX: u32 = 2147483647;
+pub const SIG_ATOMIC_MIN: i32 = -2147483648;
+pub const SIG_ATOMIC_MAX: u32 = 2147483647;
+pub const SIZE_MAX: u32 = 4294967295;
+pub const WINT_MIN: u32 = 0;
+pub const WINT_MAX: u32 = 4294967295;
+pub const _LIBC_LIMITS_H_: u32 = 1;
+pub const MB_LEN_MAX: u32 = 16;
+pub const _BITS_POSIX1_LIM_H: u32 = 1;
+pub const _POSIX_AIO_LISTIO_MAX: u32 = 2;
+pub const _POSIX_AIO_MAX: u32 = 1;
+pub const _POSIX_ARG_MAX: u32 = 4096;
+pub const _POSIX_CHILD_MAX: u32 = 25;
+pub const _POSIX_DELAYTIMER_MAX: u32 = 32;
+pub const _POSIX_HOST_NAME_MAX: u32 = 255;
+pub const _POSIX_LINK_MAX: u32 = 8;
+pub const _POSIX_LOGIN_NAME_MAX: u32 = 9;
+pub const _POSIX_MAX_CANON: u32 = 255;
+pub const _POSIX_MAX_INPUT: u32 = 255;
+pub const _POSIX_MQ_OPEN_MAX: u32 = 8;
+pub const _POSIX_MQ_PRIO_MAX: u32 = 32;
+pub const _POSIX_NAME_MAX: u32 = 14;
+pub const _POSIX_NGROUPS_MAX: u32 = 8;
+pub const _POSIX_OPEN_MAX: u32 = 20;
+pub const _POSIX_PATH_MAX: u32 = 256;
+pub const _POSIX_PIPE_BUF: u32 = 512;
+pub const _POSIX_RE_DUP_MAX: u32 = 255;
+pub const _POSIX_RTSIG_MAX: u32 = 8;
+pub const _POSIX_SEM_NSEMS_MAX: u32 = 256;
+pub const _POSIX_SEM_VALUE_MAX: u32 = 32767;
+pub const _POSIX_SIGQUEUE_MAX: u32 = 32;
+pub const _POSIX_SSIZE_MAX: u32 = 32767;
+pub const _POSIX_STREAM_MAX: u32 = 8;
+pub const _POSIX_SYMLINK_MAX: u32 = 255;
+pub const _POSIX_SYMLOOP_MAX: u32 = 8;
+pub const _POSIX_TIMER_MAX: u32 = 32;
+pub const _POSIX_TTY_NAME_MAX: u32 = 9;
+pub const _POSIX_TZNAME_MAX: u32 = 6;
+pub const _POSIX_CLOCKRES_MIN: u32 = 20000000;
+pub const NR_OPEN: u32 = 1024;
+pub const NGROUPS_MAX: u32 = 65536;
+pub const ARG_MAX: u32 = 131072;
+pub const LINK_MAX: u32 = 127;
+pub const MAX_CANON: u32 = 255;
+pub const MAX_INPUT: u32 = 255;
+pub const NAME_MAX: u32 = 255;
+pub const PATH_MAX: u32 = 4096;
+pub const PIPE_BUF: u32 = 4096;
+pub const XATTR_NAME_MAX: u32 = 255;
+pub const XATTR_SIZE_MAX: u32 = 65536;
+pub const XATTR_LIST_MAX: u32 = 65536;
+pub const RTSIG_MAX: u32 = 32;
+pub const _POSIX_THREAD_KEYS_MAX: u32 = 128;
+pub const PTHREAD_KEYS_MAX: u32 = 1024;
+pub const _POSIX_THREAD_DESTRUCTOR_ITERATIONS: u32 = 4;
+pub const PTHREAD_DESTRUCTOR_ITERATIONS: u32 = 4;
+pub const _POSIX_THREAD_THREADS_MAX: u32 = 64;
+pub const AIO_PRIO_DELTA_MAX: u32 = 20;
+pub const PTHREAD_STACK_MIN: u32 = 16384;
+pub const DELAYTIMER_MAX: u32 = 2147483647;
+pub const TTY_NAME_MAX: u32 = 32;
+pub const LOGIN_NAME_MAX: u32 = 256;
+pub const HOST_NAME_MAX: u32 = 64;
+pub const MQ_PRIO_MAX: u32 = 32768;
+pub const SEM_VALUE_MAX: u32 = 2147483647;
+pub const _BITS_POSIX2_LIM_H: u32 = 1;
+pub const _POSIX2_BC_BASE_MAX: u32 = 99;
+pub const _POSIX2_BC_DIM_MAX: u32 = 2048;
+pub const _POSIX2_BC_SCALE_MAX: u32 = 99;
+pub const _POSIX2_BC_STRING_MAX: u32 = 1000;
+pub const _POSIX2_COLL_WEIGHTS_MAX: u32 = 2;
+pub const _POSIX2_EXPR_NEST_MAX: u32 = 32;
+pub const _POSIX2_LINE_MAX: u32 = 2048;
+pub const _POSIX2_RE_DUP_MAX: u32 = 255;
+pub const _POSIX2_CHARCLASS_NAME_MAX: u32 = 14;
+pub const BC_BASE_MAX: u32 = 99;
+pub const BC_DIM_MAX: u32 = 2048;
+pub const BC_SCALE_MAX: u32 = 99;
+pub const BC_STRING_MAX: u32 = 1000;
+pub const COLL_WEIGHTS_MAX: u32 = 255;
+pub const EXPR_NEST_MAX: u32 = 32;
+pub const LINE_MAX: u32 = 2048;
+pub const CHARCLASS_NAME_MAX: u32 = 2048;
+pub const RE_DUP_MAX: u32 = 32767;
 pub const true_: u32 = 1;
 pub const false_: u32 = 0;
 pub const __bool_true_false_are_defined: u32 = 1;
-pub const __GNUC_VA_LIST: u32 = 1;
-pub const EOF: i32 = -1;
+pub const UTIL_INC_0: u32 = 1;
+pub const UTIL_INC_1: u32 = 2;
+pub const UTIL_INC_2: u32 = 3;
+pub const UTIL_INC_3: u32 = 4;
+pub const UTIL_INC_4: u32 = 5;
+pub const UTIL_INC_5: u32 = 6;
+pub const UTIL_INC_6: u32 = 7;
+pub const UTIL_INC_7: u32 = 8;
+pub const UTIL_INC_8: u32 = 9;
+pub const UTIL_INC_9: u32 = 10;
+pub const UTIL_INC_10: u32 = 11;
+pub const UTIL_INC_11: u32 = 12;
+pub const UTIL_INC_12: u32 = 13;
+pub const UTIL_INC_13: u32 = 14;
+pub const UTIL_INC_14: u32 = 15;
+pub const UTIL_INC_15: u32 = 16;
+pub const UTIL_INC_16: u32 = 17;
+pub const UTIL_INC_17: u32 = 18;
+pub const UTIL_INC_18: u32 = 19;
+pub const UTIL_INC_19: u32 = 19;
+pub const UTIL_DEC_0: u32 = 0;
+pub const UTIL_DEC_1: u32 = 0;
+pub const UTIL_DEC_2: u32 = 1;
+pub const UTIL_DEC_3: u32 = 2;
+pub const UTIL_DEC_4: u32 = 3;
+pub const UTIL_DEC_5: u32 = 4;
+pub const UTIL_DEC_6: u32 = 5;
+pub const UTIL_DEC_7: u32 = 6;
+pub const UTIL_DEC_8: u32 = 7;
+pub const UTIL_DEC_9: u32 = 8;
+pub const UTIL_DEC_10: u32 = 9;
+pub const UTIL_DEC_11: u32 = 10;
+pub const UTIL_DEC_12: u32 = 11;
+pub const UTIL_DEC_13: u32 = 12;
+pub const UTIL_DEC_14: u32 = 13;
+pub const UTIL_DEC_15: u32 = 14;
+pub const UTIL_DEC_16: u32 = 15;
+pub const UTIL_DEC_17: u32 = 16;
+pub const UTIL_DEC_18: u32 = 17;
+pub const UTIL_DEC_19: u32 = 18;
+pub const UTIL_DEC_20: u32 = 19;
+pub const UTIL_DEC_21: u32 = 20;
+pub const UTIL_DEC_22: u32 = 21;
+pub const UTIL_DEC_23: u32 = 22;
+pub const UTIL_DEC_24: u32 = 23;
+pub const UTIL_DEC_25: u32 = 24;
+pub const UTIL_DEC_26: u32 = 25;
+pub const UTIL_DEC_27: u32 = 26;
+pub const UTIL_DEC_28: u32 = 27;
+pub const UTIL_DEC_29: u32 = 28;
+pub const UTIL_DEC_30: u32 = 29;
+pub const UTIL_DEC_31: u32 = 30;
+pub const UTIL_DEC_32: u32 = 31;
+pub const UTIL_DEC_33: u32 = 32;
+pub const UTIL_DEC_34: u32 = 33;
+pub const UTIL_DEC_35: u32 = 34;
+pub const UTIL_DEC_36: u32 = 35;
+pub const UTIL_DEC_37: u32 = 36;
+pub const UTIL_DEC_38: u32 = 37;
+pub const UTIL_DEC_39: u32 = 38;
+pub const UTIL_DEC_40: u32 = 39;
+pub const UTIL_COMPL_0: u32 = 1;
+pub const UTIL_COMPL_1: u32 = 0;
+pub const SYS_SFLIST_FLAGS_MASK: u32 = 3;
 pub const K_SYSCALL_AIO_CMP_DISABLE: u32 = 0;
 pub const K_SYSCALL_AIO_CMP_GET_PENDING_INT: u32 = 1;
 pub const K_SYSCALL_CAN_ATTACH_ISR: u32 = 2;
@@ -533,257 +826,133 @@ pub const K_SYSCALL__ZEPHYR_READ: u32 = 159;
 pub const K_SYSCALL__ZEPHYR_WRITE: u32 = 160;
 pub const K_SYSCALL_BAD: u32 = 161;
 pub const K_SYSCALL_LIMIT: u32 = 162;
-pub const INT8_MAX: u32 = 127;
-pub const INT16_MAX: u32 = 32767;
-pub const INT32_MAX: u32 = 2147483647;
-pub const INT64_MAX: u64 = 9223372036854775807;
-pub const INT8_MIN: i32 = -128;
-pub const INT16_MIN: i32 = -32768;
-pub const INT32_MIN: i32 = -2147483648;
-pub const INT64_MIN: i64 = -9223372036854775808;
-pub const UINT8_MAX: u32 = 255;
-pub const UINT16_MAX: u32 = 65535;
-pub const UINT32_MAX: u32 = 4294967295;
-pub const UINT64_MAX: i32 = -1;
-pub const INTPTR_MIN: i32 = -2147483648;
-pub const INTPTR_MAX: u32 = 2147483647;
-pub const UINTPTR_MAX: u32 = 4294967295;
-pub const PTRDIFF_MIN: i32 = -2147483648;
-pub const PTRDIFF_MAX: u32 = 2147483647;
-pub const SIZE_MAX: u32 = 4294967295;
 pub const _SVC_CALL_IRQ_OFFLOAD: u32 = 1;
 pub const _SVC_CALL_RUNTIME_EXCEPT: u32 = 2;
 pub const _SVC_CALL_SYSTEM_CALL: u32 = 3;
-pub const EPERM: u32 = 1;
-pub const ENOENT: u32 = 2;
-pub const ESRCH: u32 = 3;
-pub const EINTR: u32 = 4;
-pub const EIO: u32 = 5;
-pub const ENXIO: u32 = 6;
-pub const E2BIG: u32 = 7;
-pub const ENOEXEC: u32 = 8;
-pub const EBADF: u32 = 9;
-pub const ECHILD: u32 = 10;
-pub const EAGAIN: u32 = 11;
-pub const ENOMEM: u32 = 12;
-pub const EACCES: u32 = 13;
-pub const EFAULT: u32 = 14;
-pub const ENOTEMPTY: u32 = 15;
-pub const EBUSY: u32 = 16;
-pub const EEXIST: u32 = 17;
-pub const EXDEV: u32 = 18;
-pub const ENODEV: u32 = 19;
-pub const ENOTDIR: u32 = 20;
-pub const EISDIR: u32 = 21;
-pub const EINVAL: u32 = 22;
-pub const ENFILE: u32 = 23;
-pub const EMFILE: u32 = 24;
-pub const ENOTTY: u32 = 25;
-pub const ENAMETOOLONG: u32 = 26;
-pub const EFBIG: u32 = 27;
-pub const ENOSPC: u32 = 28;
-pub const ESPIPE: u32 = 29;
-pub const EROFS: u32 = 30;
-pub const EMLINK: u32 = 31;
-pub const EPIPE: u32 = 32;
-pub const EDEADLK: u32 = 33;
-pub const ENOLCK: u32 = 34;
-pub const ENOTSUP: u32 = 35;
-pub const EMSGSIZE: u32 = 36;
-pub const EDOM: u32 = 37;
-pub const ERANGE: u32 = 38;
-pub const EDESTADDRREQ: u32 = 40;
-pub const EPROTOTYPE: u32 = 41;
-pub const ENOPROTOOPT: u32 = 42;
-pub const EPROTONOSUPPORT: u32 = 43;
-pub const ESOCKTNOSUPPORT: u32 = 44;
-pub const EOPNOTSUPP: u32 = 45;
-pub const EPFNOSUPPORT: u32 = 46;
-pub const EAFNOSUPPORT: u32 = 47;
-pub const EADDRINUSE: u32 = 48;
-pub const EADDRNOTAVAIL: u32 = 49;
-pub const ENOTSOCK: u32 = 50;
-pub const ENETUNREACH: u32 = 51;
-pub const ENETRESET: u32 = 52;
-pub const ECONNABORTED: u32 = 53;
-pub const ECONNRESET: u32 = 54;
-pub const ENOBUFS: u32 = 55;
-pub const EISCONN: u32 = 56;
-pub const ENOTCONN: u32 = 57;
-pub const ESHUTDOWN: u32 = 58;
-pub const ETOOMANYREFS: u32 = 59;
-pub const ETIMEDOUT: u32 = 60;
-pub const ECONNREFUSED: u32 = 61;
-pub const ENETDOWN: u32 = 62;
-pub const ETXTBSY: u32 = 63;
-pub const ELOOP: u32 = 64;
-pub const EHOSTUNREACH: u32 = 65;
-pub const ENOTBLK: u32 = 66;
-pub const EHOSTDOWN: u32 = 67;
-pub const EINPROGRESS: u32 = 68;
-pub const EALREADY: u32 = 69;
-pub const EWOULDBLOCK: u32 = 11;
-pub const ENOSYS: u32 = 71;
-pub const ECANCELED: u32 = 72;
-pub const ERRMAX: u32 = 81;
-pub const ENOSR: u32 = 74;
-pub const ENOSTR: u32 = 75;
-pub const EPROTO: u32 = 76;
-pub const EBADMSG: u32 = 77;
-pub const ENODATA: u32 = 78;
-pub const ETIME: u32 = 79;
-pub const ENOMSG: u32 = 80;
-pub const EILSEQ: u32 = 138;
-pub const UTIL_INC_0: u32 = 1;
-pub const UTIL_INC_1: u32 = 2;
-pub const UTIL_INC_2: u32 = 3;
-pub const UTIL_INC_3: u32 = 4;
-pub const UTIL_INC_4: u32 = 5;
-pub const UTIL_INC_5: u32 = 6;
-pub const UTIL_INC_6: u32 = 7;
-pub const UTIL_INC_7: u32 = 8;
-pub const UTIL_INC_8: u32 = 9;
-pub const UTIL_INC_9: u32 = 10;
-pub const UTIL_INC_10: u32 = 11;
-pub const UTIL_INC_11: u32 = 12;
-pub const UTIL_INC_12: u32 = 13;
-pub const UTIL_INC_13: u32 = 14;
-pub const UTIL_INC_14: u32 = 15;
-pub const UTIL_INC_15: u32 = 16;
-pub const UTIL_INC_16: u32 = 17;
-pub const UTIL_INC_17: u32 = 18;
-pub const UTIL_INC_18: u32 = 19;
-pub const UTIL_INC_19: u32 = 19;
-pub const UTIL_DEC_0: u32 = 0;
-pub const UTIL_DEC_1: u32 = 0;
-pub const UTIL_DEC_2: u32 = 1;
-pub const UTIL_DEC_3: u32 = 2;
-pub const UTIL_DEC_4: u32 = 3;
-pub const UTIL_DEC_5: u32 = 4;
-pub const UTIL_DEC_6: u32 = 5;
-pub const UTIL_DEC_7: u32 = 6;
-pub const UTIL_DEC_8: u32 = 7;
-pub const UTIL_DEC_9: u32 = 8;
-pub const UTIL_DEC_10: u32 = 9;
-pub const UTIL_DEC_11: u32 = 10;
-pub const UTIL_DEC_12: u32 = 11;
-pub const UTIL_DEC_13: u32 = 12;
-pub const UTIL_DEC_14: u32 = 13;
-pub const UTIL_DEC_15: u32 = 14;
-pub const UTIL_DEC_16: u32 = 15;
-pub const UTIL_DEC_17: u32 = 16;
-pub const UTIL_DEC_18: u32 = 17;
-pub const UTIL_DEC_19: u32 = 18;
-pub const UTIL_DEC_20: u32 = 19;
-pub const UTIL_DEC_21: u32 = 20;
-pub const UTIL_DEC_22: u32 = 21;
-pub const UTIL_DEC_23: u32 = 22;
-pub const UTIL_DEC_24: u32 = 23;
-pub const UTIL_DEC_25: u32 = 24;
-pub const UTIL_DEC_26: u32 = 25;
-pub const UTIL_DEC_27: u32 = 26;
-pub const UTIL_DEC_28: u32 = 27;
-pub const UTIL_DEC_29: u32 = 28;
-pub const UTIL_DEC_30: u32 = 29;
-pub const UTIL_DEC_31: u32 = 30;
-pub const UTIL_DEC_32: u32 = 31;
-pub const UTIL_DEC_33: u32 = 32;
-pub const UTIL_DEC_34: u32 = 33;
-pub const UTIL_DEC_35: u32 = 34;
-pub const UTIL_DEC_36: u32 = 35;
-pub const UTIL_DEC_37: u32 = 36;
-pub const UTIL_DEC_38: u32 = 37;
-pub const UTIL_DEC_39: u32 = 38;
-pub const UTIL_DEC_40: u32 = 39;
-pub const UTIL_COMPL_0: u32 = 1;
-pub const UTIL_COMPL_1: u32 = 0;
-pub const NET_LINK_ADDR_MAX_LENGTH: u32 = 6;
-pub const NET_VLAN_TAG_UNSPEC: u32 = 4095;
-pub const PF_UNSPEC: u32 = 0;
-pub const PF_INET: u32 = 2;
-pub const PF_INET6: u32 = 10;
-pub const PF_LTE: u32 = 102;
-pub const AF_UNSPEC: u32 = 0;
-pub const AF_INET: u32 = 2;
-pub const AF_INET6: u32 = 10;
-pub const AF_LTE: u32 = 102;
-pub const INET_ADDRSTRLEN: u32 = 16;
-pub const INET6_ADDRSTRLEN: u32 = 46;
-pub const INADDR_ANY: u32 = 0;
-pub const NET_IPV6_MTU: u32 = 1280;
-pub const NET_IPV4_MTU: u32 = 576;
-pub const NET_IPV6_NEXTHDR_HBHO: u32 = 0;
-pub const NET_IPV6_NEXTHDR_DESTO: u32 = 60;
-pub const NET_IPV6_NEXTHDR_ROUTING: u32 = 43;
-pub const NET_IPV6_NEXTHDR_FRAG: u32 = 44;
-pub const NET_IPV6_NEXTHDR_NONE: u32 = 59;
-pub const NET_UDPH_LEN: u32 = 8;
-pub const NET_TCPH_LEN: u32 = 20;
-pub const NET_ICMPH_LEN: u32 = 4;
-pub const NET_IPV6H_LEN: u32 = 40;
-pub const NET_ICMPV6H_LEN: u32 = 4;
-pub const NET_IPV6UDPH_LEN: u32 = 48;
-pub const NET_IPV6TCPH_LEN: u32 = 60;
-pub const NET_IPV6ICMPH_LEN: u32 = 44;
-pub const NET_IPV6_FRAGH_LEN: u32 = 8;
-pub const NET_IPV4H_LEN: u32 = 20;
-pub const NET_ICMPV4H_LEN: u32 = 4;
-pub const NET_IPV4UDPH_LEN: u32 = 28;
-pub const NET_IPV4TCPH_LEN: u32 = 40;
-pub const NET_IPV4ICMPH_LEN: u32 = 24;
-pub const UCHAR_MAX: u32 = 255;
-pub const SCHAR_MAX: u32 = 127;
-pub const SCHAR_MIN: i32 = -128;
-pub const CHAR_MAX: u32 = 127;
-pub const CHAR_MIN: i32 = -128;
-pub const CHAR_BIT: u32 = 8;
-pub const LONG_BIT: u32 = 32;
-pub const WORD_BIT: u32 = 32;
-pub const INT_MAX: u32 = 2147483647;
-pub const SHRT_MAX: u32 = 32767;
-pub const LONG_MAX: u32 = 2147483647;
-pub const LLONG_MAX: u64 = 9223372036854775807;
-pub const INT_MIN: i32 = -2147483648;
-pub const SHRT_MIN: i32 = -32768;
-pub const LONG_MIN: i32 = -2147483648;
-pub const LLONG_MIN: i64 = -9223372036854775808;
-pub const SSIZE_MAX: u32 = 2147483647;
-pub const USHRT_MAX: u32 = 65535;
-pub const UINT_MAX: u32 = 4294967295;
-pub const ULONG_MAX: u32 = 4294967295;
-pub const ULLONG_MAX: i32 = -1;
-pub const PATH_MAX: u32 = 256;
-pub const SYS_SFLIST_FLAGS_MASK: u32 = 3;
+pub const _INTTYPES_H: u32 = 1;
+pub const ____gwchar_t_defined: u32 = 1;
+pub const __PRI64_PREFIX: &'static [u8; 3usize] = b"ll\0";
 pub const PRId8: &'static [u8; 2usize] = b"d\0";
 pub const PRId16: &'static [u8; 2usize] = b"d\0";
 pub const PRId32: &'static [u8; 2usize] = b"d\0";
 pub const PRId64: &'static [u8; 4usize] = b"lld\0";
-pub const PRIdPTR: &'static [u8; 2usize] = b"d\0";
+pub const PRIdLEAST8: &'static [u8; 2usize] = b"d\0";
+pub const PRIdLEAST16: &'static [u8; 2usize] = b"d\0";
+pub const PRIdLEAST32: &'static [u8; 2usize] = b"d\0";
+pub const PRIdLEAST64: &'static [u8; 4usize] = b"lld\0";
+pub const PRIdFAST8: &'static [u8; 2usize] = b"d\0";
+pub const PRIdFAST64: &'static [u8; 4usize] = b"lld\0";
 pub const PRIi8: &'static [u8; 2usize] = b"i\0";
 pub const PRIi16: &'static [u8; 2usize] = b"i\0";
 pub const PRIi32: &'static [u8; 2usize] = b"i\0";
 pub const PRIi64: &'static [u8; 4usize] = b"lli\0";
-pub const PRIiPTR: &'static [u8; 2usize] = b"i\0";
+pub const PRIiLEAST8: &'static [u8; 2usize] = b"i\0";
+pub const PRIiLEAST16: &'static [u8; 2usize] = b"i\0";
+pub const PRIiLEAST32: &'static [u8; 2usize] = b"i\0";
+pub const PRIiLEAST64: &'static [u8; 4usize] = b"lli\0";
+pub const PRIiFAST8: &'static [u8; 2usize] = b"i\0";
+pub const PRIiFAST64: &'static [u8; 4usize] = b"lli\0";
 pub const PRIo8: &'static [u8; 2usize] = b"o\0";
 pub const PRIo16: &'static [u8; 2usize] = b"o\0";
 pub const PRIo32: &'static [u8; 2usize] = b"o\0";
 pub const PRIo64: &'static [u8; 4usize] = b"llo\0";
-pub const PRIoPTR: &'static [u8; 2usize] = b"o\0";
+pub const PRIoLEAST8: &'static [u8; 2usize] = b"o\0";
+pub const PRIoLEAST16: &'static [u8; 2usize] = b"o\0";
+pub const PRIoLEAST32: &'static [u8; 2usize] = b"o\0";
+pub const PRIoLEAST64: &'static [u8; 4usize] = b"llo\0";
+pub const PRIoFAST8: &'static [u8; 2usize] = b"o\0";
+pub const PRIoFAST64: &'static [u8; 4usize] = b"llo\0";
 pub const PRIu8: &'static [u8; 2usize] = b"u\0";
 pub const PRIu16: &'static [u8; 2usize] = b"u\0";
 pub const PRIu32: &'static [u8; 2usize] = b"u\0";
 pub const PRIu64: &'static [u8; 4usize] = b"llu\0";
-pub const PRIuPTR: &'static [u8; 2usize] = b"u\0";
+pub const PRIuLEAST8: &'static [u8; 2usize] = b"u\0";
+pub const PRIuLEAST16: &'static [u8; 2usize] = b"u\0";
+pub const PRIuLEAST32: &'static [u8; 2usize] = b"u\0";
+pub const PRIuLEAST64: &'static [u8; 4usize] = b"llu\0";
+pub const PRIuFAST8: &'static [u8; 2usize] = b"u\0";
+pub const PRIuFAST64: &'static [u8; 4usize] = b"llu\0";
 pub const PRIx8: &'static [u8; 2usize] = b"x\0";
 pub const PRIx16: &'static [u8; 2usize] = b"x\0";
 pub const PRIx32: &'static [u8; 2usize] = b"x\0";
 pub const PRIx64: &'static [u8; 4usize] = b"llx\0";
-pub const PRIxPTR: &'static [u8; 2usize] = b"x\0";
+pub const PRIxLEAST8: &'static [u8; 2usize] = b"x\0";
+pub const PRIxLEAST16: &'static [u8; 2usize] = b"x\0";
+pub const PRIxLEAST32: &'static [u8; 2usize] = b"x\0";
+pub const PRIxLEAST64: &'static [u8; 4usize] = b"llx\0";
+pub const PRIxFAST8: &'static [u8; 2usize] = b"x\0";
+pub const PRIxFAST64: &'static [u8; 4usize] = b"llx\0";
 pub const PRIX8: &'static [u8; 2usize] = b"X\0";
 pub const PRIX16: &'static [u8; 2usize] = b"X\0";
 pub const PRIX32: &'static [u8; 2usize] = b"X\0";
 pub const PRIX64: &'static [u8; 4usize] = b"llX\0";
-pub const PRIXPTR: &'static [u8; 2usize] = b"X\0";
+pub const PRIXLEAST8: &'static [u8; 2usize] = b"X\0";
+pub const PRIXLEAST16: &'static [u8; 2usize] = b"X\0";
+pub const PRIXLEAST32: &'static [u8; 2usize] = b"X\0";
+pub const PRIXLEAST64: &'static [u8; 4usize] = b"llX\0";
+pub const PRIXFAST8: &'static [u8; 2usize] = b"X\0";
+pub const PRIXFAST64: &'static [u8; 4usize] = b"llX\0";
+pub const PRIdMAX: &'static [u8; 4usize] = b"lld\0";
+pub const PRIiMAX: &'static [u8; 4usize] = b"lli\0";
+pub const PRIoMAX: &'static [u8; 4usize] = b"llo\0";
+pub const PRIuMAX: &'static [u8; 4usize] = b"llu\0";
+pub const PRIxMAX: &'static [u8; 4usize] = b"llx\0";
+pub const PRIXMAX: &'static [u8; 4usize] = b"llX\0";
+pub const SCNd8: &'static [u8; 4usize] = b"hhd\0";
+pub const SCNd16: &'static [u8; 3usize] = b"hd\0";
+pub const SCNd32: &'static [u8; 2usize] = b"d\0";
+pub const SCNd64: &'static [u8; 4usize] = b"lld\0";
+pub const SCNdLEAST8: &'static [u8; 4usize] = b"hhd\0";
+pub const SCNdLEAST16: &'static [u8; 3usize] = b"hd\0";
+pub const SCNdLEAST32: &'static [u8; 2usize] = b"d\0";
+pub const SCNdLEAST64: &'static [u8; 4usize] = b"lld\0";
+pub const SCNdFAST8: &'static [u8; 4usize] = b"hhd\0";
+pub const SCNdFAST64: &'static [u8; 4usize] = b"lld\0";
+pub const SCNi8: &'static [u8; 4usize] = b"hhi\0";
+pub const SCNi16: &'static [u8; 3usize] = b"hi\0";
+pub const SCNi32: &'static [u8; 2usize] = b"i\0";
+pub const SCNi64: &'static [u8; 4usize] = b"lli\0";
+pub const SCNiLEAST8: &'static [u8; 4usize] = b"hhi\0";
+pub const SCNiLEAST16: &'static [u8; 3usize] = b"hi\0";
+pub const SCNiLEAST32: &'static [u8; 2usize] = b"i\0";
+pub const SCNiLEAST64: &'static [u8; 4usize] = b"lli\0";
+pub const SCNiFAST8: &'static [u8; 4usize] = b"hhi\0";
+pub const SCNiFAST64: &'static [u8; 4usize] = b"lli\0";
+pub const SCNu8: &'static [u8; 4usize] = b"hhu\0";
+pub const SCNu16: &'static [u8; 3usize] = b"hu\0";
+pub const SCNu32: &'static [u8; 2usize] = b"u\0";
+pub const SCNu64: &'static [u8; 4usize] = b"llu\0";
+pub const SCNuLEAST8: &'static [u8; 4usize] = b"hhu\0";
+pub const SCNuLEAST16: &'static [u8; 3usize] = b"hu\0";
+pub const SCNuLEAST32: &'static [u8; 2usize] = b"u\0";
+pub const SCNuLEAST64: &'static [u8; 4usize] = b"llu\0";
+pub const SCNuFAST8: &'static [u8; 4usize] = b"hhu\0";
+pub const SCNuFAST64: &'static [u8; 4usize] = b"llu\0";
+pub const SCNo8: &'static [u8; 4usize] = b"hho\0";
+pub const SCNo16: &'static [u8; 3usize] = b"ho\0";
+pub const SCNo32: &'static [u8; 2usize] = b"o\0";
+pub const SCNo64: &'static [u8; 4usize] = b"llo\0";
+pub const SCNoLEAST8: &'static [u8; 4usize] = b"hho\0";
+pub const SCNoLEAST16: &'static [u8; 3usize] = b"ho\0";
+pub const SCNoLEAST32: &'static [u8; 2usize] = b"o\0";
+pub const SCNoLEAST64: &'static [u8; 4usize] = b"llo\0";
+pub const SCNoFAST8: &'static [u8; 4usize] = b"hho\0";
+pub const SCNoFAST64: &'static [u8; 4usize] = b"llo\0";
+pub const SCNx8: &'static [u8; 4usize] = b"hhx\0";
+pub const SCNx16: &'static [u8; 3usize] = b"hx\0";
+pub const SCNx32: &'static [u8; 2usize] = b"x\0";
+pub const SCNx64: &'static [u8; 4usize] = b"llx\0";
+pub const SCNxLEAST8: &'static [u8; 4usize] = b"hhx\0";
+pub const SCNxLEAST16: &'static [u8; 3usize] = b"hx\0";
+pub const SCNxLEAST32: &'static [u8; 2usize] = b"x\0";
+pub const SCNxLEAST64: &'static [u8; 4usize] = b"llx\0";
+pub const SCNxFAST8: &'static [u8; 4usize] = b"hhx\0";
+pub const SCNxFAST64: &'static [u8; 4usize] = b"llx\0";
+pub const SCNdMAX: &'static [u8; 4usize] = b"lld\0";
+pub const SCNiMAX: &'static [u8; 4usize] = b"lli\0";
+pub const SCNoMAX: &'static [u8; 4usize] = b"llo\0";
+pub const SCNuMAX: &'static [u8; 4usize] = b"llu\0";
+pub const SCNxMAX: &'static [u8; 4usize] = b"llx\0";
 pub const CONFIG_FLASH_BASE_ADDRESS: u32 = 0;
 pub const CONFIG_FLASH_LOAD_OFFSET: u32 = 0;
 pub const CONFIG_FLASH_LOAD_SIZE: u32 = 0;
@@ -805,18 +974,18 @@ pub const DT_ARM_V7M_NVIC_E000E100_ARM_NUM_IRQ_PRIORITY_BITS: u32 = 3;
 pub const DT_ARM_V7M_NVIC_E000E100_BASE_ADDRESS: u32 = 3758153984;
 pub const DT_ARM_V7M_NVIC_E000E100_SIZE: u32 = 3072;
 pub const CONFIG_UART_CONSOLE_ON_DEV_NAME: &'static [u8; 7usize] = b"UART_0\0";
-pub const DT_TI_STELLARIS_UART_4000C000_BASE_ADDRESS: u32 = 1073790976;
-pub const DT_TI_STELLARIS_UART_4000C000_CURRENT_SPEED: u32 = 115200;
-pub const DT_TI_STELLARIS_UART_4000C000_IRQ_0: u32 = 5;
-pub const DT_TI_STELLARIS_UART_4000C000_IRQ_0_PRIORITY: u32 = 3;
-pub const DT_TI_STELLARIS_UART_4000C000_LABEL: &'static [u8; 7usize] = b"UART_0\0";
-pub const DT_TI_STELLARIS_UART_4000C000_SIZE: u32 = 76;
-pub const DT_TI_STELLARIS_UART_UART_0_BASE_ADDRESS: u32 = 1073790976;
-pub const DT_TI_STELLARIS_UART_UART_0_CURRENT_SPEED: u32 = 115200;
-pub const DT_TI_STELLARIS_UART_UART_0_IRQ: u32 = 5;
-pub const DT_TI_STELLARIS_UART_UART_0_IRQ_PRIORITY: u32 = 3;
-pub const DT_TI_STELLARIS_UART_UART_0_LABEL: &'static [u8; 7usize] = b"UART_0\0";
-pub const DT_TI_STELLARIS_UART_UART_0_SIZE: u32 = 76;
+pub const DT_RUST_SIMPLE_UART_4000C000_BASE_ADDRESS: u32 = 1073790976;
+pub const DT_RUST_SIMPLE_UART_4000C000_CURRENT_SPEED: u32 = 115200;
+pub const DT_RUST_SIMPLE_UART_4000C000_IRQ_0: u32 = 5;
+pub const DT_RUST_SIMPLE_UART_4000C000_IRQ_0_PRIORITY: u32 = 3;
+pub const DT_RUST_SIMPLE_UART_4000C000_LABEL: &'static [u8; 7usize] = b"UART_0\0";
+pub const DT_RUST_SIMPLE_UART_4000C000_SIZE: u32 = 76;
+pub const DT_RUST_SIMPLE_UART_UART_0_BASE_ADDRESS: u32 = 1073790976;
+pub const DT_RUST_SIMPLE_UART_UART_0_CURRENT_SPEED: u32 = 115200;
+pub const DT_RUST_SIMPLE_UART_UART_0_IRQ: u32 = 5;
+pub const DT_RUST_SIMPLE_UART_UART_0_IRQ_PRIORITY: u32 = 3;
+pub const DT_RUST_SIMPLE_UART_UART_0_LABEL: &'static [u8; 7usize] = b"UART_0\0";
+pub const DT_RUST_SIMPLE_UART_UART_0_SIZE: u32 = 76;
 pub const UART_0_BASE_ADDRESS: u32 = 1073790976;
 pub const UART_0_CURRENT_SPEED: u32 = 115200;
 pub const UART_0_IRQ: u32 = 5;
@@ -863,6 +1032,7 @@ pub const UART_2_IRQ_PRIORITY: u32 = 3;
 pub const UART_2_LABEL: &'static [u8; 7usize] = b"UART_2\0";
 pub const UART_2_SIZE: u32 = 76;
 pub const DT_COMPAT_ARM_V7M_NVIC: u32 = 1;
+pub const DT_COMPAT_RUST_SIMPLE_UART: u32 = 1;
 pub const DT_COMPAT_SOC_NV_FLASH: u32 = 1;
 pub const DT_COMPAT_TI_STELLARIS_UART: u32 = 1;
 pub const DT_NUM_IRQ_PRIO_BITS: u32 = 3;
@@ -951,71 +1121,1151 @@ pub const SYS_TRACE_ID_SEMA_INIT: u32 = 36;
 pub const SYS_TRACE_ID_SEMA_GIVE: u32 = 37;
 pub const SYS_TRACE_ID_SEMA_TAKE: u32 = 38;
 pub const Z_DEVICE_MAX_NAME_LEN: u32 = 48;
-pub const NET_LOG_LEVEL: u32 = 0;
-pub const LOG_LEVEL: u32 = 0;
-pub const LOG_MAX_NARGS: u32 = 15;
-pub const LOG_MSG_NARGS_SINGLE_CHUNK: u32 = 3;
-pub const LOG_MSG_NARGS_HEAD_CHUNK: u32 = 2;
-pub const LOG_MSG_TYPE_STD: u32 = 0;
-pub const LOG_MSG_TYPE_HEXDUMP: u32 = 1;
-pub const LOG_MSG_HEXDUMP_LENGTH_BITS: u32 = 13;
-pub const LOG_MSG_HEXDUMP_MAX_LENGTH: u32 = 8191;
-pub const CONFIG_LOG_DEFAULT_LEVEL: u32 = 0;
-pub const CONFIG_LOG_DOMAIN_ID: u32 = 0;
-pub const CONFIG_LOG_MAX_LEVEL: u32 = 0;
-pub const LOG_LEVEL_BITS: u32 = 3;
-pub const LOG_FILTER_SLOT_SIZE: u32 = 3;
-pub const LOG_FILTERS_NUM_OF_SLOTS: u32 = 10;
-pub const LOG_FILTER_SLOT_MASK: u32 = 7;
-pub const LOG_FILTER_AGGR_SLOT_IDX: u32 = 0;
-pub const LOG_FILTER_FIRST_BACKEND_SLOT_IDX: u32 = 1;
-pub const LOG_LEVEL_NONE: u32 = 0;
-pub const LOG_LEVEL_ERR: u32 = 1;
-pub const LOG_LEVEL_WRN: u32 = 2;
-pub const LOG_LEVEL_INF: u32 = 3;
-pub const LOG_LEVEL_DBG: u32 = 4;
-pub const NET_TC_TX_COUNT: u32 = 1;
-pub const NET_TC_RX_COUNT: u32 = 1;
-pub const NET_TC_COUNT: u32 = 1;
-pub const NET_IF_MAX_IPV6_ADDR: u32 = 0;
-pub const NET_IF_MAX_IPV6_MADDR: u32 = 0;
-pub const NET_IF_MAX_IPV6_PREFIX: u32 = 0;
-pub const NET_IF_MAX_IPV4_ADDR: u32 = 1;
-pub const NET_IF_MAX_IPV4_MADDR: u32 = 1;
-pub const NET_IF_MAX_CONFIGS: u32 = 1;
-pub const NET_CONTEXT_STATE_SHIFT: u32 = 1;
-pub const NET_CONTEXT_STATE_MASK: u32 = 3;
-pub const DNS_MAX_NAME_SIZE: u32 = 20;
-pub const CONFIG_DNS_RESOLVER_MAX_SERVERS: u32 = 1;
-pub const CONFIG_DNS_NUM_CONCUR_QUERIES: u32 = 1;
-pub const MDNS_SERVER_COUNT: u32 = 0;
-pub const LLMNR_SERVER_COUNT: u32 = 0;
-pub const DNS_MAX_MCAST_SERVERS: u32 = 0;
-pub const ZSOCK_POLLIN: u32 = 1;
-pub const ZSOCK_POLLOUT: u32 = 4;
-pub const ZSOCK_POLLERR: u32 = 8;
-pub const ZSOCK_POLLHUP: u32 = 16;
-pub const ZSOCK_POLLNVAL: u32 = 32;
-pub const ZSOCK_MSG_PEEK: u32 = 2;
-pub const ZSOCK_MSG_DONTWAIT: u32 = 64;
-pub const SOL_TLS: u32 = 282;
-pub const TLS_SEC_TAG_LIST: u32 = 1;
-pub const TLS_HOSTNAME: u32 = 2;
-pub const TLS_CIPHERSUITE_LIST: u32 = 3;
-pub const TLS_CIPHERSUITE_USED: u32 = 4;
-pub const TLS_PEER_VERIFY: u32 = 5;
-pub const TLS_DTLS_ROLE: u32 = 6;
-pub const POLLIN: u32 = 1;
-pub const POLLOUT: u32 = 4;
-pub const POLLERR: u32 = 8;
-pub const POLLHUP: u32 = 16;
-pub const POLLNVAL: u32 = 32;
-pub const MSG_PEEK: u32 = 2;
-pub const MSG_DONTWAIT: u32 = 64;
+pub const UART_OPTION_AFCE: u32 = 1;
+pub const LINE_CTRL_BAUD_RATE: u32 = 1;
+pub const LINE_CTRL_RTS: u32 = 2;
+pub const LINE_CTRL_DTR: u32 = 4;
+pub const LINE_CTRL_DCD: u32 = 8;
+pub const LINE_CTRL_DSR: u32 = 16;
+pub const UART_ERROR_OVERRUN: u32 = 1;
+pub const UART_ERROR_PARITY: u32 = 2;
+pub const UART_ERROR_FRAMING: u32 = 4;
+pub const UART_ERROR_BREAK: u32 = 8;
+pub type __u_char = cty::c_uchar;
+pub type __u_short = cty::c_ushort;
+pub type __u_int = cty::c_uint;
+pub type __u_long = cty::c_ulong;
+pub type __int8_t = cty::c_schar;
+pub type __uint8_t = cty::c_uchar;
+pub type __int16_t = cty::c_short;
+pub type __uint16_t = cty::c_ushort;
+pub type __int32_t = cty::c_int;
+pub type __uint32_t = cty::c_uint;
+pub type __int64_t = cty::c_longlong;
+pub type __uint64_t = cty::c_ulonglong;
+pub type __quad_t = cty::c_longlong;
+pub type __u_quad_t = cty::c_ulonglong;
+pub type __intmax_t = cty::c_longlong;
+pub type __uintmax_t = cty::c_ulonglong;
+pub type __dev_t = __u_quad_t;
+pub type __uid_t = cty::c_uint;
+pub type __gid_t = cty::c_uint;
+pub type __ino_t = cty::c_ulong;
+pub type __ino64_t = __u_quad_t;
+pub type __mode_t = cty::c_uint;
+pub type __nlink_t = cty::c_uint;
+pub type __off_t = cty::c_long;
+pub type __off64_t = __quad_t;
+pub type __pid_t = cty::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __fsid_t {
+    pub __val: [cty::c_int; 2usize],
+}
+#[test]
+fn bindgen_test_layout___fsid_t() {
+    assert_eq!(
+        ::core::mem::size_of::<__fsid_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<__fsid_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(__fsid_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<__fsid_t>())).__val as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__fsid_t),
+            "::",
+            stringify!(__val)
+        )
+    );
+}
+pub type __clock_t = cty::c_long;
+pub type __rlim_t = cty::c_ulong;
+pub type __rlim64_t = __u_quad_t;
+pub type __id_t = cty::c_uint;
+pub type __time_t = cty::c_long;
+pub type __useconds_t = cty::c_uint;
+pub type __suseconds_t = cty::c_long;
+pub type __daddr_t = cty::c_int;
+pub type __key_t = cty::c_int;
+pub type __clockid_t = cty::c_int;
+pub type __timer_t = *mut cty::c_void;
+pub type __blksize_t = cty::c_long;
+pub type __blkcnt_t = cty::c_long;
+pub type __blkcnt64_t = __quad_t;
+pub type __fsblkcnt_t = cty::c_ulong;
+pub type __fsblkcnt64_t = __u_quad_t;
+pub type __fsfilcnt_t = cty::c_ulong;
+pub type __fsfilcnt64_t = __u_quad_t;
+pub type __fsword_t = cty::c_int;
+pub type __ssize_t = cty::c_int;
+pub type __syscall_slong_t = cty::c_long;
+pub type __syscall_ulong_t = cty::c_ulong;
+pub type __loff_t = __off64_t;
+pub type __caddr_t = *mut cty::c_char;
+pub type __intptr_t = cty::c_int;
+pub type __socklen_t = cty::c_uint;
+pub type __sig_atomic_t = cty::c_int;
+pub type __FILE = _IO_FILE;
+pub type FILE = _IO_FILE;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct __mbstate_t {
+    pub __count: cty::c_int,
+    pub __value: __mbstate_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union __mbstate_t__bindgen_ty_1 {
+    pub __wch: cty::c_uint,
+    pub __wchb: [cty::c_char; 4usize],
+    _bindgen_union_align: u32,
+}
+#[test]
+fn bindgen_test_layout___mbstate_t__bindgen_ty_1() {
+    assert_eq!(
+        ::core::mem::size_of::<__mbstate_t__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(__mbstate_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<__mbstate_t__bindgen_ty_1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(__mbstate_t__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<__mbstate_t__bindgen_ty_1>())).__wch as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__mbstate_t__bindgen_ty_1),
+            "::",
+            stringify!(__wch)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<__mbstate_t__bindgen_ty_1>())).__wchb as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__mbstate_t__bindgen_ty_1),
+            "::",
+            stringify!(__wchb)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout___mbstate_t() {
+    assert_eq!(
+        ::core::mem::size_of::<__mbstate_t>(),
+        8usize,
+        concat!("Size of: ", stringify!(__mbstate_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<__mbstate_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(__mbstate_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<__mbstate_t>())).__count as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__mbstate_t),
+            "::",
+            stringify!(__count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<__mbstate_t>())).__value as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(__mbstate_t),
+            "::",
+            stringify!(__value)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct _G_fpos_t {
+    pub __pos: __off_t,
+    pub __state: __mbstate_t,
+}
+#[test]
+fn bindgen_test_layout__G_fpos_t() {
+    assert_eq!(
+        ::core::mem::size_of::<_G_fpos_t>(),
+        12usize,
+        concat!("Size of: ", stringify!(_G_fpos_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<_G_fpos_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(_G_fpos_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_G_fpos_t>())).__pos as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_G_fpos_t),
+            "::",
+            stringify!(__pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_G_fpos_t>())).__state as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_G_fpos_t),
+            "::",
+            stringify!(__state)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct _G_fpos64_t {
+    pub __pos: __off64_t,
+    pub __state: __mbstate_t,
+}
+#[test]
+fn bindgen_test_layout__G_fpos64_t() {
+    assert_eq!(
+        ::core::mem::size_of::<_G_fpos64_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(_G_fpos64_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<_G_fpos64_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(_G_fpos64_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_G_fpos64_t>())).__pos as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_G_fpos64_t),
+            "::",
+            stringify!(__pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_G_fpos64_t>())).__state as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_G_fpos64_t),
+            "::",
+            stringify!(__state)
+        )
+    );
+}
 pub type va_list = __builtin_va_list;
 pub type __gnuc_va_list = __builtin_va_list;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _IO_jump_t {
+    _unused: [u8; 0],
+}
+pub type _IO_lock_t = cty::c_void;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _IO_marker {
+    pub _next: *mut _IO_marker,
+    pub _sbuf: *mut _IO_FILE,
+    pub _pos: cty::c_int,
+}
+#[test]
+fn bindgen_test_layout__IO_marker() {
+    assert_eq!(
+        ::core::mem::size_of::<_IO_marker>(),
+        12usize,
+        concat!("Size of: ", stringify!(_IO_marker))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<_IO_marker>(),
+        4usize,
+        concat!("Alignment of ", stringify!(_IO_marker))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_marker>()))._next as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_marker),
+            "::",
+            stringify!(_next)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_marker>()))._sbuf as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_marker),
+            "::",
+            stringify!(_sbuf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_marker>()))._pos as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_marker),
+            "::",
+            stringify!(_pos)
+        )
+    );
+}
+pub const __codecvt_result___codecvt_ok: __codecvt_result = 0;
+pub const __codecvt_result___codecvt_partial: __codecvt_result = 1;
+pub const __codecvt_result___codecvt_error: __codecvt_result = 2;
+pub const __codecvt_result___codecvt_noconv: __codecvt_result = 3;
+pub type __codecvt_result = u32;
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct _IO_FILE {
+    pub _flags: cty::c_int,
+    pub _IO_read_ptr: *mut cty::c_char,
+    pub _IO_read_end: *mut cty::c_char,
+    pub _IO_read_base: *mut cty::c_char,
+    pub _IO_write_base: *mut cty::c_char,
+    pub _IO_write_ptr: *mut cty::c_char,
+    pub _IO_write_end: *mut cty::c_char,
+    pub _IO_buf_base: *mut cty::c_char,
+    pub _IO_buf_end: *mut cty::c_char,
+    pub _IO_save_base: *mut cty::c_char,
+    pub _IO_backup_base: *mut cty::c_char,
+    pub _IO_save_end: *mut cty::c_char,
+    pub _markers: *mut _IO_marker,
+    pub _chain: *mut _IO_FILE,
+    pub _fileno: cty::c_int,
+    pub _flags2: cty::c_int,
+    pub _old_offset: __off_t,
+    pub _cur_column: cty::c_ushort,
+    pub _vtable_offset: cty::c_schar,
+    pub _shortbuf: [cty::c_char; 1usize],
+    pub _lock: *mut _IO_lock_t,
+    pub _offset: __off64_t,
+    pub __pad1: *mut cty::c_void,
+    pub __pad2: *mut cty::c_void,
+    pub __pad3: *mut cty::c_void,
+    pub __pad4: *mut cty::c_void,
+    pub __pad5: usize,
+    pub _mode: cty::c_int,
+    pub _unused2: [cty::c_char; 40usize],
+}
+#[test]
+fn bindgen_test_layout__IO_FILE() {
+    assert_eq!(
+        ::core::mem::size_of::<_IO_FILE>(),
+        148usize,
+        concat!("Size of: ", stringify!(_IO_FILE))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<_IO_FILE>(),
+        4usize,
+        concat!("Alignment of ", stringify!(_IO_FILE))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._flags as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_read_ptr as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_ptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_read_end as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_read_base as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_write_base as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_write_ptr as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_ptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_write_end as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_buf_base as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_buf_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_buf_end as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_buf_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_save_base as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_save_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_backup_base as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_backup_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._IO_save_end as *const _ as usize },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_save_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._markers as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_markers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._chain as *const _ as usize },
+        52usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_chain)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._fileno as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_fileno)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._flags2 as *const _ as usize },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_flags2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._old_offset as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_old_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._cur_column as *const _ as usize },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_cur_column)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._vtable_offset as *const _ as usize },
+        70usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_vtable_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._shortbuf as *const _ as usize },
+        71usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_shortbuf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._lock as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_lock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._offset as *const _ as usize },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>())).__pad1 as *const _ as usize },
+        84usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>())).__pad2 as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>())).__pad3 as *const _ as usize },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad3)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>())).__pad4 as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad4)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>())).__pad5 as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad5)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._mode as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_mode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<_IO_FILE>()))._unused2 as *const _ as usize },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_unused2)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _IO_FILE_plus {
+    _unused: [u8; 0],
+}
+extern "C" {
+    #[link_name = "\u{1}_IO_2_1_stdin_"]
+    pub static mut _IO_2_1_stdin_: _IO_FILE_plus;
+}
+extern "C" {
+    #[link_name = "\u{1}_IO_2_1_stdout_"]
+    pub static mut _IO_2_1_stdout_: _IO_FILE_plus;
+}
+extern "C" {
+    #[link_name = "\u{1}_IO_2_1_stderr_"]
+    pub static mut _IO_2_1_stderr_: _IO_FILE_plus;
+}
+pub type __io_read_fn = ::core::option::Option<
+    unsafe extern "C" fn(
+        __cookie: *mut cty::c_void,
+        __buf: *mut cty::c_char,
+        __nbytes: usize,
+    ) -> __ssize_t,
+>;
+pub type __io_write_fn = ::core::option::Option<
+    unsafe extern "C" fn(
+        __cookie: *mut cty::c_void,
+        __buf: *const cty::c_char,
+        __n: usize,
+    ) -> __ssize_t,
+>;
+pub type __io_seek_fn = ::core::option::Option<
+    unsafe extern "C" fn(
+        __cookie: *mut cty::c_void,
+        __pos: *mut __off64_t,
+        __w: cty::c_int,
+    ) -> cty::c_int,
+>;
+pub type __io_close_fn =
+    ::core::option::Option<unsafe extern "C" fn(__cookie: *mut cty::c_void) -> cty::c_int>;
+extern "C" {
+    pub fn __underflow(arg1: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn __uflow(arg1: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn __overflow(arg1: *mut _IO_FILE, arg2: cty::c_int) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_getc(__fp: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_putc(__c: cty::c_int, __fp: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_feof(__fp: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_ferror(__fp: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_peekc_locked(__fp: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_flockfile(arg1: *mut _IO_FILE);
+}
+extern "C" {
+    pub fn _IO_funlockfile(arg1: *mut _IO_FILE);
+}
+extern "C" {
+    pub fn _IO_ftrylockfile(arg1: *mut _IO_FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_vfscanf(
+        arg1: *mut _IO_FILE,
+        arg2: *const cty::c_char,
+        arg3: __gnuc_va_list,
+        arg4: *mut cty::c_int,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_vfprintf(
+        arg1: *mut _IO_FILE,
+        arg2: *const cty::c_char,
+        arg3: __gnuc_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn _IO_padn(arg1: *mut _IO_FILE, arg2: cty::c_int, arg3: __ssize_t) -> __ssize_t;
+}
+extern "C" {
+    pub fn _IO_sgetn(arg1: *mut _IO_FILE, arg2: *mut cty::c_void, arg3: usize) -> usize;
+}
+extern "C" {
+    pub fn _IO_seekoff(
+        arg1: *mut _IO_FILE,
+        arg2: __off64_t,
+        arg3: cty::c_int,
+        arg4: cty::c_int,
+    ) -> __off64_t;
+}
+extern "C" {
+    pub fn _IO_seekpos(arg1: *mut _IO_FILE, arg2: __off64_t, arg3: cty::c_int) -> __off64_t;
+}
+extern "C" {
+    pub fn _IO_free_backup_area(arg1: *mut _IO_FILE);
+}
+pub type off_t = __off_t;
+pub type fpos_t = _G_fpos_t;
+extern "C" {
+    #[link_name = "\u{1}stdin"]
+    pub static mut stdin: *mut _IO_FILE;
+}
+extern "C" {
+    #[link_name = "\u{1}stdout"]
+    pub static mut stdout: *mut _IO_FILE;
+}
+extern "C" {
+    #[link_name = "\u{1}stderr"]
+    pub static mut stderr: *mut _IO_FILE;
+}
+extern "C" {
+    pub fn remove(__filename: *const cty::c_char) -> cty::c_int;
+}
+extern "C" {
+    pub fn rename(__old: *const cty::c_char, __new: *const cty::c_char) -> cty::c_int;
+}
+extern "C" {
+    pub fn renameat(
+        __oldfd: cty::c_int,
+        __old: *const cty::c_char,
+        __newfd: cty::c_int,
+        __new: *const cty::c_char,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn tmpfile() -> *mut FILE;
+}
+extern "C" {
+    pub fn tmpnam(__s: *mut cty::c_char) -> *mut cty::c_char;
+}
+extern "C" {
+    pub fn tmpnam_r(__s: *mut cty::c_char) -> *mut cty::c_char;
+}
+extern "C" {
+    pub fn tempnam(__dir: *const cty::c_char, __pfx: *const cty::c_char) -> *mut cty::c_char;
+}
+extern "C" {
+    pub fn fclose(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fflush(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fflush_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fopen(__filename: *const cty::c_char, __modes: *const cty::c_char) -> *mut FILE;
+}
+extern "C" {
+    pub fn freopen(
+        __filename: *const cty::c_char,
+        __modes: *const cty::c_char,
+        __stream: *mut FILE,
+    ) -> *mut FILE;
+}
+extern "C" {
+    pub fn fdopen(__fd: cty::c_int, __modes: *const cty::c_char) -> *mut FILE;
+}
+extern "C" {
+    pub fn fmemopen(__s: *mut cty::c_void, __len: usize, __modes: *const cty::c_char) -> *mut FILE;
+}
+extern "C" {
+    pub fn open_memstream(__bufloc: *mut *mut cty::c_char, __sizeloc: *mut usize) -> *mut FILE;
+}
+extern "C" {
+    pub fn setbuf(__stream: *mut FILE, __buf: *mut cty::c_char);
+}
+extern "C" {
+    pub fn setvbuf(
+        __stream: *mut FILE,
+        __buf: *mut cty::c_char,
+        __modes: cty::c_int,
+        __n: usize,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn setbuffer(__stream: *mut FILE, __buf: *mut cty::c_char, __size: usize);
+}
+extern "C" {
+    pub fn setlinebuf(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn fprintf(__stream: *mut FILE, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn printf(__format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn sprintf(__s: *mut cty::c_char, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn vfprintf(
+        __s: *mut FILE,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn vprintf(__format: *const cty::c_char, __arg: __builtin_va_list) -> cty::c_int;
+}
+extern "C" {
+    pub fn vsprintf(
+        __s: *mut cty::c_char,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn snprintf(
+        __s: *mut cty::c_char,
+        __maxlen: cty::c_uint,
+        __format: *const cty::c_char,
+        ...
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn vsnprintf(
+        __s: *mut cty::c_char,
+        __maxlen: cty::c_uint,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn vdprintf(
+        __fd: cty::c_int,
+        __fmt: *const cty::c_char,
+        __arg: __gnuc_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn dprintf(__fd: cty::c_int, __fmt: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn fscanf(__stream: *mut FILE, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn scanf(__format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn sscanf(__s: *const cty::c_char, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_fscanf"]
+    pub fn fscanf1(__stream: *mut FILE, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_scanf"]
+    pub fn scanf1(__format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_sscanf"]
+    pub fn sscanf1(__s: *const cty::c_char, __format: *const cty::c_char, ...) -> cty::c_int;
+}
+extern "C" {
+    pub fn vfscanf(
+        __s: *mut FILE,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn vscanf(__format: *const cty::c_char, __arg: __builtin_va_list) -> cty::c_int;
+}
+extern "C" {
+    pub fn vsscanf(
+        __s: *const cty::c_char,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_vfscanf"]
+    pub fn vfscanf1(
+        __s: *mut FILE,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_vscanf"]
+    pub fn vscanf1(__format: *const cty::c_char, __arg: __builtin_va_list) -> cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}__isoc99_vsscanf"]
+    pub fn vsscanf1(
+        __s: *const cty::c_char,
+        __format: *const cty::c_char,
+        __arg: __builtin_va_list,
+    ) -> cty::c_int;
+}
+extern "C" {
+    pub fn fgetc(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn getc(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn getchar() -> cty::c_int;
+}
+extern "C" {
+    pub fn getc_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn getchar_unlocked() -> cty::c_int;
+}
+extern "C" {
+    pub fn fgetc_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fputc(__c: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn putc(__c: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn putchar(__c: cty::c_int) -> cty::c_int;
+}
+extern "C" {
+    pub fn fputc_unlocked(__c: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn putc_unlocked(__c: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn putchar_unlocked(__c: cty::c_int) -> cty::c_int;
+}
+extern "C" {
+    pub fn getw(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn putw(__w: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fgets(__s: *mut cty::c_char, __n: cty::c_int, __stream: *mut FILE) -> *mut cty::c_char;
+}
+extern "C" {
+    pub fn __getdelim(
+        __lineptr: *mut *mut cty::c_char,
+        __n: *mut usize,
+        __delimiter: cty::c_int,
+        __stream: *mut FILE,
+    ) -> __ssize_t;
+}
+extern "C" {
+    pub fn getdelim(
+        __lineptr: *mut *mut cty::c_char,
+        __n: *mut usize,
+        __delimiter: cty::c_int,
+        __stream: *mut FILE,
+    ) -> __ssize_t;
+}
+extern "C" {
+    pub fn getline(
+        __lineptr: *mut *mut cty::c_char,
+        __n: *mut usize,
+        __stream: *mut FILE,
+    ) -> __ssize_t;
+}
+extern "C" {
+    pub fn fputs(__s: *const cty::c_char, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn puts(__s: *const cty::c_char) -> cty::c_int;
+}
+extern "C" {
+    pub fn ungetc(__c: cty::c_int, __stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fread(
+        __ptr: *mut cty::c_void,
+        __size: cty::c_uint,
+        __n: cty::c_uint,
+        __stream: *mut FILE,
+    ) -> cty::c_uint;
+}
+extern "C" {
+    pub fn fwrite(
+        __ptr: *const cty::c_void,
+        __size: cty::c_uint,
+        __n: cty::c_uint,
+        __s: *mut FILE,
+    ) -> cty::c_uint;
+}
+extern "C" {
+    pub fn fread_unlocked(
+        __ptr: *mut cty::c_void,
+        __size: usize,
+        __n: usize,
+        __stream: *mut FILE,
+    ) -> usize;
+}
+extern "C" {
+    pub fn fwrite_unlocked(
+        __ptr: *const cty::c_void,
+        __size: usize,
+        __n: usize,
+        __stream: *mut FILE,
+    ) -> usize;
+}
+extern "C" {
+    pub fn fseek(__stream: *mut FILE, __off: cty::c_long, __whence: cty::c_int) -> cty::c_int;
+}
+extern "C" {
+    pub fn ftell(__stream: *mut FILE) -> cty::c_long;
+}
+extern "C" {
+    pub fn rewind(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn fseeko(__stream: *mut FILE, __off: __off_t, __whence: cty::c_int) -> cty::c_int;
+}
+extern "C" {
+    pub fn ftello(__stream: *mut FILE) -> __off_t;
+}
+extern "C" {
+    pub fn fgetpos(__stream: *mut FILE, __pos: *mut fpos_t) -> cty::c_int;
+}
+extern "C" {
+    pub fn fsetpos(__stream: *mut FILE, __pos: *const fpos_t) -> cty::c_int;
+}
+extern "C" {
+    pub fn clearerr(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn feof(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn ferror(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn clearerr_unlocked(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn feof_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn ferror_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn perror(__s: *const cty::c_char);
+}
+extern "C" {
+    #[link_name = "\u{1}sys_nerr"]
+    pub static mut sys_nerr: cty::c_int;
+}
+extern "C" {
+    #[link_name = "\u{1}sys_errlist"]
+    pub static mut sys_errlist: [*const cty::c_char; 0usize];
+}
+extern "C" {
+    pub fn fileno(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn fileno_unlocked(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn popen(__command: *const cty::c_char, __modes: *const cty::c_char) -> *mut FILE;
+}
+extern "C" {
+    pub fn pclose(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn ctermid(__s: *mut cty::c_char) -> *mut cty::c_char;
+}
+extern "C" {
+    pub fn flockfile(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn ftrylockfile(__stream: *mut FILE) -> cty::c_int;
+}
+extern "C" {
+    pub fn funlockfile(__stream: *mut FILE);
+}
+extern "C" {
+    pub fn __errno_location() -> *mut cty::c_int;
+}
 pub type wchar_t = cty::c_int;
 #[repr(C)]
+#[repr(align(8))]
 #[derive(Debug, Copy, Clone)]
 pub struct max_align_t {
     pub __clang_max_align_nonce1: cty::c_longlong,
@@ -1028,6 +2278,11 @@ fn bindgen_test_layout_max_align_t() {
         ::core::mem::size_of::<max_align_t>(),
         24usize,
         concat!("Size of: ", stringify!(max_align_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<max_align_t>(),
+        8usize,
+        concat!("Alignment of ", stringify!(max_align_t))
     );
     assert_eq!(
         unsafe {
@@ -1054,69 +2309,24 @@ fn bindgen_test_layout_max_align_t() {
         )
     );
 }
-pub type FILE = cty::c_int;
-extern "C" {
-    pub fn printf(fmt: *const cty::c_char, ...) -> cty::c_int;
-}
-extern "C" {
-    pub fn snprintf(s: *mut cty::c_char, len: usize, fmt: *const cty::c_char, ...) -> cty::c_int;
-}
-extern "C" {
-    pub fn sprintf(s: *mut cty::c_char, fmt: *const cty::c_char, ...) -> cty::c_int;
-}
-extern "C" {
-    pub fn fprintf(stream: *mut FILE, format: *const cty::c_char, ...) -> cty::c_int;
-}
-extern "C" {
-    pub fn vprintf(fmt: *const cty::c_char, list: va_list) -> cty::c_int;
-}
-extern "C" {
-    pub fn vsnprintf(
-        s: *mut cty::c_char,
-        len: usize,
-        fmt: *const cty::c_char,
-        list: va_list,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn vsprintf(s: *mut cty::c_char, fmt: *const cty::c_char, list: va_list) -> cty::c_int;
-}
-extern "C" {
-    pub fn vfprintf(stream: *mut FILE, format: *const cty::c_char, ap: va_list) -> cty::c_int;
-}
-extern "C" {
-    pub fn puts(s: *const cty::c_char) -> cty::c_int;
-}
-extern "C" {
-    pub fn fputc(c: cty::c_int, stream: *mut FILE) -> cty::c_int;
-}
-extern "C" {
-    pub fn fputs(s: *const cty::c_char, stream: *mut FILE) -> cty::c_int;
-}
-extern "C" {
-    pub fn fwrite(
-        ptr: *const cty::c_void,
-        size: usize,
-        nitems: usize,
-        stream: *mut FILE,
-    ) -> cty::c_uint;
-}
-pub type int_fast8_t = cty::c_int;
-pub type int_fast16_t = cty::c_int;
-pub type int_fast32_t = cty::c_int;
-pub type int_fast64_t = cty::c_longlong;
 pub type int_least8_t = cty::c_schar;
 pub type int_least16_t = cty::c_short;
 pub type int_least32_t = cty::c_int;
 pub type int_least64_t = cty::c_longlong;
-pub type uint_fast8_t = cty::c_uint;
-pub type uint_fast16_t = cty::c_uint;
-pub type uint_fast32_t = cty::c_uint;
-pub type uint_fast64_t = cty::c_ulonglong;
 pub type uint_least8_t = cty::c_uchar;
 pub type uint_least16_t = cty::c_ushort;
 pub type uint_least32_t = cty::c_uint;
 pub type uint_least64_t = cty::c_ulonglong;
+pub type int_fast8_t = cty::c_schar;
+pub type int_fast16_t = cty::c_int;
+pub type int_fast32_t = cty::c_int;
+pub type int_fast64_t = cty::c_longlong;
+pub type uint_fast8_t = cty::c_uchar;
+pub type uint_fast16_t = cty::c_uint;
+pub type uint_fast32_t = cty::c_uint;
+pub type uint_fast64_t = cty::c_ulonglong;
+pub type intmax_t = __intmax_t;
+pub type uintmax_t = __uintmax_t;
 pub type s8_t = cty::c_schar;
 pub type s16_t = cty::c_short;
 pub type s32_t = cty::c_int;
@@ -1125,3381 +2335,6 @@ pub type u8_t = cty::c_uchar;
 pub type u16_t = cty::c_ushort;
 pub type u32_t = cty::c_uint;
 pub type u64_t = cty::c_ulonglong;
-extern "C" {
-    pub fn hdlr_aio_cmp_disable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_aio_cmp_get_pending_int(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_err_check(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_poll_in(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_poll_out(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_configure(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_config_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_tx_enable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_tx_disable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_rx_enable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_rx_disable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_err_enable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_err_disable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_is_pending(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_irq_update(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_line_ctrl_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_line_ctrl_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_uart_drv_cmd(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_sensor_attr_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_sensor_sample_fetch(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_sensor_sample_fetch_chan(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_sensor_channel_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_entropy_get_entropy(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_dma_start(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_dma_stop(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_ipm_send(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_ipm_max_data_size_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_ipm_max_id_val_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_ipm_set_enabled(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_led_blink(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_led_set_brightness(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_led_on(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_led_off(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_can_send(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_can_attach_msgq(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_can_attach_isr(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_can_detach(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_can_configure(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_spi_transceive(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_spi_release(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_config(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_write(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_enable_callback(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_disable_callback(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_gpio_get_pending_int(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_counter_start(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_counter_stop(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_counter_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_counter_get_pending_int(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2s_configure(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2s_buf_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2s_buf_write(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2s_trigger(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_object_access_grant(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_object_release(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_object_alloc(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_create(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sleep(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_busy_wait(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_yield(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_wakeup(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_current_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_abort(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_start(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_priority_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_priority_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_deadline_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_suspend(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_resume(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_is_preempt_thread(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_custom_data_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_custom_data_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_name_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_thread_name_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_start(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_stop(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_status_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_status_sync(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_remaining_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_user_data_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_timer_user_data_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_uptime_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_uptime_get_32(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_cancel_wait(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_alloc_append(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_alloc_prepend(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_is_empty(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_peek_head(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_queue_peek_tail(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_stack_alloc_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_stack_push(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_stack_pop(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_mutex_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_mutex_lock(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_mutex_unlock(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sem_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sem_take(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sem_give(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sem_reset(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_sem_count_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_alert_recv(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_alert_send(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_alloc_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_put(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_peek(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_purge(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_num_free_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_get_attrs(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_msgq_num_used_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_pipe_alloc_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_pipe_put(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_pipe_get(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_poll(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_poll_signal_init(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_poll_signal_reset(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_poll_signal_check(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_poll_signal_raise(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_k_str_out(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_configure(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_transfer(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_slave_register(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_slave_unregister(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_slave_driver_register(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_i2c_slave_driver_unregister(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_device_get_binding(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_pwm_pin_set_cycles(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_pwm_get_cycles_per_sec(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_rtc_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_rtc_enable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_rtc_disable(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_rtc_set_alarm(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_rtc_get_pending_int(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_write(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_erase(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_write_protection_set(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_get_page_info_by_offs(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_get_page_info_by_idx(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_get_page_count(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_flash_get_write_block_size(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_z_errno(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr__zephyr_read(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr__zephyr_write(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr__zephyr_fputc(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr__zephyr_fwrite(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_socket(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_close(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_bind(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_connect(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_listen(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_accept(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_sendto(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_recvfrom(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_fcntl(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_poll(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_zsock_inet_pton(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-extern "C" {
-    pub fn hdlr_z_zsock_getaddrinfo_internal(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t;
-}
-#[doc = " @typedef _k_syscall_handler_t"]
-#[doc = " @brief System call handler function type"]
-#[doc = ""]
-#[doc = " These are kernel-side skeleton functions for system calls. They are"]
-#[doc = " necessary to sanitize the arguments passed into the system call:"]
-#[doc = ""]
-#[doc = " - Any kernel object or device pointers are validated with _SYSCALL_IS_OBJ()"]
-#[doc = " - Any memory buffers passed in are checked to ensure that the calling thread"]
-#[doc = "   actually has access to them"]
-#[doc = " - Many kernel calls do no sanity checking of parameters other than"]
-#[doc = "   assertions. The handler must check all of these conditions using"]
-#[doc = "   _SYSCALL_ASSERT()"]
-#[doc = " - If the system call has more than 6 arguments, then arg6 will be a pointer"]
-#[doc = "   to some struct containing arguments 6+. The struct itself needs to be"]
-#[doc = "   validated like any other buffer passed in from userspace, and its members"]
-#[doc = "   individually validated (if necessary) and then passed to the real"]
-#[doc = "   implementation like normal arguments"]
-#[doc = ""]
-#[doc = " Even if the system call implementation has no return value, these always"]
-#[doc = " return something, even 0, to prevent register leakage to userspace."]
-#[doc = ""]
-#[doc = " Once everything has been validated, the real implementation will be executed."]
-#[doc = ""]
-#[doc = " @param arg1 system call argument 1"]
-#[doc = " @param arg2 system call argument 2"]
-#[doc = " @param arg3 system call argument 3"]
-#[doc = " @param arg4 system call argument 4"]
-#[doc = " @param arg5 system call argument 5"]
-#[doc = " @param arg6 system call argument 6"]
-#[doc = " @param ssf System call stack frame pointer. Used to generate kernel oops"]
-#[doc = "            via _arch_syscall_oops_at(). Contents are arch-specific."]
-#[doc = " @return system call return value, or 0 if the system call implementation"]
-#[doc = "         return void"]
-#[doc = ""]
-pub type _k_syscall_handler_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        arg4: u32_t,
-        arg5: u32_t,
-        arg6: u32_t,
-        ssf: *mut cty::c_void,
-    ) -> u32_t,
->;
-extern "C" {
-    pub fn _impl_z_errno() -> *mut cty::c_int;
-}
-pub type off_t = cty::c_long;
-extern "C" {
-    pub fn strcpy(d: *mut cty::c_char, s: *const cty::c_char) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strncpy(d: *mut cty::c_char, s: *const cty::c_char, n: usize) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strchr(s: *const cty::c_char, c: cty::c_int) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strrchr(s: *const cty::c_char, c: cty::c_int) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strlen(s: *const cty::c_char) -> cty::c_uint;
-}
-extern "C" {
-    pub fn strcmp(s1: *const cty::c_char, s2: *const cty::c_char) -> cty::c_int;
-}
-extern "C" {
-    pub fn strncmp(s1: *const cty::c_char, s2: *const cty::c_char, n: usize) -> cty::c_int;
-}
-extern "C" {
-    pub fn strcat(dest: *mut cty::c_char, src: *const cty::c_char) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strncat(d: *mut cty::c_char, s: *const cty::c_char, n: usize) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn strstr(s: *const cty::c_char, find: *const cty::c_char) -> *mut cty::c_char;
-}
-extern "C" {
-    pub fn memcmp(m1: *const cty::c_void, m2: *const cty::c_void, n: usize) -> cty::c_int;
-}
-extern "C" {
-    pub fn memmove(d: *mut cty::c_void, s: *const cty::c_void, n: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn memcpy(d: *mut cty::c_void, s: *const cty::c_void, n: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn memset(buf: *mut cty::c_void, c: cty::c_int, n: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn memchr(s: *const cty::c_void, c: cty::c_uchar, n: usize) -> *mut cty::c_void;
-}
-pub const net_link_type_NET_LINK_UNKNOWN: net_link_type = 0;
-pub const net_link_type_NET_LINK_IEEE802154: net_link_type = 1;
-pub const net_link_type_NET_LINK_BLUETOOTH: net_link_type = 2;
-pub const net_link_type_NET_LINK_ETHERNET: net_link_type = 3;
-pub const net_link_type_NET_LINK_DUMMY: net_link_type = 4;
-#[doc = " Type of the link address. This indicates the network technology that this"]
-#[doc = " address is used in. Note that in order to save space we store the value"]
-#[doc = " into a u8_t variable, so please do not introduce any values > 255 in"]
-#[doc = " this enum."]
-pub type net_link_type = u8;
-#[doc = "  @brief Hardware link address structure"]
-#[doc = ""]
-#[doc = "  Used to hold the link address information"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_linkaddr {
-    #[doc = " The array of byte representing the address"]
-    pub addr: *mut u8_t,
-    #[doc = " Length of that address array"]
-    pub len: u8_t,
-    #[doc = " What kind of address is this for"]
-    pub type_: u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_linkaddr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_linkaddr>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_linkaddr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_linkaddr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_linkaddr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr>())).addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr),
-            "::",
-            stringify!(addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr>())).len as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr>())).type_ as *const _ as usize },
-        5usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr),
-            "::",
-            stringify!(type_)
-        )
-    );
-}
-#[doc = "  @brief Hardware link address structure"]
-#[doc = ""]
-#[doc = "  Used to hold the link address information. This variant is needed"]
-#[doc = "  when we have to store the link layer address."]
-#[doc = ""]
-#[doc = "  Note that you cannot cast this to net_linkaddr as u8_t * is"]
-#[doc = "  handled differently than u8_t addr[] and the fields are purposely"]
-#[doc = "  in a different order."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_linkaddr_storage {
-    #[doc = " What kind of address is this for"]
-    pub type_: u8_t,
-    #[doc = " The real length of the ll address."]
-    pub len: u8_t,
-    #[doc = " The array of bytes representing the address"]
-    pub addr: [u8_t; 6usize],
-}
-#[test]
-fn bindgen_test_layout_net_linkaddr_storage() {
-    assert_eq!(
-        ::core::mem::size_of::<net_linkaddr_storage>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_linkaddr_storage))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_linkaddr_storage>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_linkaddr_storage))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr_storage>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr_storage),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr_storage>())).len as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr_storage),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_linkaddr_storage>())).addr as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_linkaddr_storage),
-            "::",
-            stringify!(addr)
-        )
-    );
-}
-pub const net_ip_protocol_IPPROTO_ICMP: net_ip_protocol = 1;
-pub const net_ip_protocol_IPPROTO_TCP: net_ip_protocol = 6;
-pub const net_ip_protocol_IPPROTO_UDP: net_ip_protocol = 17;
-pub const net_ip_protocol_IPPROTO_ICMPV6: net_ip_protocol = 58;
-#[doc = " Protocol numbers from IANA"]
-pub type net_ip_protocol = u32;
-pub const net_ip_protocol_secure_IPPROTO_TLS_1_0: net_ip_protocol_secure = 256;
-pub const net_ip_protocol_secure_IPPROTO_TLS_1_1: net_ip_protocol_secure = 257;
-pub const net_ip_protocol_secure_IPPROTO_TLS_1_2: net_ip_protocol_secure = 258;
-pub const net_ip_protocol_secure_IPPROTO_DTLS_1_0: net_ip_protocol_secure = 272;
-pub const net_ip_protocol_secure_IPPROTO_DTLS_1_2: net_ip_protocol_secure = 273;
-pub type net_ip_protocol_secure = u32;
-pub const net_lte_protocol_NPROTO_AT: net_lte_protocol = 513;
-pub type net_lte_protocol = u32;
-pub const net_sock_type_SOCK_STREAM: net_sock_type = 1;
-pub const net_sock_type_SOCK_DGRAM: net_sock_type = 2;
-#[doc = " Socket type"]
-pub type net_sock_type = u32;
-#[doc = " IPv6 address structure"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct in6_addr {
-    pub __bindgen_anon_1: in6_addr__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union in6_addr__bindgen_ty_1 {
-    pub s6_addr: [u8_t; 16usize],
-    pub s6_addr16: [u16_t; 8usize],
-    pub s6_addr32: [u32_t; 4usize],
-    _bindgen_union_align: [u32; 4usize],
-}
-#[test]
-fn bindgen_test_layout_in6_addr__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<in6_addr__bindgen_ty_1>(),
-        16usize,
-        concat!("Size of: ", stringify!(in6_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<in6_addr__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(in6_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<in6_addr__bindgen_ty_1>())).s6_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in6_addr__bindgen_ty_1),
-            "::",
-            stringify!(s6_addr)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<in6_addr__bindgen_ty_1>())).s6_addr16 as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in6_addr__bindgen_ty_1),
-            "::",
-            stringify!(s6_addr16)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<in6_addr__bindgen_ty_1>())).s6_addr32 as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in6_addr__bindgen_ty_1),
-            "::",
-            stringify!(s6_addr32)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_in6_addr() {
-    assert_eq!(
-        ::core::mem::size_of::<in6_addr>(),
-        16usize,
-        concat!("Size of: ", stringify!(in6_addr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<in6_addr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(in6_addr))
-    );
-}
-#[doc = " IPv4 address"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct in_addr {
-    pub __bindgen_anon_1: in_addr__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union in_addr__bindgen_ty_1 {
-    pub s4_addr: [u8_t; 4usize],
-    pub s4_addr16: [u16_t; 2usize],
-    pub s4_addr32: [u32_t; 1usize],
-    pub s_addr: u32_t,
-    _bindgen_union_align: u32,
-}
-#[test]
-fn bindgen_test_layout_in_addr__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<in_addr__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(in_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<in_addr__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(in_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<in_addr__bindgen_ty_1>())).s4_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in_addr__bindgen_ty_1),
-            "::",
-            stringify!(s4_addr)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<in_addr__bindgen_ty_1>())).s4_addr16 as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in_addr__bindgen_ty_1),
-            "::",
-            stringify!(s4_addr16)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<in_addr__bindgen_ty_1>())).s4_addr32 as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in_addr__bindgen_ty_1),
-            "::",
-            stringify!(s4_addr32)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<in_addr__bindgen_ty_1>())).s_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(in_addr__bindgen_ty_1),
-            "::",
-            stringify!(s_addr)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_in_addr() {
-    assert_eq!(
-        ::core::mem::size_of::<in_addr>(),
-        4usize,
-        concat!("Size of: ", stringify!(in_addr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<in_addr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(in_addr))
-    );
-}
-pub type sa_family_t = cty::c_ushort;
-pub type socklen_t = usize;
-#[doc = " Note that the sin_port and sin6_port are in network byte order"]
-#[doc = " in various sockaddr* structs."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct sockaddr_in6 {
-    pub sin6_family: sa_family_t,
-    pub sin6_port: u16_t,
-    pub sin6_addr: in6_addr,
-    pub sin6_scope_id: u8_t,
-}
-#[test]
-fn bindgen_test_layout_sockaddr_in6() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_in6>(),
-        24usize,
-        concat!("Size of: ", stringify!(sockaddr_in6))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_in6>(),
-        4usize,
-        concat!("Alignment of ", stringify!(sockaddr_in6))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6>())).sin6_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6),
-            "::",
-            stringify!(sin6_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6>())).sin6_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6),
-            "::",
-            stringify!(sin6_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6>())).sin6_addr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6),
-            "::",
-            stringify!(sin6_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6>())).sin6_scope_id as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6),
-            "::",
-            stringify!(sin6_scope_id)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sockaddr_in6_ptr {
-    pub sin6_family: sa_family_t,
-    pub sin6_port: u16_t,
-    pub sin6_addr: *mut in6_addr,
-    pub sin6_scope_id: u8_t,
-}
-#[test]
-fn bindgen_test_layout_sockaddr_in6_ptr() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_in6_ptr>(),
-        12usize,
-        concat!("Size of: ", stringify!(sockaddr_in6_ptr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_in6_ptr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(sockaddr_in6_ptr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6_ptr>())).sin6_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6_ptr),
-            "::",
-            stringify!(sin6_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6_ptr>())).sin6_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6_ptr),
-            "::",
-            stringify!(sin6_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6_ptr>())).sin6_addr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6_ptr),
-            "::",
-            stringify!(sin6_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in6_ptr>())).sin6_scope_id as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in6_ptr),
-            "::",
-            stringify!(sin6_scope_id)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct sockaddr_in {
-    pub sin_family: sa_family_t,
-    pub sin_port: u16_t,
-    pub sin_addr: in_addr,
-}
-#[test]
-fn bindgen_test_layout_sockaddr_in() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_in>(),
-        8usize,
-        concat!("Size of: ", stringify!(sockaddr_in))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_in>(),
-        4usize,
-        concat!("Alignment of ", stringify!(sockaddr_in))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in>())).sin_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in),
-            "::",
-            stringify!(sin_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in>())).sin_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in),
-            "::",
-            stringify!(sin_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in>())).sin_addr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in),
-            "::",
-            stringify!(sin_addr)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sockaddr_in_ptr {
-    pub sin_family: sa_family_t,
-    pub sin_port: u16_t,
-    pub sin_addr: *mut in_addr,
-}
-#[test]
-fn bindgen_test_layout_sockaddr_in_ptr() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_in_ptr>(),
-        8usize,
-        concat!("Size of: ", stringify!(sockaddr_in_ptr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_in_ptr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(sockaddr_in_ptr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in_ptr>())).sin_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in_ptr),
-            "::",
-            stringify!(sin_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in_ptr>())).sin_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in_ptr),
-            "::",
-            stringify!(sin_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_in_ptr>())).sin_addr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_in_ptr),
-            "::",
-            stringify!(sin_addr)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sockaddr {
-    pub sa_family: sa_family_t,
-    pub data: [cty::c_char; 6usize],
-}
-#[test]
-fn bindgen_test_layout_sockaddr() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr>(),
-        8usize,
-        concat!("Size of: ", stringify!(sockaddr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr>(),
-        2usize,
-        concat!("Alignment of ", stringify!(sockaddr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr>())).sa_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr),
-            "::",
-            stringify!(sa_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr>())).data as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sockaddr_ptr {
-    pub family: sa_family_t,
-    pub data: [cty::c_char; 6usize],
-}
-#[test]
-fn bindgen_test_layout_sockaddr_ptr() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_ptr>(),
-        8usize,
-        concat!("Size of: ", stringify!(sockaddr_ptr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_ptr>(),
-        2usize,
-        concat!("Alignment of ", stringify!(sockaddr_ptr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_ptr>())).family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_ptr),
-            "::",
-            stringify!(family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_ptr>())).data as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_ptr),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sockaddr_storage {
-    pub ss_family: sa_family_t,
-    pub data: [cty::c_char; 6usize],
-}
-#[test]
-fn bindgen_test_layout_sockaddr_storage() {
-    assert_eq!(
-        ::core::mem::size_of::<sockaddr_storage>(),
-        8usize,
-        concat!("Size of: ", stringify!(sockaddr_storage))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<sockaddr_storage>(),
-        2usize,
-        concat!("Alignment of ", stringify!(sockaddr_storage))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_storage>())).ss_family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_storage),
-            "::",
-            stringify!(ss_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<sockaddr_storage>())).data as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(sockaddr_storage),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_addr {
-    pub family: sa_family_t,
-    pub __bindgen_anon_1: net_addr__bindgen_ty_1,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_addr__bindgen_ty_1 {
-    pub in_addr: in_addr,
-    _bindgen_union_align: u32,
-}
-#[test]
-fn bindgen_test_layout_net_addr__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_addr__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_addr__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_addr__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_addr__bindgen_ty_1>())).in_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_addr__bindgen_ty_1),
-            "::",
-            stringify!(in_addr)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_addr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_addr>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_addr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_addr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_addr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_addr>())).family as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_addr),
-            "::",
-            stringify!(family)
-        )
-    );
-}
-extern "C" {
-    #[link_name = "\u{1}in6addr_any"]
-    pub static in6addr_any: in6_addr;
-}
-extern "C" {
-    #[link_name = "\u{1}in6addr_loopback"]
-    pub static in6addr_loopback: in6_addr;
-}
-pub const net_priority_NET_PRIORITY_BK: net_priority = 1;
-pub const net_priority_NET_PRIORITY_BE: net_priority = 0;
-pub const net_priority_NET_PRIORITY_EE: net_priority = 2;
-pub const net_priority_NET_PRIORITY_CA: net_priority = 3;
-pub const net_priority_NET_PRIORITY_VI: net_priority = 4;
-pub const net_priority_NET_PRIORITY_VO: net_priority = 5;
-pub const net_priority_NET_PRIORITY_IC: net_priority = 6;
-pub const net_priority_NET_PRIORITY_NC: net_priority = 7;
-#[doc = " Network packet priority settings described in IEEE 802.1Q Annex I.1"]
-pub type net_priority = u8;
-#[doc = " IPv6/IPv4 network connection tuple"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_tuple {
-    #[doc = " IPv6/IPv4 remote address"]
-    pub remote_addr: *mut net_addr,
-    #[doc = " IPv6/IPv4 local address"]
-    pub local_addr: *mut net_addr,
-    #[doc = " UDP/TCP remote port"]
-    pub remote_port: u16_t,
-    #[doc = " UDP/TCP local port"]
-    pub local_port: u16_t,
-    #[doc = " IP protocol"]
-    pub ip_proto: net_ip_protocol,
-}
-#[test]
-fn bindgen_test_layout_net_tuple() {
-    assert_eq!(
-        ::core::mem::size_of::<net_tuple>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_tuple))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_tuple>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_tuple))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tuple>())).remote_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tuple),
-            "::",
-            stringify!(remote_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tuple>())).local_addr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tuple),
-            "::",
-            stringify!(local_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tuple>())).remote_port as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tuple),
-            "::",
-            stringify!(remote_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tuple>())).local_port as *const _ as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tuple),
-            "::",
-            stringify!(local_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tuple>())).ip_proto as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tuple),
-            "::",
-            stringify!(ip_proto)
-        )
-    );
-}
-pub const net_addr_type_NET_ADDR_ANY: net_addr_type = 0;
-pub const net_addr_type_NET_ADDR_AUTOCONF: net_addr_type = 1;
-pub const net_addr_type_NET_ADDR_DHCP: net_addr_type = 2;
-pub const net_addr_type_NET_ADDR_MANUAL: net_addr_type = 3;
-pub const net_addr_type_NET_ADDR_OVERRIDABLE: net_addr_type = 4;
-#[doc = " How the network address is assigned to network interface"]
-pub type net_addr_type = u8;
-pub const net_addr_state_NET_ADDR_ANY_STATE: net_addr_state = -1;
-pub const net_addr_state_NET_ADDR_TENTATIVE: net_addr_state = 0;
-pub const net_addr_state_NET_ADDR_PREFERRED: net_addr_state = 1;
-pub const net_addr_state_NET_ADDR_DEPRECATED: net_addr_state = 2;
-#[doc = " What is the current state of the network address"]
-pub type net_addr_state = i8;
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub struct net_ipv6_hdr {
-    pub vtc: u8_t,
-    pub tcflow: u8_t,
-    pub flow: u16_t,
-    pub len: u16_t,
-    pub nexthdr: u8_t,
-    pub hop_limit: u8_t,
-    pub src: in6_addr,
-    pub dst: in6_addr,
-}
-#[test]
-fn bindgen_test_layout_net_ipv6_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ipv6_hdr>(),
-        40usize,
-        concat!("Size of: ", stringify!(net_ipv6_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ipv6_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_ipv6_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).vtc as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(vtc)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).tcflow as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(tcflow)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).flow as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(flow)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).len as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).nexthdr as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(nexthdr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).hop_limit as *const _ as usize },
-        7usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(hop_limit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).src as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(src)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_hdr>())).dst as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_hdr),
-            "::",
-            stringify!(dst)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_ipv6_frag_hdr {
-    pub nexthdr: u8_t,
-    pub reserved: u8_t,
-    pub offset: u16_t,
-    pub id: u32_t,
-}
-#[test]
-fn bindgen_test_layout_net_ipv6_frag_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ipv6_frag_hdr>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_ipv6_frag_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ipv6_frag_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_ipv6_frag_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_frag_hdr>())).nexthdr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_frag_hdr),
-            "::",
-            stringify!(nexthdr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_frag_hdr>())).reserved as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_frag_hdr),
-            "::",
-            stringify!(reserved)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_frag_hdr>())).offset as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_frag_hdr),
-            "::",
-            stringify!(offset)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv6_frag_hdr>())).id as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv6_frag_hdr),
-            "::",
-            stringify!(id)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub struct net_ipv4_hdr {
-    pub vhl: u8_t,
-    pub tos: u8_t,
-    pub len: u16_t,
-    pub id: [u8_t; 2usize],
-    pub offset: [u8_t; 2usize],
-    pub ttl: u8_t,
-    pub proto: u8_t,
-    pub chksum: u16_t,
-    pub src: in_addr,
-    pub dst: in_addr,
-}
-#[test]
-fn bindgen_test_layout_net_ipv4_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ipv4_hdr>(),
-        20usize,
-        concat!("Size of: ", stringify!(net_ipv4_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ipv4_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_ipv4_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).vhl as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(vhl)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).tos as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(tos)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).len as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).id as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(id)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).offset as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(offset)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).ttl as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(ttl)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).proto as *const _ as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(proto)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).chksum as *const _ as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(chksum)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).src as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(src)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ipv4_hdr>())).dst as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ipv4_hdr),
-            "::",
-            stringify!(dst)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_icmp_hdr {
-    pub type_: u8_t,
-    pub code: u8_t,
-    pub chksum: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_icmp_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_icmp_hdr>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_icmp_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_icmp_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_icmp_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_icmp_hdr>())).type_ as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_icmp_hdr),
-            "::",
-            stringify!(type_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_icmp_hdr>())).code as *const _ as usize },
-        1usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_icmp_hdr),
-            "::",
-            stringify!(code)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_icmp_hdr>())).chksum as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_icmp_hdr),
-            "::",
-            stringify!(chksum)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_udp_hdr {
-    pub src_port: u16_t,
-    pub dst_port: u16_t,
-    pub len: u16_t,
-    pub chksum: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_udp_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_udp_hdr>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_udp_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_udp_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_udp_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_udp_hdr>())).src_port as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_udp_hdr),
-            "::",
-            stringify!(src_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_udp_hdr>())).dst_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_udp_hdr),
-            "::",
-            stringify!(dst_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_udp_hdr>())).len as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_udp_hdr),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_udp_hdr>())).chksum as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_udp_hdr),
-            "::",
-            stringify!(chksum)
-        )
-    );
-}
-#[repr(C, packed)]
-#[derive(Debug)]
-pub struct net_tcp_hdr {
-    pub src_port: u16_t,
-    pub dst_port: u16_t,
-    pub seq: [u8_t; 4usize],
-    pub ack: [u8_t; 4usize],
-    pub offset: u8_t,
-    pub flags: u8_t,
-    pub wnd: [u8_t; 2usize],
-    pub chksum: u16_t,
-    pub urg: [u8_t; 2usize],
-    pub optdata: __IncompleteArrayField<u8_t>,
-}
-#[test]
-fn bindgen_test_layout_net_tcp_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_tcp_hdr>(),
-        20usize,
-        concat!("Size of: ", stringify!(net_tcp_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_tcp_hdr>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_tcp_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).src_port as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(src_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).dst_port as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(dst_port)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).seq as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(seq)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).ack as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(ack)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).offset as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(offset)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).flags as *const _ as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(flags)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).wnd as *const _ as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(wnd)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).chksum as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(chksum)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).urg as *const _ as usize },
-        18usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(urg)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_tcp_hdr>())).optdata as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_tcp_hdr),
-            "::",
-            stringify!(optdata)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv6 address belongs to one of the interfaces."]
-    #[doc = ""]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = " @param iface Pointer to interface is returned"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface address, NULL if not found."]
-    pub fn net_if_ipv6_addr_lookup(
-        addr: *const in6_addr,
-        iface: *mut *mut net_if,
-    ) -> *mut net_if_addr;
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv6 multicast address belongs to a specific interface"]
-    #[doc = " or one of the interfaces."]
-    #[doc = ""]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = " @param iface If *iface is null, then pointer to interface is returned,"]
-    #[doc = " otherwise the *iface value needs to be matched."]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface multicast address, NULL if not found."]
-    pub fn net_if_ipv6_maddr_lookup(
-        addr: *const in6_addr,
-        iface: *mut *mut net_if,
-    ) -> *mut net_if_mcast_addr;
-}
-extern "C" {
-    #[doc = " @brief Return pointer to any (all bits zeros) IPv6 address."]
-    #[doc = ""]
-    #[doc = " @return Any IPv6 address."]
-    pub fn net_ipv6_unspecified_address() -> *const in6_addr;
-}
-extern "C" {
-    #[doc = " @brief Return pointer to any (all bits zeros) IPv4 address."]
-    #[doc = ""]
-    #[doc = " @return Any IPv4 address."]
-    pub fn net_ipv4_unspecified_address() -> *const in_addr;
-}
-extern "C" {
-    #[doc = " @brief Return pointer to broadcast (all bits ones) IPv4 address."]
-    #[doc = ""]
-    #[doc = " @return Broadcast IPv4 address."]
-    pub fn net_ipv4_broadcast_address() -> *const in_addr;
-}
-extern "C" {
-    #[doc = " @brief Check if the given IPv4 address belongs to local subnet."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use. Must be a valid pointer to an interface."]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = ""]
-    #[doc = " @return True if address is part of local subnet, false otherwise."]
-    pub fn net_if_ipv4_addr_mask_cmp(iface: *mut net_if, addr: *const in_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Check if the given IPv4 address is a broadcast address."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use. Must be a valid pointer to an interface."]
-    #[doc = " @param addr IPv4 address, this should be in network byte order"]
-    #[doc = ""]
-    #[doc = " @return True if address is a broadcast address, false otherwise."]
-    pub fn net_if_ipv4_is_addr_bcast(iface: *mut net_if, addr: *const in_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv4 address belongs to one of the interfaces."]
-    #[doc = ""]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = " @param iface Interface is returned"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface address, NULL if not found."]
-    pub fn net_if_ipv4_addr_lookup(
-        addr: *const in_addr,
-        iface: *mut *mut net_if,
-    ) -> *mut net_if_addr;
-}
-extern "C" {
-    #[doc = " @brief Convert a string to IP address."]
-    #[doc = ""]
-    #[doc = " @param family IP address family (AF_INET or AF_INET6)"]
-    #[doc = " @param src IP address in a null terminated string"]
-    #[doc = " @param dst Pointer to struct in_addr if family is AF_INET or"]
-    #[doc = " pointer to struct in6_addr if family is AF_INET6"]
-    #[doc = ""]
-    #[doc = " @note This function doesn\'t do precise error checking,"]
-    #[doc = " do not use for untrusted strings."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_addr_pton(
-        family: sa_family_t,
-        src: *const cty::c_char,
-        dst: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Convert IP address to string form."]
-    #[doc = ""]
-    #[doc = " @param family IP address family (AF_INET or AF_INET6)"]
-    #[doc = " @param src Pointer to struct in_addr if family is AF_INET or"]
-    #[doc = "        pointer to struct in6_addr if family is AF_INET6"]
-    #[doc = " @param dst Buffer for IP address as a null terminated string"]
-    #[doc = " @param size Number of bytes available in the buffer"]
-    #[doc = ""]
-    #[doc = " @return dst pointer if ok, NULL if error"]
-    pub fn net_addr_ntop(
-        family: sa_family_t,
-        src: *const cty::c_void,
-        dst: *mut cty::c_char,
-        size: usize,
-    ) -> *mut cty::c_char;
-}
-extern "C" {
-    #[doc = " @brief Parse a string that contains either IPv4 or IPv6 address"]
-    #[doc = " and optional port, and store the information in user supplied"]
-    #[doc = " sockaddr struct."]
-    #[doc = ""]
-    #[doc = " @details Syntax of the IP address string:"]
-    #[doc = "   192.0.2.1:80"]
-    #[doc = "   192.0.2.42"]
-    #[doc = "   [2001:db8::1]:8080"]
-    #[doc = "   [2001:db8::2]"]
-    #[doc = "   2001:db::42"]
-    #[doc = " Note that the str_len parameter is used to restrict the amount of"]
-    #[doc = " characters that are checked. If the string does not contain port"]
-    #[doc = " number, then the port number in sockaddr is not modified."]
-    #[doc = ""]
-    #[doc = " @param str String that contains the IP address."]
-    #[doc = " @param str_len Length of the string to be parsed."]
-    #[doc = " @param addr Pointer to user supplied struct sockaddr."]
-    #[doc = ""]
-    #[doc = " @return True if parsing could be done, false otherwise."]
-    pub fn net_ipaddr_parse(str: *const cty::c_char, str_len: usize, addr: *mut sockaddr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Convert a string of hex values to array of bytes."]
-    #[doc = ""]
-    #[doc = " @details The syntax of the string is \"ab:02:98:fa:42:01\""]
-    #[doc = ""]
-    #[doc = " @param buf Pointer to memory where the bytes are written."]
-    #[doc = " @param buf_len Length of the memory area."]
-    #[doc = " @param src String of bytes."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_bytes_from_str(
-        buf: *mut u8_t,
-        buf_len: cty::c_int,
-        src: *const cty::c_char,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Convert Tx network packet priority to traffic class so we can place"]
-    #[doc = " the packet into correct Tx queue."]
-    #[doc = ""]
-    #[doc = " @param prio Network priority"]
-    #[doc = ""]
-    #[doc = " @return Tx traffic class that handles that priority network traffic."]
-    pub fn net_tx_priority2tc(prio: net_priority) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Convert Rx network packet priority to traffic class so we can place"]
-    #[doc = " the packet into correct Rx queue."]
-    #[doc = ""]
-    #[doc = " @param prio Network priority"]
-    #[doc = ""]
-    #[doc = " @return Rx traffic class that handles that priority network traffic."]
-    pub fn net_rx_priority2tc(prio: net_priority) -> cty::c_int;
-}
 pub type atomic_t = cty::c_int;
 pub type atomic_val_t = atomic_t;
 #[repr(C)]
@@ -5388,6 +3223,1896 @@ fn bindgen_test_layout__thread_arch() {
 }
 pub type _thread_arch_t = _thread_arch;
 extern "C" {
+    pub fn hdlr_pwm_pin_set_cycles(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_pwm_get_cycles_per_sec(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_dma_start(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_dma_stop(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_aio_cmp_disable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_aio_cmp_get_pending_int(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2s_configure(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2s_buf_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2s_buf_write(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2s_trigger(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_config(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_write(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_enable_callback(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_disable_callback(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_gpio_get_pending_int(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_device_get_binding(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_write(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_erase(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_write_protection_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_get_page_info_by_offs(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_get_page_info_by_idx(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_get_page_count(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_flash_get_write_block_size(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_sensor_attr_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_sensor_sample_fetch(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_sensor_sample_fetch_chan(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_sensor_channel_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_rtc_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_rtc_enable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_rtc_disable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_rtc_set_alarm(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_rtc_get_pending_int(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_led_blink(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_led_set_brightness(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_led_on(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_led_off(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_can_send(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_can_attach_msgq(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_can_attach_isr(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_can_detach(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_can_configure(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_configure(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_transfer(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_slave_register(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_slave_unregister(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_slave_driver_register(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_i2c_slave_driver_unregister(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_spi_transceive(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_spi_release(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_ipm_send(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_ipm_max_data_size_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_ipm_max_id_val_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_ipm_set_enabled(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_object_access_grant(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_object_release(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_object_alloc(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_create(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sleep(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_busy_wait(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_yield(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_wakeup(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_current_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_abort(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_start(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_priority_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_priority_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_deadline_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_suspend(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_resume(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_is_preempt_thread(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_custom_data_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_custom_data_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_name_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_thread_name_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_start(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_stop(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_status_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_status_sync(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_remaining_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_user_data_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_timer_user_data_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_uptime_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_uptime_get_32(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_cancel_wait(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_alloc_append(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_alloc_prepend(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_is_empty(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_peek_head(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_queue_peek_tail(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_stack_alloc_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_stack_push(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_stack_pop(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_mutex_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_mutex_lock(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_mutex_unlock(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sem_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sem_take(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sem_give(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sem_reset(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_sem_count_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_alert_recv(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_alert_send(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_alloc_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_put(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_peek(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_purge(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_num_free_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_get_attrs(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_msgq_num_used_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_pipe_alloc_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_pipe_put(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_pipe_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_poll(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_poll_signal_init(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_poll_signal_reset(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_poll_signal_check(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_poll_signal_raise(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_k_str_out(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_err_check(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_poll_in(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_poll_out(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_configure(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_config_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_tx_enable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_tx_disable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_rx_enable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_rx_disable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_err_enable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_err_disable(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_is_pending(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_irq_update(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_line_ctrl_set(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_line_ctrl_get(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_uart_drv_cmd(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_entropy_get_entropy(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_counter_start(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_counter_stop(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_counter_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_counter_get_pending_int(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr__zephyr_read(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr__zephyr_write(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr__zephyr_fputc(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr__zephyr_fwrite(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_z_errno(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_socket(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_close(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_bind(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_connect(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_listen(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_accept(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_sendto(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_recvfrom(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_fcntl(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_poll(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_zsock_inet_pton(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+extern "C" {
+    pub fn hdlr_z_zsock_getaddrinfo_internal(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t;
+}
+#[doc = " @typedef _k_syscall_handler_t"]
+#[doc = " @brief System call handler function type"]
+#[doc = ""]
+#[doc = " These are kernel-side skeleton functions for system calls. They are"]
+#[doc = " necessary to sanitize the arguments passed into the system call:"]
+#[doc = ""]
+#[doc = " - Any kernel object or device pointers are validated with _SYSCALL_IS_OBJ()"]
+#[doc = " - Any memory buffers passed in are checked to ensure that the calling thread"]
+#[doc = "   actually has access to them"]
+#[doc = " - Many kernel calls do no sanity checking of parameters other than"]
+#[doc = "   assertions. The handler must check all of these conditions using"]
+#[doc = "   _SYSCALL_ASSERT()"]
+#[doc = " - If the system call has more than 6 arguments, then arg6 will be a pointer"]
+#[doc = "   to some struct containing arguments 6+. The struct itself needs to be"]
+#[doc = "   validated like any other buffer passed in from userspace, and its members"]
+#[doc = "   individually validated (if necessary) and then passed to the real"]
+#[doc = "   implementation like normal arguments"]
+#[doc = ""]
+#[doc = " Even if the system call implementation has no return value, these always"]
+#[doc = " return something, even 0, to prevent register leakage to userspace."]
+#[doc = ""]
+#[doc = " Once everything has been validated, the real implementation will be executed."]
+#[doc = ""]
+#[doc = " @param arg1 system call argument 1"]
+#[doc = " @param arg2 system call argument 2"]
+#[doc = " @param arg3 system call argument 3"]
+#[doc = " @param arg4 system call argument 4"]
+#[doc = " @param arg5 system call argument 5"]
+#[doc = " @param arg6 system call argument 6"]
+#[doc = " @param ssf System call stack frame pointer. Used to generate kernel oops"]
+#[doc = "            via _arch_syscall_oops_at(). Contents are arch-specific."]
+#[doc = " @return system call return value, or 0 if the system call implementation"]
+#[doc = "         return void"]
+#[doc = ""]
+pub type _k_syscall_handler_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        arg1: u32_t,
+        arg2: u32_t,
+        arg3: u32_t,
+        arg4: u32_t,
+        arg5: u32_t,
+        arg6: u32_t,
+        ssf: *mut cty::c_void,
+    ) -> u32_t,
+>;
+pub type __gwchar_t = cty::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct imaxdiv_t {
+    pub quot: cty::c_longlong,
+    pub rem: cty::c_longlong,
+}
+#[test]
+fn bindgen_test_layout_imaxdiv_t() {
+    assert_eq!(
+        ::core::mem::size_of::<imaxdiv_t>(),
+        16usize,
+        concat!("Size of: ", stringify!(imaxdiv_t))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<imaxdiv_t>(),
+        4usize,
+        concat!("Alignment of ", stringify!(imaxdiv_t))
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<imaxdiv_t>())).quot as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(imaxdiv_t),
+            "::",
+            stringify!(quot)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::core::ptr::null::<imaxdiv_t>())).rem as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(imaxdiv_t),
+            "::",
+            stringify!(rem)
+        )
+    );
+}
+extern "C" {
+    pub fn imaxabs(__n: intmax_t) -> intmax_t;
+}
+extern "C" {
+    pub fn imaxdiv(__numer: intmax_t, __denom: intmax_t) -> imaxdiv_t;
+}
+extern "C" {
+    pub fn strtoimax(
+        __nptr: *const cty::c_char,
+        __endptr: *mut *mut cty::c_char,
+        __base: cty::c_int,
+    ) -> intmax_t;
+}
+extern "C" {
+    pub fn strtoumax(
+        __nptr: *const cty::c_char,
+        __endptr: *mut *mut cty::c_char,
+        __base: cty::c_int,
+    ) -> uintmax_t;
+}
+extern "C" {
+    pub fn wcstoimax(
+        __nptr: *const __gwchar_t,
+        __endptr: *mut *mut __gwchar_t,
+        __base: cty::c_int,
+    ) -> intmax_t;
+}
+extern "C" {
+    pub fn wcstoumax(
+        __nptr: *const __gwchar_t,
+        __endptr: *mut *mut __gwchar_t,
+        __base: cty::c_int,
+    ) -> uintmax_t;
+}
+extern "C" {
     pub fn printk(fmt: *const cty::c_char, ...);
 }
 extern "C" {
@@ -6022,39 +5747,38 @@ fn bindgen_test_layout__wait_q_t() {
     );
 }
 pub const k_objects_K_OBJ_ANY: k_objects = 0;
-pub const k_objects_K_OBJ_POLL_SIGNAL: k_objects = 1;
-pub const k_objects_K_OBJ_NET_CONTEXT: k_objects = 2;
+pub const k_objects_K_OBJ_ALERT: k_objects = 1;
+pub const k_objects_K_OBJ_MEM_SLAB: k_objects = 2;
 pub const k_objects_K_OBJ_MSGQ: k_objects = 3;
-pub const k_objects_K_OBJ_TIMER: k_objects = 4;
-pub const k_objects_K_OBJ_ALERT: k_objects = 5;
-pub const k_objects_K_OBJ_PIPE: k_objects = 6;
-pub const k_objects_K_OBJ_QUEUE: k_objects = 7;
-pub const k_objects_K_OBJ_MUTEX: k_objects = 8;
+pub const k_objects_K_OBJ_MUTEX: k_objects = 4;
+pub const k_objects_K_OBJ_PIPE: k_objects = 5;
+pub const k_objects_K_OBJ_QUEUE: k_objects = 6;
+pub const k_objects_K_OBJ_POLL_SIGNAL: k_objects = 7;
+pub const k_objects_K_OBJ_SEM: k_objects = 8;
 pub const k_objects_K_OBJ_STACK: k_objects = 9;
-pub const k_objects_K_OBJ_MEM_SLAB: k_objects = 10;
-pub const k_objects_K_OBJ_THREAD: k_objects = 11;
+pub const k_objects_K_OBJ_THREAD: k_objects = 10;
+pub const k_objects_K_OBJ_TIMER: k_objects = 11;
 pub const k_objects_K_OBJ__THREAD_STACK_ELEMENT: k_objects = 12;
-pub const k_objects_K_OBJ_SEM: k_objects = 13;
-pub const k_objects_K_OBJ_DRIVER_ADC: k_objects = 14;
-pub const k_objects_K_OBJ_DRIVER_AIO_CMP: k_objects = 15;
-pub const k_objects_K_OBJ_DRIVER_COUNTER: k_objects = 16;
-pub const k_objects_K_OBJ_DRIVER_CRYPTO: k_objects = 17;
-pub const k_objects_K_OBJ_DRIVER_DMA: k_objects = 18;
-pub const k_objects_K_OBJ_DRIVER_FLASH: k_objects = 19;
-pub const k_objects_K_OBJ_DRIVER_GPIO: k_objects = 20;
-pub const k_objects_K_OBJ_DRIVER_I2C: k_objects = 21;
-pub const k_objects_K_OBJ_DRIVER_I2S: k_objects = 22;
-pub const k_objects_K_OBJ_DRIVER_IPM: k_objects = 23;
-pub const k_objects_K_OBJ_DRIVER_LED: k_objects = 24;
-pub const k_objects_K_OBJ_DRIVER_PINMUX: k_objects = 25;
-pub const k_objects_K_OBJ_DRIVER_PWM: k_objects = 26;
-pub const k_objects_K_OBJ_DRIVER_ENTROPY: k_objects = 27;
-pub const k_objects_K_OBJ_DRIVER_RTC: k_objects = 28;
-pub const k_objects_K_OBJ_DRIVER_SENSOR: k_objects = 29;
-pub const k_objects_K_OBJ_DRIVER_SPI: k_objects = 30;
-pub const k_objects_K_OBJ_DRIVER_UART: k_objects = 31;
+pub const k_objects_K_OBJ_DRIVER_ADC: k_objects = 13;
+pub const k_objects_K_OBJ_DRIVER_AIO_CMP: k_objects = 14;
+pub const k_objects_K_OBJ_DRIVER_COUNTER: k_objects = 15;
+pub const k_objects_K_OBJ_DRIVER_CRYPTO: k_objects = 16;
+pub const k_objects_K_OBJ_DRIVER_DMA: k_objects = 17;
+pub const k_objects_K_OBJ_DRIVER_FLASH: k_objects = 18;
+pub const k_objects_K_OBJ_DRIVER_GPIO: k_objects = 19;
+pub const k_objects_K_OBJ_DRIVER_I2C: k_objects = 20;
+pub const k_objects_K_OBJ_DRIVER_I2S: k_objects = 21;
+pub const k_objects_K_OBJ_DRIVER_IPM: k_objects = 22;
+pub const k_objects_K_OBJ_DRIVER_LED: k_objects = 23;
+pub const k_objects_K_OBJ_DRIVER_PINMUX: k_objects = 24;
+pub const k_objects_K_OBJ_DRIVER_PWM: k_objects = 25;
+pub const k_objects_K_OBJ_DRIVER_ENTROPY: k_objects = 26;
+pub const k_objects_K_OBJ_DRIVER_RTC: k_objects = 27;
+pub const k_objects_K_OBJ_DRIVER_SENSOR: k_objects = 28;
+pub const k_objects_K_OBJ_DRIVER_SPI: k_objects = 29;
+pub const k_objects_K_OBJ_DRIVER_UART: k_objects = 30;
 #[doc = " @endcond"]
-pub const k_objects_K_OBJ_LAST: k_objects = 32;
+pub const k_objects_K_OBJ_LAST: k_objects = 31;
 pub type k_objects = u32;
 #[repr(C, packed)]
 #[derive(Debug, Copy, Clone)]
@@ -6893,7 +6617,6 @@ pub struct k_queue {
 #[derive(Copy, Clone)]
 pub union k_queue__bindgen_ty_1 {
     pub wait_q: _wait_q_t,
-    pub poll_events: sys_dlist_t,
     _bindgen_union_align: [u32; 2usize],
 }
 #[test]
@@ -6916,18 +6639,6 @@ fn bindgen_test_layout_k_queue__bindgen_ty_1() {
             stringify!(k_queue__bindgen_ty_1),
             "::",
             stringify!(wait_q)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<k_queue__bindgen_ty_1>())).poll_events as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(k_queue__bindgen_ty_1),
-            "::",
-            stringify!(poll_events)
         )
     );
 }
@@ -7560,14 +7271,13 @@ pub struct k_sem {
     pub wait_q: _wait_q_t,
     pub count: u32_t,
     pub limit: u32_t,
-    pub poll_events: sys_dlist_t,
     pub __dummy_next: __IncompleteArrayField<u8_t>,
 }
 #[test]
 fn bindgen_test_layout_k_sem() {
     assert_eq!(
         ::core::mem::size_of::<k_sem>(),
-        24usize,
+        16usize,
         concat!("Size of: ", stringify!(k_sem))
     );
     assert_eq!(
@@ -7606,18 +7316,8 @@ fn bindgen_test_layout_k_sem() {
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<k_sem>())).poll_events as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(k_sem),
-            "::",
-            stringify!(poll_events)
-        )
-    );
-    assert_eq!(
         unsafe { &(*(::core::ptr::null::<k_sem>())).__dummy_next as *const _ as usize },
-        24usize,
+        16usize,
         concat!(
             "Offset of field: ",
             stringify!(k_sem),
@@ -7650,7 +7350,7 @@ pub struct k_alert {
 fn bindgen_test_layout_k_alert() {
     assert_eq!(
         ::core::mem::size_of::<k_alert>(),
-        44usize,
+        36usize,
         concat!("Size of: ", stringify!(k_alert))
     );
     assert_eq!(
@@ -7700,7 +7400,7 @@ fn bindgen_test_layout_k_alert() {
     );
     assert_eq!(
         unsafe { &(*(::core::ptr::null::<k_alert>())).__dummy_next as *const _ as usize },
-        44usize,
+        36usize,
         concat!(
             "Offset of field: ",
             stringify!(k_alert),
@@ -7938,10 +7638,10 @@ extern "C" {
 #[doc = " @ingroup kernel_apis"]
 #[doc = " @{"]
 #[repr(C)]
+#[repr(align(4))]
 #[derive(Debug, Copy, Clone)]
 pub struct k_mem_block_id {
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize], u32>,
-    pub __bindgen_align: [u32; 0usize],
 }
 #[test]
 fn bindgen_test_layout_k_mem_block_id() {
@@ -9730,9597 +9430,342 @@ extern "C" {
 extern "C" {
     pub fn _impl_device_get_binding(name: *const cty::c_char) -> *mut device;
 }
-#[doc = " @brief Constant data associated with the source of log messages."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_source_const_data {
-    pub name: *const cty::c_char,
-    pub level: u8_t,
-}
-#[test]
-fn bindgen_test_layout_log_source_const_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_source_const_data>(),
-        8usize,
-        concat!("Size of: ", stringify!(log_source_const_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_source_const_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_source_const_data))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_source_const_data>())).name as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_source_const_data),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_source_const_data>())).level as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_source_const_data),
-            "::",
-            stringify!(level)
-        )
-    );
-}
-#[doc = " @brief Dynamic data associated with the source of log messages."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_source_dynamic_data {
-    pub filters: u32_t,
-}
-#[test]
-fn bindgen_test_layout_log_source_dynamic_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_source_dynamic_data>(),
-        4usize,
-        concat!("Size of: ", stringify!(log_source_dynamic_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_source_dynamic_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_source_dynamic_data))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_source_dynamic_data>())).filters as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_source_dynamic_data),
-            "::",
-            stringify!(filters)
-        )
-    );
-}
-#[doc = " @brief Part of log message header identifying source and level."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_msg_ids {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize], u16>,
-    pub __bindgen_align: [u16; 0usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_ids() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_ids>(),
-        2usize,
-        concat!("Size of: ", stringify!(log_msg_ids))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_ids>(),
-        2usize,
-        concat!("Alignment of ", stringify!(log_msg_ids))
-    );
-}
-impl log_msg_ids {
-    #[inline]
-    pub fn level(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 3u8) as u16) }
-    }
-    #[inline]
-    pub fn set_level(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 3u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn domain_id(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 3u8) as u16) }
-    }
-    #[inline]
-    pub fn set_domain_id(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 3u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn source_id(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(6usize, 10u8) as u16) }
-    }
-    #[inline]
-    pub fn set_source_id(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(6usize, 10u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        level: u16_t,
-        domain_id: u16_t,
-        source_id: u16_t,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize], u16> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize], u16> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 3u8, {
-            let level: u16 = unsafe { ::core::mem::transmute(level) };
-            level as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 3u8, {
-            let domain_id: u16 = unsafe { ::core::mem::transmute(domain_id) };
-            domain_id as u64
-        });
-        __bindgen_bitfield_unit.set(6usize, 10u8, {
-            let source_id: u16 = unsafe { ::core::mem::transmute(source_id) };
-            source_id as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " Part of log message header common to standard and hexdump log message."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_msg_generic_hdr {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize], u16>,
-    pub __bindgen_align: [u16; 0usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_generic_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_generic_hdr>(),
-        2usize,
-        concat!("Size of: ", stringify!(log_msg_generic_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_generic_hdr>(),
-        2usize,
-        concat!("Alignment of ", stringify!(log_msg_generic_hdr))
-    );
-}
-impl log_msg_generic_hdr {
-    #[inline]
-    pub fn type_(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_type(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn ext(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_ext(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn reserved(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 14u8) as u16) }
-    }
-    #[inline]
-    pub fn set_reserved(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 14u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        type_: u16_t,
-        ext: u16_t,
-        reserved: u16_t,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize], u16> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize], u16> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let type_: u16 = unsafe { ::core::mem::transmute(type_) };
-            type_ as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let ext: u16 = unsafe { ::core::mem::transmute(ext) };
-            ext as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 14u8, {
-            let reserved: u16 = unsafe { ::core::mem::transmute(reserved) };
-            reserved as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " Part of log message header specific to standard log message."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_msg_std_hdr {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize], u16>,
-    pub __bindgen_align: [u16; 0usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_std_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_std_hdr>(),
-        2usize,
-        concat!("Size of: ", stringify!(log_msg_std_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_std_hdr>(),
-        2usize,
-        concat!("Alignment of ", stringify!(log_msg_std_hdr))
-    );
-}
-impl log_msg_std_hdr {
-    #[inline]
-    pub fn type_(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_type(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn ext(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_ext(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn reserved(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 10u8) as u16) }
-    }
-    #[inline]
-    pub fn set_reserved(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 10u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn nargs(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(12usize, 4u8) as u16) }
-    }
-    #[inline]
-    pub fn set_nargs(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(12usize, 4u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        type_: u16_t,
-        ext: u16_t,
-        reserved: u16_t,
-        nargs: u16_t,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize], u16> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize], u16> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let type_: u16 = unsafe { ::core::mem::transmute(type_) };
-            type_ as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let ext: u16 = unsafe { ::core::mem::transmute(ext) };
-            ext as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 10u8, {
-            let reserved: u16 = unsafe { ::core::mem::transmute(reserved) };
-            reserved as u64
-        });
-        __bindgen_bitfield_unit.set(12usize, 4u8, {
-            let nargs: u16 = unsafe { ::core::mem::transmute(nargs) };
-            nargs as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " Part of log message header specific to hexdump log message."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct log_msg_hexdump_hdr {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 2usize], u16>,
-    pub __bindgen_align: [u16; 0usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_hexdump_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_hexdump_hdr>(),
-        2usize,
-        concat!("Size of: ", stringify!(log_msg_hexdump_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_hexdump_hdr>(),
-        2usize,
-        concat!("Alignment of ", stringify!(log_msg_hexdump_hdr))
-    );
-}
-impl log_msg_hexdump_hdr {
-    #[inline]
-    pub fn type_(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_type(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn ext(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_ext(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn raw_string(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u16) }
-    }
-    #[inline]
-    pub fn set_raw_string(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn length(&self) -> u16_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 13u8) as u16) }
-    }
-    #[inline]
-    pub fn set_length(&mut self, val: u16_t) {
-        unsafe {
-            let val: u16 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 13u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        type_: u16_t,
-        ext: u16_t,
-        raw_string: u16_t,
-        length: u16_t,
-    ) -> __BindgenBitfieldUnit<[u8; 2usize], u16> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 2usize], u16> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let type_: u16 = unsafe { ::core::mem::transmute(type_) };
-            type_ as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let ext: u16 = unsafe { ::core::mem::transmute(ext) };
-            ext as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let raw_string: u16 = unsafe { ::core::mem::transmute(raw_string) };
-            raw_string as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 13u8, {
-            let length: u16 = unsafe { ::core::mem::transmute(length) };
-            length as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " Log message header structure"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct log_msg_hdr {
-    #[doc = "< Reference counter for tracking message users."]
-    pub ref_cnt: atomic_t,
-    pub params: log_msg_hdr_log_msg_hdr_params,
-    #[doc = "< Identification part of the message."]
-    pub ids: log_msg_ids,
-    #[doc = "< Timestamp."]
-    pub timestamp: u32_t,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_hdr_log_msg_hdr_params {
-    pub generic: log_msg_generic_hdr,
-    pub std: log_msg_std_hdr,
-    pub hexdump: log_msg_hexdump_hdr,
-    pub raw: u16_t,
-    _bindgen_union_align: u16,
-}
-#[test]
-fn bindgen_test_layout_log_msg_hdr_log_msg_hdr_params() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_hdr_log_msg_hdr_params>(),
-        2usize,
-        concat!("Size of: ", stringify!(log_msg_hdr_log_msg_hdr_params))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_hdr_log_msg_hdr_params>(),
-        2usize,
-        concat!("Alignment of ", stringify!(log_msg_hdr_log_msg_hdr_params))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_hdr_log_msg_hdr_params>())).generic as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr_log_msg_hdr_params),
-            "::",
-            stringify!(generic)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_hdr_log_msg_hdr_params>())).std as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr_log_msg_hdr_params),
-            "::",
-            stringify!(std)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_hdr_log_msg_hdr_params>())).hexdump as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr_log_msg_hdr_params),
-            "::",
-            stringify!(hexdump)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_hdr_log_msg_hdr_params>())).raw as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr_log_msg_hdr_params),
-            "::",
-            stringify!(raw)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_log_msg_hdr() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_hdr>(),
-        12usize,
-        concat!("Size of: ", stringify!(log_msg_hdr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_hdr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_hdr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_hdr>())).ref_cnt as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr),
-            "::",
-            stringify!(ref_cnt)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_hdr>())).params as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr),
-            "::",
-            stringify!(params)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_hdr>())).ids as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr),
-            "::",
-            stringify!(ids)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_hdr>())).timestamp as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_hdr),
-            "::",
-            stringify!(timestamp)
-        )
-    );
-}
-#[doc = " @brief Data part of log message."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_head_data {
-    pub args: [u32_t; 3usize],
-    pub bytes: [u8_t; 12usize],
-    _bindgen_union_align: [u32; 3usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_head_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_head_data>(),
-        12usize,
-        concat!("Size of: ", stringify!(log_msg_head_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_head_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_head_data))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_head_data>())).args as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_head_data),
-            "::",
-            stringify!(args)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_head_data>())).bytes as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_head_data),
-            "::",
-            stringify!(bytes)
-        )
-    );
-}
-#[doc = " @brief Data part of extended log message."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct log_msg_ext_head_data {
-    pub next: *mut log_msg_cont,
-    pub data: log_msg_ext_head_data_log_msg_ext_head_data_data,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_ext_head_data_log_msg_ext_head_data_data {
-    pub args: [u32_t; 2usize],
-    pub bytes: [u8_t; 8usize],
-    _bindgen_union_align: [u32; 2usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_ext_head_data_log_msg_ext_head_data_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_ext_head_data_log_msg_ext_head_data_data>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(log_msg_ext_head_data_log_msg_ext_head_data_data)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_ext_head_data_log_msg_ext_head_data_data>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(log_msg_ext_head_data_log_msg_ext_head_data_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_ext_head_data_log_msg_ext_head_data_data>())).args
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_ext_head_data_log_msg_ext_head_data_data),
-            "::",
-            stringify!(args)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_ext_head_data_log_msg_ext_head_data_data>())).bytes
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_ext_head_data_log_msg_ext_head_data_data),
-            "::",
-            stringify!(bytes)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_log_msg_ext_head_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_ext_head_data>(),
-        12usize,
-        concat!("Size of: ", stringify!(log_msg_ext_head_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_ext_head_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_ext_head_data))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_ext_head_data>())).next as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_ext_head_data),
-            "::",
-            stringify!(next)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_ext_head_data>())).data as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_ext_head_data),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[doc = " @brief Log message structure."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct log_msg {
-    #[doc = "< Used by logger core list."]
-    pub next: *mut log_msg,
-    #[doc = "< Message header."]
-    pub hdr: log_msg_hdr,
-    pub str: *const cty::c_char,
-    #[doc = "< Message data."]
-    pub payload: log_msg_log_msg_data,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_log_msg_data {
-    pub single: log_msg_head_data,
-    pub ext: log_msg_ext_head_data,
-    _bindgen_union_align: [u32; 3usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_log_msg_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_log_msg_data>(),
-        12usize,
-        concat!("Size of: ", stringify!(log_msg_log_msg_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_log_msg_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_log_msg_data))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_log_msg_data>())).single as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_log_msg_data),
-            "::",
-            stringify!(single)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_log_msg_data>())).ext as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_log_msg_data),
-            "::",
-            stringify!(ext)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_log_msg() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg>(),
-        32usize,
-        concat!("Size of: ", stringify!(log_msg))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg>())).next as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg),
-            "::",
-            stringify!(next)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg>())).hdr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg),
-            "::",
-            stringify!(hdr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg>())).str as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg),
-            "::",
-            stringify!(str)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg>())).payload as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg),
-            "::",
-            stringify!(payload)
-        )
-    );
-}
-#[doc = " @brief Chunks following message head when message is extended."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct log_msg_cont {
-    #[doc = "< Pointer to the next chunk."]
-    pub next: *mut log_msg_cont,
-    pub payload: log_msg_cont_log_msg_cont_data,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_cont_log_msg_cont_data {
-    pub args: [u32_t; 7usize],
-    pub bytes: [u8_t; 28usize],
-    _bindgen_union_align: [u32; 7usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_cont_log_msg_cont_data() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_cont_log_msg_cont_data>(),
-        28usize,
-        concat!("Size of: ", stringify!(log_msg_cont_log_msg_cont_data))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_cont_log_msg_cont_data>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_cont_log_msg_cont_data))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_cont_log_msg_cont_data>())).args as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_cont_log_msg_cont_data),
-            "::",
-            stringify!(args)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<log_msg_cont_log_msg_cont_data>())).bytes as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_cont_log_msg_cont_data),
-            "::",
-            stringify!(bytes)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_log_msg_cont() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_cont>(),
-        32usize,
-        concat!("Size of: ", stringify!(log_msg_cont))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_cont>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_cont))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_cont>())).next as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_cont),
-            "::",
-            stringify!(next)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_cont>())).payload as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_cont),
-            "::",
-            stringify!(payload)
-        )
-    );
-}
-#[doc = " @brief Log message"]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union log_msg_chunk {
-    pub head: log_msg,
-    pub cont: log_msg_cont,
-    _bindgen_union_align: [u32; 8usize],
-}
-#[test]
-fn bindgen_test_layout_log_msg_chunk() {
-    assert_eq!(
-        ::core::mem::size_of::<log_msg_chunk>(),
-        32usize,
-        concat!("Size of: ", stringify!(log_msg_chunk))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<log_msg_chunk>(),
-        4usize,
-        concat!("Alignment of ", stringify!(log_msg_chunk))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_chunk>())).head as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_chunk),
-            "::",
-            stringify!(head)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<log_msg_chunk>())).cont as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(log_msg_chunk),
-            "::",
-            stringify!(cont)
-        )
-    );
-}
-extern "C" {
-    #[link_name = "\u{1}log_msg_pool"]
-    pub static mut log_msg_pool: k_mem_slab;
-}
-extern "C" {
-    #[doc = " @brief Function for initialization of the log message pool."]
-    pub fn log_msg_pool_init();
-}
-extern "C" {
-    #[doc = " @brief Function for indicating that message is in use."]
-    #[doc = ""]
-    #[doc = "  @details Message can be used (read) by multiple users. Internal reference"]
-    #[doc = "           counter is atomically increased. See @ref log_msg_put."]
-    #[doc = ""]
-    #[doc = "  @param msg Message."]
-    pub fn log_msg_get(msg: *mut log_msg);
-}
-extern "C" {
-    #[doc = " @brief Function for indicating that message is no longer in use."]
-    #[doc = ""]
-    #[doc = "  @details Internal reference counter is atomically decreased. If reference"]
-    #[doc = "           counter equals 0 message is freed."]
-    #[doc = ""]
-    #[doc = "  @param msg Message."]
-    pub fn log_msg_put(msg: *mut log_msg);
-}
-extern "C" {
-    #[doc = " @brief Returns number of arguments in standard log message."]
-    #[doc = ""]
-    #[doc = " @param msg Standard log message."]
-    #[doc = ""]
-    #[doc = " @return Number of arguments."]
-    pub fn log_msg_nargs_get(msg: *mut log_msg) -> u32_t;
-}
-extern "C" {
-    #[doc = " @brief Gets argument from standard log message."]
-    #[doc = ""]
-    #[doc = " @param msg\t\tStandard log message."]
-    #[doc = " @param arg_idx\tArgument index."]
-    #[doc = ""]
-    #[doc = " @return Argument value or 0 if arg_idx exceeds number of arguments in the"]
-    #[doc = "\t   message."]
-    pub fn log_msg_arg_get(msg: *mut log_msg, arg_idx: u32_t) -> u32_t;
-}
-extern "C" {
-    #[doc = " @brief Gets pointer to the unformatted string from standard log message."]
-    #[doc = ""]
-    #[doc = " @param msg Standard log message."]
-    #[doc = ""]
-    #[doc = " @return Pointer to the string."]
-    pub fn log_msg_str_get(msg: *mut log_msg) -> *const cty::c_char;
-}
-extern "C" {
-    #[doc = " @brief Allocates chunks for hexdump message and copies the data."]
-    #[doc = ""]
-    #[doc = "  @details Function resets header and sets following fields:"]
-    #[doc = "\t\t- message type"]
-    #[doc = "\t\t- length"]
-    #[doc = ""]
-    #[doc = "  @note Allocation and partial filling is combined for performance reasons."]
-    #[doc = ""]
-    #[doc = " @param str\t\tString."]
-    #[doc = " @param data\t\tData."]
-    #[doc = " @param length\tData length."]
-    #[doc = ""]
-    #[doc = " @return Pointer to allocated head of the message or NULL"]
-    pub fn log_msg_hexdump_create(
-        str: *const cty::c_char,
-        data: *const u8_t,
-        length: u32_t,
-    ) -> *mut log_msg;
-}
-extern "C" {
-    #[doc = " @brief Put data into hexdump log message."]
-    #[doc = ""]
-    #[doc = " @param[in]\t\tmsg      Message."]
-    #[doc = " @param[in]\t\tdata\t Data to be copied."]
-    #[doc = " @param[in, out]\tlength   Input: requested amount. Output: actual amount."]
-    #[doc = " @param[in]\t\toffset   Offset."]
-    pub fn log_msg_hexdump_data_put(
-        msg: *mut log_msg,
-        data: *mut u8_t,
-        length: *mut usize,
-        offset: usize,
-    );
-}
-extern "C" {
-    #[doc = " @brief Get data from hexdump log message."]
-    #[doc = ""]
-    #[doc = " @param[in]\t\tmsg      Message."]
-    #[doc = " @param[in]\t\tdata\t Buffer for data."]
-    #[doc = " @param[in, out]\tlength   Input: requested amount. Output: actual amount."]
-    #[doc = " @param[in]\t\toffset   Offset."]
-    pub fn log_msg_hexdump_data_get(
-        msg: *mut log_msg,
-        data: *mut u8_t,
-        length: *mut usize,
-        offset: usize,
-    );
-}
-extern "C" {
-    pub fn log_msg_no_space_handle() -> *mut log_msg_chunk;
-}
-extern "C" {
-    #[doc = " @brief Create standard log message with variable number of arguments."]
-    #[doc = ""]
-    #[doc = "  @details Function resets header and sets following fields:"]
-    #[doc = "\t\t- message type"]
-    #[doc = "\t\t- string pointer"]
-    #[doc = "\t\t- number of arguments"]
-    #[doc = "\t\t- arguments"]
-    #[doc = ""]
-    #[doc = "  @param str   String."]
-    #[doc = "  @param args  Array with arguments."]
-    #[doc = "  @param nargs Number of arguments."]
-    #[doc = ""]
-    #[doc = "  @return Pointer to allocated head of the message or NULL."]
-    pub fn log_msg_create_n(
-        str: *const cty::c_char,
-        args: *mut u32_t,
-        nargs: u32_t,
-    ) -> *mut log_msg;
-}
-extern "C" {
-    #[link_name = "\u{1}__log_const_start"]
-    pub static mut __log_const_start: [log_source_const_data; 0usize];
-}
-extern "C" {
-    #[link_name = "\u{1}__log_const_end"]
-    pub static mut __log_const_end: [log_source_const_data; 0usize];
-}
-extern "C" {
-    #[link_name = "\u{1}__log_dynamic_start"]
-    pub static mut __log_dynamic_start: [log_source_dynamic_data; 0usize];
-}
-extern "C" {
-    #[link_name = "\u{1}__log_dynamic_end"]
-    pub static mut __log_dynamic_end: [log_source_dynamic_data; 0usize];
-}
-extern "C" {
-    #[doc = " @brief Standard log with no arguments."]
-    #[doc = ""]
-    #[doc = " @param str           String."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_0(str: *const cty::c_char, src_level: log_msg_ids);
-}
-extern "C" {
-    #[doc = " @brief Standard log with one argument."]
-    #[doc = ""]
-    #[doc = " @param str           String."]
-    #[doc = " @param arg1\t        First argument."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_1(str: *const cty::c_char, arg1: u32_t, src_level: log_msg_ids);
-}
-extern "C" {
-    #[doc = " @brief Standard log with two arguments."]
-    #[doc = ""]
-    #[doc = " @param str           String."]
-    #[doc = " @param arg1\t        First argument."]
-    #[doc = " @param arg2\t        Second argument."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_2(str: *const cty::c_char, arg1: u32_t, arg2: u32_t, src_level: log_msg_ids);
-}
-extern "C" {
-    #[doc = " @brief Standard log with three arguments."]
-    #[doc = ""]
-    #[doc = " @param str           String."]
-    #[doc = " @param arg1\t        First argument."]
-    #[doc = " @param arg2\t        Second argument."]
-    #[doc = " @param arg3\t        Third argument."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_3(
-        str: *const cty::c_char,
-        arg1: u32_t,
-        arg2: u32_t,
-        arg3: u32_t,
-        src_level: log_msg_ids,
-    );
-}
-extern "C" {
-    #[doc = " @brief Standard log with arguments list."]
-    #[doc = ""]
-    #[doc = " @param str\t\tString."]
-    #[doc = " @param args\t\tArray with arguments."]
-    #[doc = " @param narg\t\tNumber of arguments in the array."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_n(str: *const cty::c_char, args: *mut u32_t, narg: u32_t, src_level: log_msg_ids);
-}
-extern "C" {
-    #[doc = " @brief Hexdump log."]
-    #[doc = ""]
-    #[doc = " @param str\t\tString."]
-    #[doc = " @param data\t\tData."]
-    #[doc = " @param length\tData length."]
-    #[doc = " @param src_level\tLog identification."]
-    pub fn log_hexdump(
-        str: *const cty::c_char,
-        data: *const u8_t,
-        length: u32_t,
-        src_level: log_msg_ids,
-    );
-}
-extern "C" {
-    #[doc = " @brief Format and put string into log message."]
-    #[doc = ""]
-    #[doc = " @param fmt\tString to format."]
-    #[doc = " @param ap\tVariable list of arguments."]
-    #[doc = ""]
-    #[doc = " @return Number of bytes processed."]
-    pub fn log_printk(fmt: *const cty::c_char, ap: va_list) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Writes a generic log message to the log."]
-    #[doc = ""]
-    #[doc = " @note This function is intended to be used when porting other log systems."]
-    pub fn log_generic(src_level: log_msg_ids, fmt: *const cty::c_char, ap: va_list);
-}
-extern "C" {
-    #[doc = " @brief Check if address belongs to the memory pool used for transient."]
-    #[doc = ""]
-    #[doc = " @param buf Buffer."]
-    #[doc = ""]
-    #[doc = " @return True if address within the pool, false otherwise."]
-    pub fn log_is_strdup(buf: *mut cty::c_void) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Free allocated buffer."]
-    #[doc = ""]
-    #[doc = " @param buf Buffer."]
-    pub fn log_free(buf: *mut cty::c_void);
-}
-extern "C" {
-    #[doc = " @brief Copy transient string to a buffer from internal, logger pool."]
-    #[doc = ""]
-    #[doc = " Function should be used when transient string is intended to be logged."]
-    #[doc = " Logger allocates a buffer and copies input string returning a pointer to the"]
-    #[doc = " copy. Logger ensures that buffer is freed when logger message is freed."]
-    #[doc = ""]
-    #[doc = " @param str Transient string."]
-    #[doc = ""]
-    #[doc = " @return Copy of the string or default string if buffer could not be"]
-    #[doc = "\t   allocated. String may be truncated if input string does not fit in"]
-    #[doc = "\t   a buffer from the pool (see CONFIG_LOG_STRDUP_MAX_STRING)."]
-    pub fn log_strdup(str: *const cty::c_char) -> *mut cty::c_char;
-}
-extern "C" {
-    #[link_name = "\u{1}log_const_LOG_MODULE_NAME"]
-    pub static log_const_LOG_MODULE_NAME: log_source_const_data;
-}
-extern "C" {
-    #[link_name = "\u{1}log_dynamic_LOG_MODULE_NAME"]
-    pub static mut log_dynamic_LOG_MODULE_NAME: log_source_dynamic_data;
-}
-extern "C" {
-    #[link_name = "\u{1}__log_current_const_data"]
-    pub static mut __log_current_const_data: *const log_source_const_data;
-}
-extern "C" {
-    #[link_name = "\u{1}__log_current_dynamic_data"]
-    pub static mut __log_current_dynamic_data: *mut log_source_dynamic_data;
-}
-pub const __log_level: u32_t = 0;
-pub const net_verdict_NET_OK: net_verdict = 0;
-#[doc = " Packet has been taken care of"]
-pub const net_verdict_NET_CONTINUE: net_verdict = 1;
-#[doc = " Packet has not been touched,"]
-#[doc = "other part should decide about its fate"]
-pub const net_verdict_NET_DROP: net_verdict = 2;
-#[doc = " @brief Net Verdict"]
-pub type net_verdict = u32;
-extern "C" {
-    pub fn net_recv_data(iface: *mut net_if, pkt: *mut net_pkt) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Send data to network."]
-    #[doc = ""]
-    #[doc = " @details Send data to network. This should not be used normally by"]
-    #[doc = " applications as it requires that the pktfer and fragments are properly"]
-    #[doc = " constructed."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error. If <0 is returned, then the caller needs"]
-    #[doc = " to unref the pkt in order to avoid memory leak."]
-    pub fn net_send_data(pkt: *mut net_pkt) -> cty::c_int;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stack_info {
-    pub stack: *mut k_thread_stack_t,
-    pub pretty_name: *const cty::c_char,
-    pub name: *const cty::c_char,
-    pub orig_size: usize,
-    pub size: usize,
-    pub prio: cty::c_int,
-    pub idx: cty::c_int,
-    pub __bindgen_padding_0: u32,
-}
-#[test]
-fn bindgen_test_layout_net_stack_info() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stack_info>(),
-        32usize,
-        concat!("Size of: ", stringify!(net_stack_info))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).stack as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(stack)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).pretty_name as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(pretty_name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).name as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).orig_size as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(orig_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).prio as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(prio)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stack_info>())).idx as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stack_info),
-            "::",
-            stringify!(idx)
-        )
-    );
-}
-#[doc = " @brief Simple network buffer representation."]
+#[doc = " @brief UART controller configuration structure"]
 #[doc = ""]
-#[doc = "  This is a simpler variant of the net_buf object (in fact net_buf uses"]
-#[doc = "  net_buf_simple internally). It doesn\'t provide any kind of reference"]
-#[doc = "  counting, user data, dynamic allocation, or in general the ability to"]
-#[doc = "  pass through kernel objects such as FIFOs."]
-#[doc = ""]
-#[doc = "  The main use of this is for scenarios where the meta-data of the normal"]
-#[doc = "  net_buf isn\'t needed and causes too much overhead. This could be e.g."]
-#[doc = "  when the buffer only needs to be allocated on the stack or when the"]
-#[doc = "  access to and lifetime of the buffer is well controlled and constrained."]
-#[doc = ""]
+#[doc = " @param baudrate  Baudrate setting in bps"]
+#[doc = " @param parity    Parity bit, use @ref uart_config_parity"]
+#[doc = " @param stop_bits Stop bits, use @ref uart_config_stop_bits"]
+#[doc = " @param data_bits Data bits, use @ref uart_config_data_bits"]
+#[doc = " @param flow_ctrl Flow control setting, use @ref uart_config_flow_control"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct net_buf_simple {
-    #[doc = " Pointer to the start of data in the buffer."]
-    pub data: *mut u8_t,
-    #[doc = " Length of the data behind the data pointer."]
-    pub len: u16_t,
-    #[doc = " Amount of data that this buffer can store."]
-    pub size: u16_t,
-    #[doc = " Start of the data storage. Not to be accessed directly"]
-    #[doc = "  (the data pointer should be used instead)."]
-    pub __buf: *mut u8_t,
+pub struct uart_config {
+    pub baudrate: u32_t,
+    pub parity: u8_t,
+    pub stop_bits: u8_t,
+    pub data_bits: u8_t,
+    pub flow_ctrl: u8_t,
 }
 #[test]
-fn bindgen_test_layout_net_buf_simple() {
+fn bindgen_test_layout_uart_config() {
     assert_eq!(
-        ::core::mem::size_of::<net_buf_simple>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_buf_simple))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf_simple>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf_simple))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple>())).data as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_simple),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple>())).len as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_simple),
-            "::",
-            stringify!(len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple>())).size as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_simple),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple>())).__buf as *const _ as usize },
+        ::core::mem::size_of::<uart_config>(),
         8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_simple),
-            "::",
-            stringify!(__buf)
-        )
+        concat!("Size of: ", stringify!(uart_config))
     );
-}
-extern "C" {
-    #[doc = "  @brief Prepare data to be added at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Increments the data length of a buffer to account for more data"]
-    #[doc = "  at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param len Number of bytes to increment the length with."]
-    #[doc = ""]
-    #[doc = "  @return The original tail of the buffer."]
-    pub fn net_buf_simple_add(buf: *mut net_buf_simple, len: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    #[doc = "  @brief Copy bytes from memory to the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Copies the given number of bytes to the end of the buffer. Increments the"]
-    #[doc = "  data length of the  buffer to account for more data at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param mem Location of data to be added."]
-    #[doc = "  @param len Length of data to be added"]
-    #[doc = ""]
-    #[doc = "  @return The original tail of the buffer."]
-    pub fn net_buf_simple_add_mem(
-        buf: *mut net_buf_simple,
-        mem: *const cty::c_void,
-        len: usize,
-    ) -> *mut cty::c_void;
-}
-extern "C" {
-    #[doc = "  @brief Add (8-bit) byte at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds a byte at the end of the buffer. Increments the data length of"]
-    #[doc = "  the  buffer to account for more data at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val byte value to be added."]
-    #[doc = ""]
-    #[doc = "  @return Pointer to the value added"]
-    pub fn net_buf_simple_add_u8(buf: *mut net_buf_simple, val: u8_t) -> *mut u8_t;
-}
-extern "C" {
-    #[doc = "  @brief Add 16-bit value at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 16-bit value in little endian format at the end of buffer."]
-    #[doc = "  Increments the data length of a buffer to account for more data"]
-    #[doc = "  at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 16-bit value to be added."]
-    pub fn net_buf_simple_add_le16(buf: *mut net_buf_simple, val: u16_t);
-}
-extern "C" {
-    #[doc = "  @brief Add 16-bit value at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 16-bit value in big endian format at the end of buffer."]
-    #[doc = "  Increments the data length of a buffer to account for more data"]
-    #[doc = "  at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 16-bit value to be added."]
-    pub fn net_buf_simple_add_be16(buf: *mut net_buf_simple, val: u16_t);
-}
-extern "C" {
-    #[doc = "  @brief Add 32-bit value at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 32-bit value in little endian format at the end of buffer."]
-    #[doc = "  Increments the data length of a buffer to account for more data"]
-    #[doc = "  at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 32-bit value to be added."]
-    pub fn net_buf_simple_add_le32(buf: *mut net_buf_simple, val: u32_t);
-}
-extern "C" {
-    #[doc = "  @brief Add 32-bit value at the end of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 32-bit value in big endian format at the end of buffer."]
-    #[doc = "  Increments the data length of a buffer to account for more data"]
-    #[doc = "  at the end."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 32-bit value to be added."]
-    pub fn net_buf_simple_add_be32(buf: *mut net_buf_simple, val: u32_t);
-}
-extern "C" {
-    #[doc = "  @brief Push data to the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Modifies the data pointer and buffer length to account for more data"]
-    #[doc = "  in the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param len Number of bytes to add to the beginning."]
-    #[doc = ""]
-    #[doc = "  @return The new beginning of the buffer data."]
-    pub fn net_buf_simple_push(buf: *mut net_buf_simple, len: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    #[doc = "  @brief Push 16-bit value to the beginning of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 16-bit value in little endian format to the beginning of the"]
-    #[doc = "  buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 16-bit value to be pushed to the buffer."]
-    pub fn net_buf_simple_push_le16(buf: *mut net_buf_simple, val: u16_t);
-}
-extern "C" {
-    #[doc = "  @brief Push 16-bit value to the beginning of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 16-bit value in big endian format to the beginning of the"]
-    #[doc = "  buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 16-bit value to be pushed to the buffer."]
-    pub fn net_buf_simple_push_be16(buf: *mut net_buf_simple, val: u16_t);
-}
-extern "C" {
-    #[doc = "  @brief Push 8-bit value to the beginning of the buffer"]
-    #[doc = ""]
-    #[doc = "  Adds 8-bit value the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param val 8-bit value to be pushed to the buffer."]
-    pub fn net_buf_simple_push_u8(buf: *mut net_buf_simple, val: u8_t);
-}
-extern "C" {
-    #[doc = "  @brief Remove data from the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Removes data from the beginning of the buffer by modifying the data"]
-    #[doc = "  pointer and buffer length."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to update."]
-    #[doc = "  @param len Number of bytes to remove."]
-    #[doc = ""]
-    #[doc = "  @return New beginning of the buffer data."]
-    pub fn net_buf_simple_pull(buf: *mut net_buf_simple, len: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    #[doc = "  @brief Remove a 8-bit value from the beginning of the buffer"]
-    #[doc = ""]
-    #[doc = "  Same idea as with net_buf_simple_pull(), but a helper for operating"]
-    #[doc = "  on 8-bit values."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer."]
-    #[doc = ""]
-    #[doc = "  @return The 8-bit removed value"]
-    pub fn net_buf_simple_pull_u8(buf: *mut net_buf_simple) -> u8_t;
-}
-extern "C" {
-    #[doc = "  @brief Remove and convert 16 bits from the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Same idea as with net_buf_simple_pull(), but a helper for operating"]
-    #[doc = "  on 16-bit little endian data."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer."]
-    #[doc = ""]
-    #[doc = "  @return 16-bit value converted from little endian to host endian."]
-    pub fn net_buf_simple_pull_le16(buf: *mut net_buf_simple) -> u16_t;
-}
-extern "C" {
-    #[doc = "  @brief Remove and convert 16 bits from the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Same idea as with net_buf_simple_pull(), but a helper for operating"]
-    #[doc = "  on 16-bit big endian data."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer."]
-    #[doc = ""]
-    #[doc = "  @return 16-bit value converted from big endian to host endian."]
-    pub fn net_buf_simple_pull_be16(buf: *mut net_buf_simple) -> u16_t;
-}
-extern "C" {
-    #[doc = "  @brief Remove and convert 32 bits from the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Same idea as with net_buf_simple_pull(), but a helper for operating"]
-    #[doc = "  on 32-bit little endian data."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer."]
-    #[doc = ""]
-    #[doc = "  @return 32-bit value converted from little endian to host endian."]
-    pub fn net_buf_simple_pull_le32(buf: *mut net_buf_simple) -> u32_t;
-}
-extern "C" {
-    #[doc = "  @brief Remove and convert 32 bits from the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  Same idea as with net_buf_simple_pull(), but a helper for operating"]
-    #[doc = "  on 32-bit big endian data."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer."]
-    #[doc = ""]
-    #[doc = "  @return 32-bit value converted from big endian to host endian."]
-    pub fn net_buf_simple_pull_be32(buf: *mut net_buf_simple) -> u32_t;
-}
-extern "C" {
-    #[doc = "  @brief Check buffer headroom."]
-    #[doc = ""]
-    #[doc = "  Check how much free space there is in the beginning of the buffer."]
-    #[doc = ""]
-    #[doc = "  buf A valid pointer on a buffer"]
-    #[doc = ""]
-    #[doc = "  @return Number of bytes available in the beginning of the buffer."]
-    pub fn net_buf_simple_headroom(buf: *mut net_buf_simple) -> usize;
-}
-extern "C" {
-    #[doc = "  @brief Check buffer tailroom."]
-    #[doc = ""]
-    #[doc = "  Check how much free space there is at the end of the buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer"]
-    #[doc = ""]
-    #[doc = "  @return Number of bytes available at the end of the buffer."]
-    pub fn net_buf_simple_tailroom(buf: *mut net_buf_simple) -> usize;
-}
-#[doc = "  @brief Parsing state of a buffer."]
-#[doc = ""]
-#[doc = "  This is used for temporarily storing the parsing state of a buffer"]
-#[doc = "  while giving control of the parsing to a routine which we don\'t"]
-#[doc = "  control."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_buf_simple_state {
-    #[doc = " Offset of the data pointer from the beginning of the storage"]
-    pub offset: u16_t,
-    #[doc = " Length of data"]
-    pub len: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_buf_simple_state() {
     assert_eq!(
-        ::core::mem::size_of::<net_buf_simple_state>(),
+        ::core::mem::align_of::<uart_config>(),
         4usize,
-        concat!("Size of: ", stringify!(net_buf_simple_state))
+        concat!("Alignment of ", stringify!(uart_config))
     );
     assert_eq!(
-        ::core::mem::align_of::<net_buf_simple_state>(),
-        2usize,
-        concat!("Alignment of ", stringify!(net_buf_simple_state))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple_state>())).offset as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_config>())).baudrate as *const _ as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_buf_simple_state),
+            stringify!(uart_config),
             "::",
-            stringify!(offset)
+            stringify!(baudrate)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_simple_state>())).len as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_simple_state),
-            "::",
-            stringify!(len)
-        )
-    );
-}
-#[doc = " @brief Network buffer representation."]
-#[doc = ""]
-#[doc = " This struct is used to represent network buffers. Such buffers are"]
-#[doc = " normally defined through the NET_BUF_POOL_*_DEFINE() APIs and allocated"]
-#[doc = " using the net_buf_alloc() API."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_buf {
-    pub __bindgen_anon_1: net_buf__bindgen_ty_1,
-    #[doc = " Reference count."]
-    pub ref_: u8_t,
-    #[doc = " Bit-field of buffer flags."]
-    pub flags: u8_t,
-    #[doc = " Where the buffer should go when freed up."]
-    pub pool_id: u8_t,
-    pub __bindgen_anon_2: net_buf__bindgen_ty_2,
-    #[doc = " System metadata for this buffer."]
-    pub user_data: [u8_t; 4usize],
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_buf__bindgen_ty_1 {
-    #[doc = " Allow placing the buffer into sys_slist_t"]
-    pub node: sys_snode_t,
-    #[doc = " Fragments associated with this buffer."]
-    pub frags: *mut net_buf,
-    _bindgen_union_align: u32,
-}
-#[test]
-fn bindgen_test_layout_net_buf__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf__bindgen_ty_1>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_buf__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf__bindgen_ty_1>())).node as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_1),
-            "::",
-            stringify!(node)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf__bindgen_ty_1>())).frags as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_1),
-            "::",
-            stringify!(frags)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_buf__bindgen_ty_2 {
-    pub __bindgen_anon_1: net_buf__bindgen_ty_2__bindgen_ty_1,
-    pub b: net_buf_simple,
-    _bindgen_union_align: [u32; 3usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_buf__bindgen_ty_2__bindgen_ty_1 {
-    #[doc = " Pointer to the start of data in the buffer."]
-    pub data: *mut u8_t,
-    #[doc = " Length of the data behind the data pointer."]
-    pub len: u16_t,
-    #[doc = " Amount of data that this buffer can store."]
-    pub size: u16_t,
-    #[doc = " Start of the data storage. Not to be accessed"]
-    #[doc = "  directly (the data pointer should be used"]
-    #[doc = "  instead)."]
-    pub __buf: *mut u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_buf__bindgen_ty_2__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf__bindgen_ty_2__bindgen_ty_1>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_buf__bindgen_ty_2__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf__bindgen_ty_2__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_buf__bindgen_ty_2__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_buf__bindgen_ty_2__bindgen_ty_1>())).data as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_buf__bindgen_ty_2__bindgen_ty_1>())).len as *const _
-                as usize
-        },
+        unsafe { &(*(::core::ptr::null::<uart_config>())).parity as *const _ as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_2__bindgen_ty_1),
+            stringify!(uart_config),
             "::",
-            stringify!(len)
+            stringify!(parity)
         )
     );
     assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_buf__bindgen_ty_2__bindgen_ty_1>())).size as *const _
-                as usize
-        },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_buf__bindgen_ty_2__bindgen_ty_1>())).__buf as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(__buf)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_buf__bindgen_ty_2() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf__bindgen_ty_2>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_buf__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf__bindgen_ty_2>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf__bindgen_ty_2))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf__bindgen_ty_2>())).b as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf__bindgen_ty_2),
-            "::",
-            stringify!(b)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_buf() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf>(),
-        24usize,
-        concat!("Size of: ", stringify!(net_buf))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf>())).ref_ as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf),
-            "::",
-            stringify!(ref_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf>())).flags as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_config>())).stop_bits as *const _ as usize },
         5usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_buf),
+            stringify!(uart_config),
             "::",
-            stringify!(flags)
+            stringify!(stop_bits)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf>())).pool_id as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_config>())).data_bits as *const _ as usize },
         6usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_buf),
+            stringify!(uart_config),
             "::",
-            stringify!(pool_id)
+            stringify!(data_bits)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf>())).user_data as *const _ as usize },
-        20usize,
+        unsafe { &(*(::core::ptr::null::<uart_config>())).flow_ctrl as *const _ as usize },
+        7usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_buf),
+            stringify!(uart_config),
             "::",
-            stringify!(user_data)
+            stringify!(flow_ctrl)
         )
     );
 }
+pub const uart_config_parity_UART_CFG_PARITY_NONE: uart_config_parity = 0;
+pub const uart_config_parity_UART_CFG_PARITY_ODD: uart_config_parity = 1;
+pub const uart_config_parity_UART_CFG_PARITY_EVEN: uart_config_parity = 2;
+pub const uart_config_parity_UART_CFG_PARITY_MARK: uart_config_parity = 3;
+pub const uart_config_parity_UART_CFG_PARITY_SPACE: uart_config_parity = 4;
+#[doc = " @brief Parity modes"]
+pub type uart_config_parity = u32;
+pub const uart_config_stop_bits_UART_CFG_STOP_BITS_0_5: uart_config_stop_bits = 0;
+pub const uart_config_stop_bits_UART_CFG_STOP_BITS_1: uart_config_stop_bits = 1;
+pub const uart_config_stop_bits_UART_CFG_STOP_BITS_1_5: uart_config_stop_bits = 2;
+pub const uart_config_stop_bits_UART_CFG_STOP_BITS_2: uart_config_stop_bits = 3;
+#[doc = " @brief Number of stop bits."]
+pub type uart_config_stop_bits = u32;
+pub const uart_config_data_bits_UART_CFG_DATA_BITS_5: uart_config_data_bits = 0;
+pub const uart_config_data_bits_UART_CFG_DATA_BITS_6: uart_config_data_bits = 1;
+pub const uart_config_data_bits_UART_CFG_DATA_BITS_7: uart_config_data_bits = 2;
+pub const uart_config_data_bits_UART_CFG_DATA_BITS_8: uart_config_data_bits = 3;
+#[doc = " @brief Number of data bits."]
+pub type uart_config_data_bits = u32;
+pub const uart_config_flow_control_UART_CFG_FLOW_CTRL_NONE: uart_config_flow_control = 0;
+pub const uart_config_flow_control_UART_CFG_FLOW_CTRL_RTS_CTS: uart_config_flow_control = 1;
+pub const uart_config_flow_control_UART_CFG_FLOW_CTRL_DTR_DSR: uart_config_flow_control = 2;
+#[doc = " @brief Hardware flow control options."]
+#[doc = ""]
+#[doc = " With flow control set to none, any operations related to flow control"]
+#[doc = " signals can be managed by user with uart_line_ctrl functions."]
+#[doc = " In other cases, flow control is managed by hardware/driver."]
+pub type uart_config_flow_control = u32;
+#[doc = " @typedef uart_irq_callback_user_data_t"]
+#[doc = " @brief Define the application callback function signature for"]
+#[doc = " uart_irq_callback_user_data_set() function."]
+#[doc = ""]
+#[doc = " @param user_data Arbitrary user data."]
+pub type uart_irq_callback_user_data_t =
+    ::core::option::Option<unsafe extern "C" fn(user_data: *mut cty::c_void)>;
+#[doc = " @typedef uart_irq_callback_t"]
+#[doc = " @brief Define the application callback function signature for legacy"]
+#[doc = " uart_irq_callback_set()."]
+#[doc = ""]
+#[doc = " @param port Device struct for the UART device."]
+pub type uart_irq_callback_t = ::core::option::Option<unsafe extern "C" fn(port: *mut device)>;
+#[doc = " @typedef uart_irq_config_func_t"]
+#[doc = " @brief For configuring IRQ on each individual UART device."]
+#[doc = ""]
+#[doc = " @internal"]
+pub type uart_irq_config_func_t = ::core::option::Option<unsafe extern "C" fn(port: *mut device)>;
+#[doc = " @brief UART device configuration."]
+#[doc = ""]
+#[doc = " @param port Base port number"]
+#[doc = " @param base Memory mapped base address"]
+#[doc = " @param regs Register address"]
+#[doc = " @param sys_clk_freq System clock frequency in Hz"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct uart_device_config {
+    pub __bindgen_anon_1: uart_device_config__bindgen_ty_1,
+    pub sys_clk_freq: u32_t,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union uart_device_config__bindgen_ty_1 {
+    pub port: u32_t,
+    pub base: *mut u8_t,
+    pub regs: u32_t,
+    _bindgen_union_align: u32,
+}
+#[test]
+fn bindgen_test_layout_uart_device_config__bindgen_ty_1() {
+    assert_eq!(
+        ::core::mem::size_of::<uart_device_config__bindgen_ty_1>(),
+        4usize,
+        concat!("Size of: ", stringify!(uart_device_config__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<uart_device_config__bindgen_ty_1>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(uart_device_config__bindgen_ty_1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<uart_device_config__bindgen_ty_1>())).port as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(uart_device_config__bindgen_ty_1),
+            "::",
+            stringify!(port)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<uart_device_config__bindgen_ty_1>())).base as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(uart_device_config__bindgen_ty_1),
+            "::",
+            stringify!(base)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<uart_device_config__bindgen_ty_1>())).regs as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(uart_device_config__bindgen_ty_1),
+            "::",
+            stringify!(regs)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_uart_device_config() {
+    assert_eq!(
+        ::core::mem::size_of::<uart_device_config>(),
+        8usize,
+        concat!("Size of: ", stringify!(uart_device_config))
+    );
+    assert_eq!(
+        ::core::mem::align_of::<uart_device_config>(),
+        4usize,
+        concat!("Alignment of ", stringify!(uart_device_config))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::core::ptr::null::<uart_device_config>())).sys_clk_freq as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(uart_device_config),
+            "::",
+            stringify!(sys_clk_freq)
+        )
+    );
+}
+#[doc = " @brief Driver API structure."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct net_buf_data_cb {
-    pub alloc: ::core::option::Option<
-        unsafe extern "C" fn(buf: *mut net_buf, size: *mut usize, timeout: s32_t) -> *mut u8_t,
+pub struct uart_driver_api {
+    #[doc = " Console I/O function"]
+    pub poll_in: ::core::option::Option<
+        unsafe extern "C" fn(dev: *mut device, p_char: *mut cty::c_uchar) -> cty::c_int,
     >,
-    pub ref_: ::core::option::Option<
-        unsafe extern "C" fn(buf: *mut net_buf, data: *mut u8_t) -> *mut u8_t,
+    pub poll_out:
+        ::core::option::Option<unsafe extern "C" fn(dev: *mut device, out_char: cty::c_uchar)>,
+    #[doc = " Console I/O function"]
+    pub err_check: ::core::option::Option<unsafe extern "C" fn(dev: *mut device) -> cty::c_int>,
+    #[doc = " UART configuration functions"]
+    pub configure: ::core::option::Option<
+        unsafe extern "C" fn(dev: *mut device, cfg: *const uart_config) -> cty::c_int,
     >,
-    pub unref: ::core::option::Option<unsafe extern "C" fn(buf: *mut net_buf, data: *mut u8_t)>,
-}
-#[test]
-fn bindgen_test_layout_net_buf_data_cb() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf_data_cb>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_buf_data_cb))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf_data_cb>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf_data_cb))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_data_cb>())).alloc as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_data_cb),
-            "::",
-            stringify!(alloc)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_data_cb>())).ref_ as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_data_cb),
-            "::",
-            stringify!(ref_)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_data_cb>())).unref as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_data_cb),
-            "::",
-            stringify!(unref)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_buf_data_alloc {
-    pub cb: *const net_buf_data_cb,
-    pub alloc_data: *mut cty::c_void,
-}
-#[test]
-fn bindgen_test_layout_net_buf_data_alloc() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf_data_alloc>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_buf_data_alloc))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf_data_alloc>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf_data_alloc))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_data_alloc>())).cb as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_data_alloc),
-            "::",
-            stringify!(cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_data_alloc>())).alloc_data as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_data_alloc),
-            "::",
-            stringify!(alloc_data)
-        )
-    );
-}
-#[repr(C)]
-pub struct net_buf_pool {
-    #[doc = " LIFO to place the buffer into when free"]
-    pub free: k_lifo,
-    #[doc = " Number of buffers in pool"]
-    pub buf_count: u16_t,
-    #[doc = " Number of uninitialized buffers"]
-    pub uninit_count: u16_t,
-    #[doc = " Optional destroy callback when buffer is freed."]
-    pub destroy: ::core::option::Option<unsafe extern "C" fn(buf: *mut net_buf)>,
-    #[doc = " Data allocation handlers."]
-    pub alloc: *const net_buf_data_alloc,
-    #[doc = " Start of buffer storage array"]
-    pub __bufs: *mut net_buf,
-}
-#[test]
-fn bindgen_test_layout_net_buf_pool() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf_pool>(),
-        32usize,
-        concat!("Size of: ", stringify!(net_buf_pool))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf_pool>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf_pool))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).free as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(free)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).buf_count as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(buf_count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).uninit_count as *const _ as usize },
-        18usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(uninit_count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).destroy as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(destroy)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).alloc as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(alloc)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool>())).__bufs as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool),
-            "::",
-            stringify!(__bufs)
-        )
-    );
-}
-extern "C" {
-    #[link_name = "\u{1}net_buf_heap_alloc"]
-    pub static net_buf_heap_alloc: net_buf_data_alloc;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_buf_pool_fixed {
-    pub data_size: usize,
-    pub data_pool: *mut u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_buf_pool_fixed() {
-    assert_eq!(
-        ::core::mem::size_of::<net_buf_pool_fixed>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_buf_pool_fixed))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_buf_pool_fixed>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_buf_pool_fixed))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool_fixed>())).data_size as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool_fixed),
-            "::",
-            stringify!(data_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_buf_pool_fixed>())).data_pool as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_buf_pool_fixed),
-            "::",
-            stringify!(data_pool)
-        )
-    );
-}
-extern "C" {
-    #[link_name = "\u{1}net_buf_fixed_cb"]
-    pub static net_buf_fixed_cb: net_buf_data_cb;
-}
-extern "C" {
-    #[link_name = "\u{1}net_buf_var_cb"]
-    pub static net_buf_var_cb: net_buf_data_cb;
-}
-extern "C" {
-    #[doc = "  @brief Looks up a pool based on its ID."]
-    #[doc = ""]
-    #[doc = "  @param id Pool ID (e.g. from buf->pool_id)."]
-    #[doc = ""]
-    #[doc = "  @return Pointer to pool."]
-    pub fn net_buf_pool_get(id: cty::c_int) -> *mut net_buf_pool;
-}
-extern "C" {
-    #[doc = "  @brief Get a zero-based index for a buffer."]
-    #[doc = ""]
-    #[doc = "  This function will translate a buffer into a zero-based index,"]
-    #[doc = "  based on its placement in its buffer pool. This can be useful if you"]
-    #[doc = "  want to associate an external array of meta-data contexts with the"]
-    #[doc = "  buffers of a pool."]
-    #[doc = ""]
-    #[doc = "  @param buf  Network buffer."]
-    #[doc = ""]
-    #[doc = "  @return Zero-based index for the buffer."]
-    pub fn net_buf_id(buf: *mut net_buf) -> cty::c_int;
-}
-extern "C" {
-    pub fn net_buf_alloc_fixed(pool: *mut net_buf_pool, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    pub fn net_buf_alloc_len(pool: *mut net_buf_pool, size: usize, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    pub fn net_buf_alloc_with_data(
-        pool: *mut net_buf_pool,
-        data: *mut cty::c_void,
-        size: usize,
-        timeout: s32_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    pub fn net_buf_get(fifo: *mut k_fifo, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = "  @brief Reset buffer"]
-    #[doc = ""]
-    #[doc = "  Reset buffer data and flags so it can be reused for other purposes."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to reset."]
-    pub fn net_buf_reset(buf: *mut net_buf);
-}
-extern "C" {
-    #[doc = "  @brief Initialize buffer with the given headroom."]
-    #[doc = ""]
-    #[doc = "  Initializes a buffer with a given headroom. The buffer is not expected to"]
-    #[doc = "  contain any data when this API is called."]
-    #[doc = ""]
-    #[doc = "  @param buf Buffer to initialize."]
-    #[doc = "  @param reserve How much headroom to reserve."]
-    pub fn net_buf_simple_reserve(buf: *mut net_buf_simple, reserve: usize);
-}
-extern "C" {
-    #[doc = "  @brief Put a buffer into a list"]
-    #[doc = ""]
-    #[doc = "  Put a buffer to the end of a list. If the buffer contains follow-up"]
-    #[doc = "  fragments this function will take care of inserting them as well"]
-    #[doc = "  into the list."]
-    #[doc = ""]
-    #[doc = "  @param list Which list to append the buffer to."]
-    #[doc = "  @param buf Buffer."]
-    pub fn net_buf_slist_put(list: *mut sys_slist_t, buf: *mut net_buf);
-}
-extern "C" {
-    #[doc = "  @brief Get a buffer from a list."]
-    #[doc = ""]
-    #[doc = "  Get buffer from a list. If the buffer had any fragments, these will"]
-    #[doc = "  automatically be recovered from the list as well and be placed to"]
-    #[doc = "  the buffer\'s fragment list."]
-    #[doc = ""]
-    #[doc = "  @param list Which list to take the buffer from."]
-    #[doc = ""]
-    #[doc = "  @return New buffer or NULL if the FIFO is empty."]
-    pub fn net_buf_slist_get(list: *mut sys_slist_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = "  @brief Put a buffer into a FIFO"]
-    #[doc = ""]
-    #[doc = "  Put a buffer to the end of a FIFO. If the buffer contains follow-up"]
-    #[doc = "  fragments this function will take care of inserting them as well"]
-    #[doc = "  into the FIFO."]
-    #[doc = ""]
-    #[doc = "  @param fifo Which FIFO to put the buffer to."]
-    #[doc = "  @param buf Buffer."]
-    pub fn net_buf_put(fifo: *mut k_fifo, buf: *mut net_buf);
-}
-extern "C" {
-    pub fn net_buf_unref(buf: *mut net_buf);
-}
-extern "C" {
-    #[doc = "  @brief Increment the reference count of a buffer."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer"]
-    #[doc = ""]
-    #[doc = "  @return the buffer newly referenced"]
-    pub fn net_buf_ref(buf: *mut net_buf) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = "  @brief Duplicate buffer"]
-    #[doc = ""]
-    #[doc = "  Duplicate given buffer including any data and headers currently stored."]
-    #[doc = ""]
-    #[doc = "  @param buf A valid pointer on a buffer"]
-    #[doc = "  @param timeout Affects the action taken should the pool be empty."]
-    #[doc = "         If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "         wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "         number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = "  @return Duplicated buffer or NULL if out of buffers."]
-    pub fn net_buf_clone(buf: *mut net_buf, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Find the last fragment in the fragment list."]
-    #[doc = ""]
-    #[doc = " @return Pointer to last fragment in the list."]
-    pub fn net_buf_frag_last(frags: *mut net_buf) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Insert a new fragment to a chain of bufs."]
-    #[doc = ""]
-    #[doc = "  Insert a new fragment into the buffer fragments list after the parent."]
-    #[doc = ""]
-    #[doc = "  Note: This function takes ownership of the fragment reference so the"]
-    #[doc = "  caller is not required to unref."]
-    #[doc = ""]
-    #[doc = "  @param parent Parent buffer/fragment."]
-    #[doc = "  @param frag Fragment to insert."]
-    pub fn net_buf_frag_insert(parent: *mut net_buf, frag: *mut net_buf);
-}
-extern "C" {
-    #[doc = " @brief Add a new fragment to the end of a chain of bufs."]
-    #[doc = ""]
-    #[doc = "  Append a new fragment into the buffer fragments list."]
-    #[doc = ""]
-    #[doc = "  Note: This function takes ownership of the fragment reference so the"]
-    #[doc = "  caller is not required to unref."]
-    #[doc = ""]
-    #[doc = "  @param head Head of the fragment chain."]
-    #[doc = "  @param frag Fragment to add."]
-    #[doc = ""]
-    #[doc = "  @return New head of the fragment chain. Either head (if head"]
-    #[doc = "          was non-NULL) or frag (if head was NULL)."]
-    pub fn net_buf_frag_add(head: *mut net_buf, frag: *mut net_buf) -> *mut net_buf;
-}
-extern "C" {
-    pub fn net_buf_frag_del(parent: *mut net_buf, frag: *mut net_buf) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Copy len bytes from src starting from offset to dst buffer"]
-    #[doc = ""]
-    #[doc = " This routine assumes that dst is large enough to store @a len bytes"]
-    #[doc = " starting from offset at src."]
-    #[doc = ""]
-    #[doc = " @param dst Destination buffer"]
-    #[doc = " @param dst_len Destination buffer max length"]
-    #[doc = " @param src Source buffer that may be fragmented"]
-    #[doc = " @param offset Starting point to copy from"]
-    #[doc = " @param len Number of bytes to copy"]
-    #[doc = " @return number of bytes copied if everything is ok"]
-    #[doc = " @return -ENOMEM on error"]
-    pub fn net_buf_linearize(
-        dst: *mut cty::c_void,
-        dst_len: usize,
-        src: *mut net_buf,
-        offset: usize,
-        len: usize,
-    ) -> cty::c_int;
-}
-#[doc = " @typedef net_buf_allocator_cb"]
-#[doc = " @brief Network buffer allocator callback."]
-#[doc = ""]
-#[doc = " @details The allocator callback is called when net_buf_append_bytes"]
-#[doc = " needs to allocate a new net_buf."]
-#[doc = ""]
-#[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-#[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-#[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-#[doc = "        number of milliseconds before timing out."]
-#[doc = " @param user_data The user data given in net_buf_append_bytes call."]
-#[doc = " @return pointer to allocated net_buf or NULL on error."]
-pub type net_buf_allocator_cb = ::core::option::Option<
-    unsafe extern "C" fn(timeout: s32_t, user_data: *mut cty::c_void) -> *mut net_buf,
->;
-extern "C" {
-    #[doc = " @brief Append data to a list of net_buf"]
-    #[doc = ""]
-    #[doc = " @details Append data to a net_buf. If there is not enough space in the"]
-    #[doc = " net_buf then more net_buf will be added, unless there are no free net_buf"]
-    #[doc = " and timeout occurs."]
-    #[doc = ""]
-    #[doc = " @param buf Network buffer."]
-    #[doc = " @param len Total length of input data"]
-    #[doc = " @param value Data to be added"]
-    #[doc = " @param timeout Timeout is passed to the net_buf allocator callback."]
-    #[doc = " @param allocate_cb When a new net_buf is required, use this callback."]
-    #[doc = " @param user_data A user data pointer to be supplied to the allocate_cb."]
-    #[doc = "        This pointer is can be anything from a mem_pool or a net_pkt, the"]
-    #[doc = "        logic is left up to the allocate_cb function."]
-    #[doc = ""]
-    #[doc = " @return Length of data actually added. This may be less than input"]
-    #[doc = "         length if other timeout than K_FOREVER was used, and there"]
-    #[doc = "         were no free fragments in a pool to accommodate all data."]
-    pub fn net_buf_append_bytes(
-        buf: *mut net_buf,
-        len: usize,
-        value: *const cty::c_void,
-        timeout: s32_t,
-        allocate_cb: net_buf_allocator_cb,
-        user_data: *mut cty::c_void,
-    ) -> usize;
-}
-#[doc = " IP multicast supported"]
-pub const net_l2_flags_NET_L2_MULTICAST: net_l2_flags = 1;
-#[doc = " Do not joint solicited node multicast group"]
-pub const net_l2_flags_NET_L2_MULTICAST_SKIP_JOIN_SOLICIT_NODE: net_l2_flags = 2;
-#[doc = " Is promiscuous mode supported"]
-pub const net_l2_flags_NET_L2_PROMISC_MODE: net_l2_flags = 4;
-pub type net_l2_flags = u8;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_l2 {
-    #[doc = " This function is used by net core to get iface\'s L2 layer parsing"]
-    #[doc = " what\'s relevant to itself."]
-    pub recv: ::core::option::Option<
-        unsafe extern "C" fn(iface: *mut net_if, pkt: *mut net_pkt) -> net_verdict,
+    pub config_get: ::core::option::Option<
+        unsafe extern "C" fn(dev: *mut device, cfg: *mut uart_config) -> cty::c_int,
     >,
-    #[doc = " This function is used by net core to push a packet to lower layer"]
-    #[doc = " (interface\'s L2), which in turn might work on the packet relevantly."]
-    #[doc = " (adding proper header etc...)"]
-    #[doc = " Returns a negative error code, or the number of bytes sent otherwise."]
-    pub send: ::core::option::Option<
-        unsafe extern "C" fn(iface: *mut net_if, pkt: *mut net_pkt) -> cty::c_int,
-    >,
-    #[doc = " This function is used to get the amount of bytes the net core should"]
-    #[doc = " reserve as headroom in a net packet. Such space is relevant to L2"]
-    #[doc = " layer only."]
-    pub reserve: ::core::option::Option<
-        unsafe extern "C" fn(iface: *mut net_if, data: *mut cty::c_void) -> u16_t,
-    >,
-    #[doc = " This function is used to enable/disable traffic over a network"]
-    #[doc = " interface. The function returns <0 if error and >=0 if no error."]
-    pub enable:
-        ::core::option::Option<unsafe extern "C" fn(iface: *mut net_if, state: bool) -> cty::c_int>,
-    #[doc = " Return L2 flags for the network interface."]
-    pub get_flags: ::core::option::Option<unsafe extern "C" fn(iface: *mut net_if) -> net_l2_flags>,
 }
 #[test]
-fn bindgen_test_layout_net_l2() {
+fn bindgen_test_layout_uart_driver_api() {
     assert_eq!(
-        ::core::mem::size_of::<net_l2>(),
+        ::core::mem::size_of::<uart_driver_api>(),
         20usize,
-        concat!("Size of: ", stringify!(net_l2))
+        concat!("Size of: ", stringify!(uart_driver_api))
     );
     assert_eq!(
-        ::core::mem::align_of::<net_l2>(),
+        ::core::mem::align_of::<uart_driver_api>(),
         4usize,
-        concat!("Alignment of ", stringify!(net_l2))
+        concat!("Alignment of ", stringify!(uart_driver_api))
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_l2>())).recv as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_driver_api>())).poll_in as *const _ as usize },
         0usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_l2),
+            stringify!(uart_driver_api),
             "::",
-            stringify!(recv)
+            stringify!(poll_in)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_l2>())).send as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_driver_api>())).poll_out as *const _ as usize },
         4usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_l2),
+            stringify!(uart_driver_api),
             "::",
-            stringify!(send)
+            stringify!(poll_out)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_l2>())).reserve as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_driver_api>())).err_check as *const _ as usize },
         8usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_l2),
+            stringify!(uart_driver_api),
             "::",
-            stringify!(reserve)
+            stringify!(err_check)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_l2>())).enable as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_driver_api>())).configure as *const _ as usize },
         12usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_l2),
+            stringify!(uart_driver_api),
             "::",
-            stringify!(enable)
+            stringify!(configure)
         )
     );
     assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_l2>())).get_flags as *const _ as usize },
+        unsafe { &(*(::core::ptr::null::<uart_driver_api>())).config_get as *const _ as usize },
         16usize,
         concat!(
             "Offset of field: ",
-            stringify!(net_l2),
+            stringify!(uart_driver_api),
             "::",
-            stringify!(get_flags)
+            stringify!(config_get)
         )
     );
 }
 extern "C" {
-    #[link_name = "\u{1}__net_l2_ETHERNET"]
-    pub static __net_l2_ETHERNET: net_l2;
+    pub fn _impl_uart_irq_tx_enable(dev: *mut device);
 }
-#[doc = " @brief Network statistics library"]
-#[doc = " @defgroup net_stats Network Statistics Library"]
-#[doc = " @ingroup networking"]
-#[doc = " @{"]
-pub type net_stats_t = u32_t;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_bytes {
-    pub sent: net_stats_t,
-    pub received: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_bytes() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_bytes>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_stats_bytes))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_bytes>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_bytes))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_bytes>())).sent as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_bytes),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_bytes>())).received as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_bytes),
-            "::",
-            stringify!(received)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_pkts {
-    pub tx: net_stats_t,
-    pub rx: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_pkts() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_pkts>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_stats_pkts))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_pkts>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_pkts))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_pkts>())).tx as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_pkts),
-            "::",
-            stringify!(tx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_pkts>())).rx as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_pkts),
-            "::",
-            stringify!(rx)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_ip {
-    #[doc = " Number of received packets at the IP layer."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent packets at the IP layer."]
-    pub sent: net_stats_t,
-    #[doc = " Number of forwarded packets at the IP layer."]
-    pub forwarded: net_stats_t,
-    #[doc = " Number of dropped packets at the IP layer."]
-    pub drop: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_ip() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_ip>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_stats_ip))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_ip>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_ip))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip>())).forwarded as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip),
-            "::",
-            stringify!(forwarded)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip>())).drop as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip),
-            "::",
-            stringify!(drop)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_ip_errors {
-    #[doc = " Number of packets dropped due to wrong IP version"]
-    #[doc = " or header length."]
-    pub vhlerr: net_stats_t,
-    #[doc = " Number of packets dropped due to wrong IP length, high byte."]
-    pub hblenerr: net_stats_t,
-    #[doc = " Number of packets dropped due to wrong IP length, low byte."]
-    pub lblenerr: net_stats_t,
-    #[doc = " Number of packets dropped because they were IP fragments."]
-    pub fragerr: net_stats_t,
-    #[doc = " Number of packets dropped due to IP checksum errors."]
-    pub chkerr: net_stats_t,
-    #[doc = " Number of packets dropped because they were neither ICMP,"]
-    #[doc = " UDP nor TCP."]
-    pub protoerr: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_ip_errors() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_ip_errors>(),
-        24usize,
-        concat!("Size of: ", stringify!(net_stats_ip_errors))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_ip_errors>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_ip_errors))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).vhlerr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(vhlerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).hblenerr as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(hblenerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).lblenerr as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(lblenerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).fragerr as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(fragerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).chkerr as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(chkerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ip_errors>())).protoerr as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ip_errors),
-            "::",
-            stringify!(protoerr)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_icmp {
-    #[doc = " Number of received ICMP packets."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent ICMP packets."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped ICMP packets."]
-    pub drop: net_stats_t,
-    #[doc = " Number of ICMP packets with a wrong type."]
-    pub typeerr: net_stats_t,
-    #[doc = " Number of ICMP packets with a bad checksum."]
-    pub chkerr: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_icmp() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_icmp>(),
-        20usize,
-        concat!("Size of: ", stringify!(net_stats_icmp))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_icmp>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_icmp))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_icmp>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_icmp),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_icmp>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_icmp),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_icmp>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_icmp),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_icmp>())).typeerr as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_icmp),
-            "::",
-            stringify!(typeerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_icmp>())).chkerr as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_icmp),
-            "::",
-            stringify!(chkerr)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_tcp {
-    #[doc = " Amount of received and sent TCP application data."]
-    pub bytes: net_stats_bytes,
-    #[doc = " Amount of retransmitted data."]
-    pub resent: net_stats_t,
-    #[doc = " Number of recived TCP segments."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent TCP segments."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped TCP segments."]
-    pub drop: net_stats_t,
-    #[doc = " Number of TCP segments with a bad checksum."]
-    pub chkerr: net_stats_t,
-    #[doc = " Number of received TCP segments with a bad ACK number."]
-    pub ackerr: net_stats_t,
-    #[doc = " Number of received bad TCP RST (reset) segments."]
-    pub rsterr: net_stats_t,
-    #[doc = " Number of received TCP RST (reset) segments."]
-    pub rst: net_stats_t,
-    #[doc = " Number of retransmitted TCP segments."]
-    pub rexmit: net_stats_t,
-    #[doc = " Number of dropped connection attempts because too few connections"]
-    #[doc = " were available."]
-    pub conndrop: net_stats_t,
-    #[doc = " Number of connection attempts for closed ports, triggering a RST."]
-    pub connrst: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_tcp() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_tcp>(),
-        52usize,
-        concat!("Size of: ", stringify!(net_stats_tcp))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_tcp>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_tcp))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).bytes as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(bytes)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).resent as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(resent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).recv as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).sent as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).drop as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).chkerr as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(chkerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).ackerr as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(ackerr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).rsterr as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(rsterr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).rst as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(rst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).rexmit as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(rexmit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).conndrop as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(conndrop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tcp>())).connrst as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tcp),
-            "::",
-            stringify!(connrst)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_udp {
-    #[doc = " Number of dropped UDP segments."]
-    pub drop: net_stats_t,
-    #[doc = " Number of recived UDP segments."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent UDP segments."]
-    pub sent: net_stats_t,
-    #[doc = " Number of UDP segments with a bad checksum."]
-    pub chkerr: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_udp() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_udp>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_stats_udp))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_udp>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_udp))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_udp>())).drop as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_udp),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_udp>())).recv as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_udp),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_udp>())).sent as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_udp),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_udp>())).chkerr as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_udp),
-            "::",
-            stringify!(chkerr)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_ipv6_nd {
-    pub drop: net_stats_t,
-    pub recv: net_stats_t,
-    pub sent: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_ipv6_nd() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_ipv6_nd>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_ipv6_nd))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_ipv6_nd>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_ipv6_nd))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_nd>())).drop as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_nd),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_nd>())).recv as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_nd),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_nd>())).sent as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_nd),
-            "::",
-            stringify!(sent)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_rpl_dis {
-    #[doc = " Number of received DIS packets."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent DIS packets."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped DIS packets."]
-    pub drop: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_rpl_dis() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_rpl_dis>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_rpl_dis))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_rpl_dis>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_rpl_dis))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dis>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dis),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dis>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dis),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dis>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dis),
-            "::",
-            stringify!(drop)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_rpl_dio {
-    #[doc = " Number of received DIO packets."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent DIO packets."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped DIO packets."]
-    pub drop: net_stats_t,
-    #[doc = " Number of DIO intervals."]
-    pub interval: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_rpl_dio() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_rpl_dio>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_stats_rpl_dio))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_rpl_dio>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_rpl_dio))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dio>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dio),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dio>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dio),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dio>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dio),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dio>())).interval as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dio),
-            "::",
-            stringify!(interval)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_rpl_dao {
-    #[doc = " Number of received DAO packets."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent DAO packets."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped DAO packets."]
-    pub drop: net_stats_t,
-    #[doc = " Number of forwarded DAO packets."]
-    pub forwarded: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_rpl_dao() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_rpl_dao>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_stats_rpl_dao))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_rpl_dao>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_rpl_dao))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao),
-            "::",
-            stringify!(drop)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao>())).forwarded as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao),
-            "::",
-            stringify!(forwarded)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_rpl_dao_ack {
-    #[doc = " Number of received DAO-ACK packets."]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent DAO-ACK packets."]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped DAO-ACK packets."]
-    pub drop: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_rpl_dao_ack() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_rpl_dao_ack>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_rpl_dao_ack))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_rpl_dao_ack>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_rpl_dao_ack))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao_ack>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao_ack),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao_ack>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao_ack),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl_dao_ack>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl_dao_ack),
-            "::",
-            stringify!(drop)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_rpl {
-    pub mem_overflows: u16_t,
-    pub local_repairs: u16_t,
-    pub global_repairs: u16_t,
-    pub malformed_msgs: u16_t,
-    pub resets: u16_t,
-    pub parent_switch: u16_t,
-    pub forward_errors: u16_t,
-    pub loop_errors: u16_t,
-    pub loop_warnings: u16_t,
-    pub root_repairs: u16_t,
-    pub dis: net_stats_rpl_dis,
-    pub dio: net_stats_rpl_dio,
-    pub dao: net_stats_rpl_dao,
-    pub dao_ack: net_stats_rpl_dao_ack,
-}
-#[test]
-fn bindgen_test_layout_net_stats_rpl() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_rpl>(),
-        76usize,
-        concat!("Size of: ", stringify!(net_stats_rpl))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_rpl>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_rpl))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).mem_overflows as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(mem_overflows)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).local_repairs as *const _ as usize },
-        2usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(local_repairs)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).global_repairs as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(global_repairs)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).malformed_msgs as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(malformed_msgs)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).resets as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(resets)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).parent_switch as *const _ as usize },
-        10usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(parent_switch)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).forward_errors as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(forward_errors)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).loop_errors as *const _ as usize },
-        14usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(loop_errors)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).loop_warnings as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(loop_warnings)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).root_repairs as *const _ as usize },
-        18usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(root_repairs)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).dis as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(dis)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).dio as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(dio)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).dao as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(dao)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_rpl>())).dao_ack as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_rpl),
-            "::",
-            stringify!(dao_ack)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_ipv6_mld {
-    #[doc = " Number of received IPv6 MLD queries"]
-    pub recv: net_stats_t,
-    #[doc = " Number of sent IPv6 MLD reports"]
-    pub sent: net_stats_t,
-    #[doc = " Number of dropped IPv6 MLD packets"]
-    pub drop: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_ipv6_mld() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_ipv6_mld>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_ipv6_mld))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_ipv6_mld>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_ipv6_mld))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_mld>())).recv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_mld),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_mld>())).sent as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_mld),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_ipv6_mld>())).drop as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_ipv6_mld),
-            "::",
-            stringify!(drop)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_tc {
-    pub sent: [net_stats_tc__bindgen_ty_1; 1usize],
-    pub recv: [net_stats_tc__bindgen_ty_2; 1usize],
-}
-#[doc = " Traffic class sent statistics"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_tc__bindgen_ty_1 {
-    pub pkts: net_stats_t,
-    pub bytes: net_stats_t,
-    pub priority: u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_tc__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_tc__bindgen_ty_1>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_tc__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_tc__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_tc__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_1>())).pkts as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_1),
-            "::",
-            stringify!(pkts)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_1>())).bytes as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_1),
-            "::",
-            stringify!(bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_1>())).priority as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_1),
-            "::",
-            stringify!(priority)
-        )
-    );
-}
-#[doc = " Traffic class receive statistics"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_tc__bindgen_ty_2 {
-    pub pkts: net_stats_t,
-    pub bytes: net_stats_t,
-    pub priority: u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_tc__bindgen_ty_2() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_tc__bindgen_ty_2>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_tc__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_tc__bindgen_ty_2>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_tc__bindgen_ty_2))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_2>())).pkts as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_2),
-            "::",
-            stringify!(pkts)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_2>())).bytes as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_2),
-            "::",
-            stringify!(bytes)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_tc__bindgen_ty_2>())).priority as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc__bindgen_ty_2),
-            "::",
-            stringify!(priority)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_stats_tc() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_tc>(),
-        24usize,
-        concat!("Size of: ", stringify!(net_stats_tc))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_tc>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_tc))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tc>())).sent as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc),
-            "::",
-            stringify!(sent)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_tc>())).recv as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_tc),
-            "::",
-            stringify!(recv)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats {
-    pub processing_error: net_stats_t,
-    pub bytes: net_stats_bytes,
-    pub ip_errors: net_stats_ip_errors,
-}
-#[test]
-fn bindgen_test_layout_net_stats() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats>(),
-        36usize,
-        concat!("Size of: ", stringify!(net_stats))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats>())).processing_error as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats),
-            "::",
-            stringify!(processing_error)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats>())).bytes as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats),
-            "::",
-            stringify!(bytes)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats>())).ip_errors as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats),
-            "::",
-            stringify!(ip_errors)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_eth_errors {
-    pub rx_length_errors: net_stats_t,
-    pub rx_over_errors: net_stats_t,
-    pub rx_crc_errors: net_stats_t,
-    pub rx_frame_errors: net_stats_t,
-    pub rx_no_buffer_count: net_stats_t,
-    pub rx_missed_errors: net_stats_t,
-    pub rx_long_length_errors: net_stats_t,
-    pub rx_short_length_errors: net_stats_t,
-    pub rx_align_errors: net_stats_t,
-    pub rx_dma_failed: net_stats_t,
-    pub rx_buf_alloc_failed: net_stats_t,
-    pub tx_aborted_errors: net_stats_t,
-    pub tx_carrier_errors: net_stats_t,
-    pub tx_fifo_errors: net_stats_t,
-    pub tx_heartbeat_errors: net_stats_t,
-    pub tx_window_errors: net_stats_t,
-    pub tx_dma_failed: net_stats_t,
-    pub uncorr_ecc_errors: net_stats_t,
-    pub corr_ecc_errors: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_eth_errors() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_eth_errors>(),
-        76usize,
-        concat!("Size of: ", stringify!(net_stats_eth_errors))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_eth_errors>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_eth_errors))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_length_errors as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_length_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_over_errors as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_over_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_crc_errors as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_crc_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_frame_errors as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_frame_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_no_buffer_count as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_no_buffer_count)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_missed_errors as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_missed_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_long_length_errors as *const _
-                as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_long_length_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_short_length_errors as *const _
-                as usize
-        },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_short_length_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_align_errors as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_align_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_dma_failed as *const _ as usize
-        },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_dma_failed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).rx_buf_alloc_failed as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(rx_buf_alloc_failed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_aborted_errors as *const _ as usize
-        },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_aborted_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_carrier_errors as *const _ as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_carrier_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_fifo_errors as *const _ as usize
-        },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_fifo_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_heartbeat_errors as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_heartbeat_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_window_errors as *const _ as usize
-        },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_window_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).tx_dma_failed as *const _ as usize
-        },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(tx_dma_failed)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).uncorr_ecc_errors as *const _ as usize
-        },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(uncorr_ecc_errors)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_errors>())).corr_ecc_errors as *const _ as usize
-        },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_errors),
-            "::",
-            stringify!(corr_ecc_errors)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_eth_flow {
-    pub rx_flow_control_xon: net_stats_t,
-    pub rx_flow_control_xoff: net_stats_t,
-    pub tx_flow_control_xon: net_stats_t,
-    pub tx_flow_control_xoff: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_eth_flow() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_eth_flow>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_stats_eth_flow))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_eth_flow>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_eth_flow))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_flow>())).rx_flow_control_xon as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_flow),
-            "::",
-            stringify!(rx_flow_control_xon)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_flow>())).rx_flow_control_xoff as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_flow),
-            "::",
-            stringify!(rx_flow_control_xoff)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_flow>())).tx_flow_control_xon as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_flow),
-            "::",
-            stringify!(tx_flow_control_xon)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_flow>())).tx_flow_control_xoff as *const _
-                as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_flow),
-            "::",
-            stringify!(tx_flow_control_xoff)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_eth_csum {
-    pub rx_csum_offload_good: net_stats_t,
-    pub rx_csum_offload_errors: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_eth_csum() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_eth_csum>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_stats_eth_csum))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_eth_csum>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_eth_csum))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_csum>())).rx_csum_offload_good as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_csum),
-            "::",
-            stringify!(rx_csum_offload_good)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_csum>())).rx_csum_offload_errors as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_csum),
-            "::",
-            stringify!(rx_csum_offload_errors)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_eth_hw_timestamp {
-    pub rx_hwtstamp_cleared: net_stats_t,
-    pub tx_hwtstamp_timeouts: net_stats_t,
-    pub tx_hwtstamp_skipped: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_eth_hw_timestamp() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_eth_hw_timestamp>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_stats_eth_hw_timestamp))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_eth_hw_timestamp>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_eth_hw_timestamp))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_hw_timestamp>())).rx_hwtstamp_cleared as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_hw_timestamp),
-            "::",
-            stringify!(rx_hwtstamp_cleared)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_hw_timestamp>())).tx_hwtstamp_timeouts as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_hw_timestamp),
-            "::",
-            stringify!(tx_hwtstamp_timeouts)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_stats_eth_hw_timestamp>())).tx_hwtstamp_skipped as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth_hw_timestamp),
-            "::",
-            stringify!(tx_hwtstamp_skipped)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_stats_eth {
-    pub bytes: net_stats_bytes,
-    pub pkts: net_stats_pkts,
-    pub broadcast: net_stats_pkts,
-    pub multicast: net_stats_pkts,
-    pub errors: net_stats_pkts,
-    pub error_details: net_stats_eth_errors,
-    pub flow_control: net_stats_eth_flow,
-    pub csum: net_stats_eth_csum,
-    pub hw_timestamp: net_stats_eth_hw_timestamp,
-    pub collisions: net_stats_t,
-    pub tx_dropped: net_stats_t,
-    pub tx_timeout_count: net_stats_t,
-    pub tx_restart_queue: net_stats_t,
-}
-#[test]
-fn bindgen_test_layout_net_stats_eth() {
-    assert_eq!(
-        ::core::mem::size_of::<net_stats_eth>(),
-        168usize,
-        concat!("Size of: ", stringify!(net_stats_eth))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_stats_eth>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_stats_eth))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).bytes as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(bytes)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).pkts as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(pkts)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).broadcast as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(broadcast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).multicast as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(multicast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).errors as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(errors)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).error_details as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(error_details)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).flow_control as *const _ as usize },
-        116usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(flow_control)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).csum as *const _ as usize },
-        132usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(csum)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).hw_timestamp as *const _ as usize },
-        140usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(hw_timestamp)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).collisions as *const _ as usize },
-        152usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(collisions)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).tx_dropped as *const _ as usize },
-        156usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(tx_dropped)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).tx_timeout_count as *const _ as usize },
-        160usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(tx_timeout_count)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_stats_eth>())).tx_restart_queue as *const _ as usize },
-        164usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_stats_eth),
-            "::",
-            stringify!(tx_restart_queue)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_timeout {
-    #[doc = " Used to track timers"]
-    pub node: sys_snode_t,
-    #[doc = " Address lifetime timer start time"]
-    pub timer_start: u32_t,
-    #[doc = " Address lifetime timer timeout in milliseconds. Note that this"]
-    #[doc = " value is signed as k_delayed_work_submit() only supports signed"]
-    #[doc = " delay value."]
-    pub timer_timeout: s32_t,
-    #[doc = " Timer wrap count. Used if the timer timeout is larger than"]
-    #[doc = " about 24 days. The reason we need to track wrap arounds, is"]
-    #[doc = " that the timer timeout used in k_delayed_work_submit() is"]
-    #[doc = " 32-bit signed value and the resolution is 1ms."]
-    pub wrap_counter: s32_t,
-}
-#[test]
-fn bindgen_test_layout_net_timeout() {
-    assert_eq!(
-        ::core::mem::size_of::<net_timeout>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_timeout))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_timeout>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_timeout))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_timeout>())).node as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_timeout),
-            "::",
-            stringify!(node)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_timeout>())).timer_start as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_timeout),
-            "::",
-            stringify!(timer_start)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_timeout>())).timer_timeout as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_timeout),
-            "::",
-            stringify!(timer_timeout)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_timeout>())).wrap_counter as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_timeout),
-            "::",
-            stringify!(wrap_counter)
-        )
-    );
-}
-#[doc = " @brief Network Interface unicast IP addresses"]
-#[doc = ""]
-#[doc = " Stores the unicast IP addresses assigned to this network interface."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_if_addr {
-    #[doc = " IP address"]
-    pub address: net_addr,
-    #[doc = " How the IP address was set"]
-    pub addr_type: net_addr_type,
-    #[doc = " What is the current state of the address"]
-    pub addr_state: net_addr_state,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: u8,
-}
-#[test]
-fn bindgen_test_layout_net_if_addr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_addr>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_if_addr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_addr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_addr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_addr>())).address as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_addr),
-            "::",
-            stringify!(address)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_addr>())).addr_type as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_addr),
-            "::",
-            stringify!(addr_type)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_addr>())).addr_state as *const _ as usize },
-        9usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_addr),
-            "::",
-            stringify!(addr_state)
-        )
-    );
-}
-impl net_if_addr {
-    #[inline]
-    pub fn is_infinite(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_infinite(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_used(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_used(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _unused(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set__unused(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_infinite: u8_t,
-        is_used: u8_t,
-        _unused: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_infinite: u8 = unsafe { ::core::mem::transmute(is_infinite) };
-            is_infinite as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_used: u8 = unsafe { ::core::mem::transmute(is_used) };
-            is_used as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let _unused: u8 = unsafe { ::core::mem::transmute(_unused) };
-            _unused as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " @brief Network Interface multicast IP addresses"]
-#[doc = ""]
-#[doc = " Stores the multicast IP addresses assigned to this network interface."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_if_mcast_addr {
-    #[doc = " IP address"]
-    pub address: net_addr,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: [u8; 3usize],
-}
-#[test]
-fn bindgen_test_layout_net_if_mcast_addr() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_mcast_addr>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_if_mcast_addr))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_mcast_addr>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_mcast_addr))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_mcast_addr>())).address as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_mcast_addr),
-            "::",
-            stringify!(address)
-        )
-    );
-}
-impl net_if_mcast_addr {
-    #[inline]
-    pub fn is_used(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_used(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_joined(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_joined(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _unused(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set__unused(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_used: u8_t,
-        is_joined: u8_t,
-        _unused: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_used: u8 = unsafe { ::core::mem::transmute(is_used) };
-            is_used as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_joined: u8 = unsafe { ::core::mem::transmute(is_joined) };
-            is_joined as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let _unused: u8 = unsafe { ::core::mem::transmute(_unused) };
-            _unused as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " @brief Network Interface IPv6 prefixes"]
-#[doc = ""]
-#[doc = " Stores the multicast IP addresses assigned to this network interface."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_if_ipv6_prefix {
-    #[doc = " Prefix lifetime"]
-    pub lifetime: net_timeout,
-    #[doc = " IPv6 prefix"]
-    pub prefix: in6_addr,
-    #[doc = " Backpointer to network interface where this prefix is used"]
-    pub iface: *mut net_if,
-    #[doc = " Prefix length"]
-    pub len: u8_t,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: u16,
-}
-#[test]
-fn bindgen_test_layout_net_if_ipv6_prefix() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_ipv6_prefix>(),
-        40usize,
-        concat!("Size of: ", stringify!(net_if_ipv6_prefix))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_ipv6_prefix>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_ipv6_prefix))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6_prefix>())).lifetime as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6_prefix),
-            "::",
-            stringify!(lifetime)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6_prefix>())).prefix as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6_prefix),
-            "::",
-            stringify!(prefix)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6_prefix>())).iface as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6_prefix),
-            "::",
-            stringify!(iface)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6_prefix>())).len as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6_prefix),
-            "::",
-            stringify!(len)
-        )
-    );
-}
-impl net_if_ipv6_prefix {
-    #[inline]
-    pub fn is_infinite(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_infinite(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_used(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_used(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _unused(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 6u8) as u8) }
-    }
-    #[inline]
-    pub fn set__unused(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 6u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_infinite: u8_t,
-        is_used: u8_t,
-        _unused: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_infinite: u8 = unsafe { ::core::mem::transmute(is_infinite) };
-            is_infinite as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_used: u8 = unsafe { ::core::mem::transmute(is_used) };
-            is_used as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 6u8, {
-            let _unused: u8 = unsafe { ::core::mem::transmute(_unused) };
-            _unused as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " @brief Information about routers in the system."]
-#[doc = ""]
-#[doc = " Stores the router information."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_if_router {
-    #[doc = " Router lifetime"]
-    pub lifetime: k_delayed_work,
-    #[doc = " IP address"]
-    pub address: net_addr,
-    #[doc = " Network interface the router is connected to"]
-    pub iface: *mut net_if,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: [u8; 3usize],
-}
-#[test]
-fn bindgen_test_layout_net_if_router() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_router>(),
-        48usize,
-        concat!("Size of: ", stringify!(net_if_router))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_router>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_router))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_router>())).lifetime as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_router),
-            "::",
-            stringify!(lifetime)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_router>())).address as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_router),
-            "::",
-            stringify!(address)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_router>())).iface as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_router),
-            "::",
-            stringify!(iface)
-        )
-    );
-}
-impl net_if_router {
-    #[inline]
-    pub fn is_used(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_used(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_default(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_default(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_infinite(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_infinite(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _unused(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 5u8) as u8) }
-    }
-    #[inline]
-    pub fn set__unused(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 5u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_used: u8_t,
-        is_default: u8_t,
-        is_infinite: u8_t,
-        _unused: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_used: u8 = unsafe { ::core::mem::transmute(is_used) };
-            is_used as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_default: u8 = unsafe { ::core::mem::transmute(is_default) };
-            is_default as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let is_infinite: u8 = unsafe { ::core::mem::transmute(is_infinite) };
-            is_infinite as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 5u8, {
-            let _unused: u8 = unsafe { ::core::mem::transmute(_unused) };
-            _unused as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-pub const NET_IF_UP: _bindgen_ty_2 = 0;
-pub const NET_IF_POINTOPOINT: _bindgen_ty_2 = 1;
-pub const NET_IF_PROMISC: _bindgen_ty_2 = 2;
-pub const NET_IF_NUM_FLAGS: _bindgen_ty_2 = 3;
-pub type _bindgen_ty_2 = u32;
-#[repr(C)]
-pub struct net_if_ipv6 {
-    #[doc = " Unicast IP addresses"]
-    pub unicast: __IncompleteArrayField<net_if_addr>,
-    #[doc = " Multicast IP addresses"]
-    pub mcast: __IncompleteArrayField<net_if_mcast_addr>,
-    #[doc = " Prefixes"]
-    pub prefix: __IncompleteArrayField<net_if_ipv6_prefix>,
-    #[doc = " Router solicitation timer"]
-    pub rs_timer: k_delayed_work,
-    #[doc = " Default reachable time (RFC 4861, page 52)"]
-    pub base_reachable_time: u32_t,
-    #[doc = " Reachable time (RFC 4861, page 20)"]
-    pub reachable_time: u32_t,
-    #[doc = " Retransmit timer (RFC 4861, page 52)"]
-    pub retrans_timer: u32_t,
-    #[doc = " IPv6 hop limit"]
-    pub hop_limit: u8_t,
-    #[doc = " RS count"]
-    pub rs_count: u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_if_ipv6() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_ipv6>(),
-        48usize,
-        concat!("Size of: ", stringify!(net_if_ipv6))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_ipv6>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_ipv6))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).unicast as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(unicast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).mcast as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(mcast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).prefix as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(prefix)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).rs_timer as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(rs_timer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_if_ipv6>())).base_reachable_time as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(base_reachable_time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).reachable_time as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(reachable_time)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).retrans_timer as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(retrans_timer)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).hop_limit as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(hop_limit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv6>())).rs_count as *const _ as usize },
-        45usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv6),
-            "::",
-            stringify!(rs_count)
-        )
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_if_ipv4 {
-    #[doc = " Unicast IP addresses"]
-    pub unicast: [net_if_addr; 1usize],
-    #[doc = " Multicast IP addresses"]
-    pub mcast: [net_if_mcast_addr; 1usize],
-    #[doc = " Gateway"]
-    pub gw: in_addr,
-    #[doc = " Netmask"]
-    pub netmask: in_addr,
-    #[doc = " IPv4 time-to-live"]
-    pub ttl: u8_t,
-}
-#[test]
-fn bindgen_test_layout_net_if_ipv4() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_ipv4>(),
-        36usize,
-        concat!("Size of: ", stringify!(net_if_ipv4))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_ipv4>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_ipv4))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv4>())).unicast as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv4),
-            "::",
-            stringify!(unicast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv4>())).mcast as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv4),
-            "::",
-            stringify!(mcast)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv4>())).gw as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv4),
-            "::",
-            stringify!(gw)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv4>())).netmask as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv4),
-            "::",
-            stringify!(netmask)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ipv4>())).ttl as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ipv4),
-            "::",
-            stringify!(ttl)
-        )
-    );
-}
-#[doc = " @brief Network interface IP address configuration."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_ip {
-    pub ipv4: *mut net_if_ipv4,
-}
-#[test]
-fn bindgen_test_layout_net_if_ip() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_ip>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_if_ip))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_ip>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_ip))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_ip>())).ipv4 as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_ip),
-            "::",
-            stringify!(ipv4)
-        )
-    );
-}
-#[doc = " @brief IP and other configuration related data for network interface."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_config {
-    #[doc = " IP address configuration setting"]
-    pub ip: net_if_ip,
-}
-#[test]
-fn bindgen_test_layout_net_if_config() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_config>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_if_config))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_config>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_config))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_config>())).ip as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_config),
-            "::",
-            stringify!(ip)
-        )
-    );
-}
-#[doc = " @brief Network traffic class."]
-#[doc = ""]
-#[doc = " Traffic classes are used when sending or receiving data that is classified"]
-#[doc = " with different priorities. So some traffic can be marked as high priority"]
-#[doc = " and it will be sent or received first. There is always at least one work"]
-#[doc = " queue in the system for Rx and Tx. Each network packet that is transmitted"]
-#[doc = " or received goes through a work queue thread that will transmit it."]
-#[repr(C)]
-pub struct net_traffic_class {
-    #[doc = " Work queue for handling this Tx or Rx packet"]
-    pub work_q: k_work_q,
-    #[doc = " Stack for this work queue"]
-    pub stack: *mut k_thread_stack_t,
-    #[doc = " Traffic class value"]
-    pub tc: cty::c_int,
-}
-#[test]
-fn bindgen_test_layout_net_traffic_class() {
-    assert_eq!(
-        ::core::mem::size_of::<net_traffic_class>(),
-        124usize,
-        concat!("Size of: ", stringify!(net_traffic_class))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_traffic_class>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_traffic_class))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_traffic_class>())).work_q as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_traffic_class),
-            "::",
-            stringify!(work_q)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_traffic_class>())).stack as *const _ as usize },
-        116usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_traffic_class),
-            "::",
-            stringify!(stack)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_traffic_class>())).tc as *const _ as usize },
-        120usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_traffic_class),
-            "::",
-            stringify!(tc)
-        )
-    );
-}
-#[doc = " @brief Network Interface Device structure"]
-#[doc = ""]
-#[doc = " Used to handle a network interface on top of a device driver instance."]
-#[doc = " There can be many net_if_dev instance against the same device."]
-#[doc = ""]
-#[doc = " Such interface is mainly to be used by the link layer, but is also tight"]
-#[doc = " to a network context: it then makes the relation with a network context"]
-#[doc = " and the network device."]
-#[doc = ""]
-#[doc = " Because of the strong relationship between a device driver and such"]
-#[doc = " network interface, each net_if_dev should be instantiated by"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_dev {
-    #[doc = " The actually device driver instance the net_if is related to"]
-    pub dev: *mut device,
-    #[doc = " Interface\'s L2 layer"]
-    pub l2: *const net_l2,
-    #[doc = " Interface\'s private L2 data pointer"]
-    pub l2_data: *mut cty::c_void,
-    pub flags: [atomic_t; 1usize],
-    #[doc = " The hardware link address"]
-    pub link_addr: net_linkaddr,
-    #[doc = " The hardware MTU"]
-    pub mtu: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_if_dev() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_dev>(),
-        28usize,
-        concat!("Size of: ", stringify!(net_if_dev))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_dev>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_dev))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).dev as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(dev)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).l2 as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(l2)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).l2_data as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(l2_data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).flags as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(flags)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).link_addr as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(link_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_dev>())).mtu as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_dev),
-            "::",
-            stringify!(mtu)
-        )
-    );
-}
-#[doc = " @brief Network Interface structure"]
-#[doc = ""]
-#[doc = " Used to handle a network interface on top of a net_if_dev instance."]
-#[doc = " There can be many net_if instance against the same net_if_dev instance."]
-#[doc = ""]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if {
-    #[doc = " The net_if_dev instance the net_if is related to"]
-    pub if_dev: *mut net_if_dev,
-    #[doc = " Network interface instance configuration"]
-    pub config: net_if_config,
-    pub __bindgen_padding_0: [u32; 6usize],
-}
-#[test]
-fn bindgen_test_layout_net_if() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if>(),
-        32usize,
-        concat!("Size of: ", stringify!(net_if))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if>())).if_dev as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if),
-            "::",
-            stringify!(if_dev)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if>())).config as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if),
-            "::",
-            stringify!(config)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Send a packet through a net iface"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to a network interface structure"]
-    #[doc = " @param pkt Pointer to a net packet to send"]
-    #[doc = ""]
-    #[doc = " return verdict about the packet"]
-    pub fn net_if_send_data(iface: *mut net_if, pkt: *mut net_pkt) -> net_verdict;
-}
-extern "C" {
-    #[doc = " @brief Input a packet through a net iface"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to a network interface structure"]
-    #[doc = " @param pkt Pointer to a net packet to input"]
-    #[doc = ""]
-    #[doc = " @return verdict about the packet"]
-    pub fn net_if_recv_data(iface: *mut net_if, pkt: *mut net_pkt) -> net_verdict;
-}
-extern "C" {
-    #[doc = " @brief Queue a packet to the net interface TX queue"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to a network interface structure"]
-    #[doc = " @param pkt Pointer to a net packet to queue"]
-    pub fn net_if_queue_tx(iface: *mut net_if, pkt: *mut net_pkt);
-}
-extern "C" {
-    #[doc = " @brief Start neighbor discovery and send router solicitation message."]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to a network interface structure"]
-    pub fn net_if_start_rs(iface: *mut net_if);
-}
-extern "C" {
-    #[doc = " @brief Get an interface according to link layer address."]
-    #[doc = ""]
-    #[doc = " @param ll_addr Link layer address."]
-    #[doc = ""]
-    #[doc = " @return Network interface or NULL if not found."]
-    pub fn net_if_get_by_link_addr(ll_addr: *mut net_linkaddr) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Find an interface from it\'s related device"]
-    #[doc = ""]
-    #[doc = " @param dev A valid struct device pointer to relate with an interface"]
-    #[doc = ""]
-    #[doc = " @return a valid struct net_if pointer on success, NULL otherwise"]
-    pub fn net_if_lookup_by_dev(dev: *mut device) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Get the default network interface."]
-    #[doc = ""]
-    #[doc = " @return Default interface or NULL if no interfaces are configured."]
-    pub fn net_if_get_default() -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Get the first network interface according to its type."]
-    #[doc = ""]
-    #[doc = " @param l2 Layer 2 type of the network interface."]
-    #[doc = ""]
-    #[doc = " @return First network interface of a given type or NULL if no such"]
-    #[doc = " interfaces was found."]
-    pub fn net_if_get_first_by_type(l2: *const net_l2) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Allocate network interface IPv6 config."]
-    #[doc = ""]
-    #[doc = " @details This function will allocate new IPv6 config."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use."]
-    #[doc = " @param ipv6 Pointer to allocated IPv6 struct is returned to caller."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_if_config_ipv6_get(iface: *mut net_if, ipv6: *mut *mut net_if_ipv6) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Release network interface IPv6 config."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_if_config_ipv6_put(iface: *mut net_if) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv6 address belongs to this specific interfaces."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface address, NULL if not found."]
-    pub fn net_if_ipv6_addr_lookup_by_iface(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-    ) -> *mut net_if_addr;
-}
-extern "C" {
-    #[doc = " @brief Add a IPv6 address to an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = " @param addr_type IPv6 address type"]
-    #[doc = " @param vlifetime Validity time for this address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface address, NULL if cannot be added"]
-    pub fn net_if_ipv6_addr_add(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-        addr_type: net_addr_type,
-        vlifetime: u32_t,
-    ) -> *mut net_if_addr;
-}
-extern "C" {
-    #[doc = " @brief Update validity lifetime time of an IPv6 address."]
-    #[doc = ""]
-    #[doc = " @param ifaddr Network IPv6 address"]
-    #[doc = " @param vlifetime Validity time for this address"]
-    pub fn net_if_ipv6_addr_update_lifetime(ifaddr: *mut net_if_addr, vlifetime: u32_t);
-}
-extern "C" {
-    #[doc = " @brief Remove an IPv6 address from an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv6_addr_rm(iface: *mut net_if, addr: *const in6_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Add a IPv6 multicast address to an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 multicast address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface multicast address, NULL if cannot be added"]
-    pub fn net_if_ipv6_maddr_add(
-        iface: *mut net_if,
-        addr: *const in6_addr,
-    ) -> *mut net_if_mcast_addr;
-}
-extern "C" {
-    #[doc = " @brief Remove an IPv6 multicast address from an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 multicast address"]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv6_maddr_rm(iface: *mut net_if, addr: *const in6_addr) -> bool;
-}
-#[doc = " @typedef net_if_mcast_callback_t"]
-#[doc = ""]
-#[doc = " @brief Define callback that is called whenever IPv6 multicast address group"]
-#[doc = " is joined or left."]
-#[doc = ""]
-#[doc = " @param \"struct net_if *iface\" A pointer to a struct net_if to which the"]
-#[doc = "        multicast address is attached."]
-#[doc = " @param \"const struct in6_addr *addr\" IPv6 multicast address."]
-#[doc = " @param \"bool is_joined\" True if the address is joined, false if left."]
-pub type net_if_mcast_callback_t = ::core::option::Option<
-    unsafe extern "C" fn(iface: *mut net_if, addr: *const in6_addr, is_joined: bool),
->;
-#[doc = " @brief Multicast monitor handler struct."]
-#[doc = ""]
-#[doc = " Stores the multicast callback information. Caller must make sure that"]
-#[doc = " the variable pointed by this is valid during the lifetime of"]
-#[doc = " registration. Typically this means that the variable cannot be"]
-#[doc = " allocated from stack."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_mcast_monitor {
-    #[doc = " Node information for the slist."]
-    pub node: sys_snode_t,
-    #[doc = " Network interface"]
-    pub iface: *mut net_if,
-    #[doc = " Multicast callback"]
-    pub cb: net_if_mcast_callback_t,
-}
-#[test]
-fn bindgen_test_layout_net_if_mcast_monitor() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_mcast_monitor>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_if_mcast_monitor))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_mcast_monitor>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_mcast_monitor))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_mcast_monitor>())).node as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_mcast_monitor),
-            "::",
-            stringify!(node)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_mcast_monitor>())).iface as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_mcast_monitor),
-            "::",
-            stringify!(iface)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_mcast_monitor>())).cb as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_mcast_monitor),
-            "::",
-            stringify!(cb)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Register a multicast monitor"]
-    #[doc = ""]
-    #[doc = " @param mon Monitor handle. This is a pointer to a monitor storage structure"]
-    #[doc = " which should be allocated by caller, but does not need to be initialized."]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param cb Monitor callback"]
-    pub fn net_if_mcast_mon_register(
-        mon: *mut net_if_mcast_monitor,
-        iface: *mut net_if,
-        cb: net_if_mcast_callback_t,
-    );
-}
-extern "C" {
-    #[doc = " @brief Unregister a multicast monitor"]
-    #[doc = ""]
-    #[doc = " @param mon Monitor handle"]
-    pub fn net_if_mcast_mon_unregister(mon: *mut net_if_mcast_monitor);
-}
-extern "C" {
-    #[doc = " @brief Call registered multicast monitors"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr Multicast address"]
-    #[doc = " @param is_joined Is this multicast address joined (true) or not (false)"]
-    pub fn net_if_mcast_monitor(iface: *mut net_if, addr: *const in6_addr, is_joined: bool);
-}
-extern "C" {
-    #[doc = " @brief Return prefix that corresponds to this IPv6 address."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to prefix, NULL if not found."]
-    pub fn net_if_ipv6_prefix_get(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-    ) -> *mut net_if_ipv6_prefix;
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv6 prefix belongs to this interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = " @param len Prefix length"]
-    #[doc = ""]
-    #[doc = " @return Pointer to prefix, NULL if not found."]
-    pub fn net_if_ipv6_prefix_lookup(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-        len: u8_t,
-    ) -> *mut net_if_ipv6_prefix;
-}
-extern "C" {
-    #[doc = " @brief Add a IPv6 prefix to an network interface."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param prefix IPv6 address"]
-    #[doc = " @param len Prefix length"]
-    #[doc = " @param lifetime Prefix lifetime in seconds"]
-    #[doc = ""]
-    #[doc = " @return Pointer to prefix, NULL if the prefix was not added."]
-    pub fn net_if_ipv6_prefix_add(
-        iface: *mut net_if,
-        prefix: *mut in6_addr,
-        len: u8_t,
-        lifetime: u32_t,
-    ) -> *mut net_if_ipv6_prefix;
-}
-extern "C" {
-    #[doc = " @brief Remove an IPv6 prefix from an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 prefix address"]
-    #[doc = " @param len Prefix length"]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv6_prefix_rm(iface: *mut net_if, addr: *mut in6_addr, len: u8_t) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Set the prefix lifetime timer."]
-    #[doc = ""]
-    #[doc = " @param prefix IPv6 address"]
-    #[doc = " @param lifetime Prefix lifetime in seconds"]
-    pub fn net_if_ipv6_prefix_set_timer(prefix: *mut net_if_ipv6_prefix, lifetime: u32_t);
-}
-extern "C" {
-    #[doc = " @brief Unset the prefix lifetime timer."]
-    #[doc = ""]
-    #[doc = " @param prefix IPv6 address"]
-    pub fn net_if_ipv6_prefix_unset_timer(prefix: *mut net_if_ipv6_prefix);
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv6 address is part of the subnet of our"]
-    #[doc = " network interface."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface. This is returned to the caller."]
-    #[doc = " The iface can be NULL in which case we check all the interfaces."]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return True if address is part of our subnet, false otherwise"]
-    pub fn net_if_ipv6_addr_onlink(iface: *mut *mut net_if, addr: *mut in6_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Check if IPv6 address is one of the routers configured"]
-    #[doc = " in the system."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to router information, NULL if cannot be found"]
-    pub fn net_if_ipv6_router_lookup(iface: *mut net_if, addr: *mut in6_addr)
-        -> *mut net_if_router;
-}
-extern "C" {
-    #[doc = " @brief Find default router for this IPv6 address."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface. This can be NULL in which case we"]
-    #[doc = " go through all the network interfaces to find a suitable router."]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to router information, NULL if cannot be found"]
-    pub fn net_if_ipv6_router_find_default(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-    ) -> *mut net_if_router;
-}
-extern "C" {
-    #[doc = " @brief Update validity lifetime time of a router."]
-    #[doc = ""]
-    #[doc = " @param router Network IPv6 address"]
-    #[doc = " @param lifetime Lifetime of this router."]
-    pub fn net_if_ipv6_router_update_lifetime(router: *mut net_if_router, lifetime: u32_t);
-}
-extern "C" {
-    #[doc = " @brief Add IPv6 router to the system."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv6 address"]
-    #[doc = " @param router_lifetime Lifetime of the router"]
-    #[doc = ""]
-    #[doc = " @return Pointer to router information, NULL if could not be added"]
-    pub fn net_if_ipv6_router_add(
-        iface: *mut net_if,
-        addr: *mut in6_addr,
-        router_lifetime: u16_t,
-    ) -> *mut net_if_router;
-}
-extern "C" {
-    #[doc = " @brief Remove IPv6 router from the system."]
-    #[doc = ""]
-    #[doc = " @param router Router information."]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv6_router_rm(router: *mut net_if_router) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Calculate next reachable time value for IPv6 reachable time"]
-    #[doc = ""]
-    #[doc = " @param ipv6 IPv6 address configuration"]
-    #[doc = ""]
-    #[doc = " @return Reachable time"]
-    pub fn net_if_ipv6_calc_reachable_time(ipv6: *mut net_if_ipv6) -> u32_t;
-}
-extern "C" {
-    #[doc = " @brief Get a IPv6 source address that should be used when sending"]
-    #[doc = " network data to destination."]
-    #[doc = ""]
-    #[doc = " @param iface Interface that was used when packet was received."]
-    #[doc = " If the interface is not known, then NULL can be given."]
-    #[doc = " @param dst IPv6 destination address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to IPv6 address to use, NULL if no IPv6 address"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv6_select_src_addr(iface: *mut net_if, dst: *mut in6_addr) -> *const in6_addr;
-}
-extern "C" {
-    #[doc = " @brief Get a network interface that should be used when sending"]
-    #[doc = " IPv6 network data to destination."]
-    #[doc = ""]
-    #[doc = " @param dst IPv6 destination address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to network interface to use, NULL if no suitable interface"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv6_select_src_iface(dst: *mut in6_addr) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Get a IPv6 link local address in a given state."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use. Must be a valid pointer to an interface."]
-    #[doc = " @param addr_state IPv6 address state (preferred, tentative, deprecated)"]
-    #[doc = ""]
-    #[doc = " @return Pointer to link local IPv6 address, NULL if no proper IPv6 address"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv6_get_ll(iface: *mut net_if, addr_state: net_addr_state) -> *mut in6_addr;
-}
-extern "C" {
-    #[doc = " @brief Return link local IPv6 address from the first interface that has"]
-    #[doc = " a link local address matching give state."]
-    #[doc = ""]
-    #[doc = " @param state IPv6 address state (ANY, TENTATIVE, PREFERRED, DEPRECATED)"]
-    #[doc = " @param iface Pointer to interface is returned"]
-    #[doc = ""]
-    #[doc = " @return Pointer to IPv6 address, NULL if not found."]
-    pub fn net_if_ipv6_get_ll_addr(state: net_addr_state, iface: *mut *mut net_if)
-        -> *mut in6_addr;
-}
-extern "C" {
-    #[doc = " @brief Stop IPv6 Duplicate Address Detection (DAD) procedure if"]
-    #[doc = " we find out that our IPv6 address is already in use."]
-    #[doc = ""]
-    #[doc = " @param iface Interface where the DAD was running."]
-    #[doc = " @param addr IPv6 address that failed DAD"]
-    pub fn net_if_ipv6_dad_failed(iface: *mut net_if, addr: *const in6_addr);
-}
-extern "C" {
-    #[doc = " @brief Return global IPv6 address from the first interface that has"]
-    #[doc = " a global IPv6 address either in TENTATIVE or PREFERRED state."]
-    #[doc = ""]
-    #[doc = " @param iface Caller can give an interface to check. If iface is set to NULL,"]
-    #[doc = " then all the interfaces are checked. Pointer to interface where the IPv6"]
-    #[doc = " address is defined is returned to the caller."]
-    #[doc = ""]
-    #[doc = " @return Pointer to IPv6 address, NULL if not found."]
-    pub fn net_if_ipv6_get_global_addr(iface: *mut *mut net_if) -> *mut in6_addr;
-}
-extern "C" {
-    #[doc = " @brief Allocate network interface IPv4 config."]
-    #[doc = ""]
-    #[doc = " @details This function will allocate new IPv4 config."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use."]
-    #[doc = " @param ipv4 Pointer to allocated IPv4 struct is returned to caller."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_if_config_ipv4_get(iface: *mut net_if, ipv4: *mut *mut net_if_ipv4) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Release network interface IPv4 config."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_if_config_ipv4_put(iface: *mut net_if) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Add a IPv4 address to an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = " @param addr_type IPv4 address type"]
-    #[doc = " @param vlifetime Validity time for this address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface address, NULL if cannot be added"]
-    pub fn net_if_ipv4_addr_add(
-        iface: *mut net_if,
-        addr: *mut in_addr,
-        addr_type: net_addr_type,
-        vlifetime: u32_t,
-    ) -> *mut net_if_addr;
-}
-extern "C" {
-    #[doc = " @brief Remove a IPv4 address from an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv4_addr_rm(iface: *mut net_if, addr: *mut in_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Add a IPv4 multicast address to an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 multicast address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface multicast address, NULL if cannot be added"]
-    pub fn net_if_ipv4_maddr_add(
-        iface: *mut net_if,
-        addr: *const in_addr,
-    ) -> *mut net_if_mcast_addr;
-}
-extern "C" {
-    #[doc = " @brief Remove an IPv4 multicast address from an interface"]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 multicast address"]
-    #[doc = ""]
-    #[doc = " @return True if successfully removed, false otherwise"]
-    pub fn net_if_ipv4_maddr_rm(iface: *mut net_if, addr: *const in_addr) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Check if this IPv4 multicast address belongs to a specific interface"]
-    #[doc = " or one of the interfaces."]
-    #[doc = ""]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = " @param iface If *iface is null, then pointer to interface is returned,"]
-    #[doc = " otherwise the *iface value needs to be matched."]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface multicast address, NULL if not found."]
-    pub fn net_if_ipv4_maddr_lookup(
-        addr: *const in_addr,
-        iface: *mut *mut net_if,
-    ) -> *mut net_if_mcast_addr;
-}
-extern "C" {
-    #[doc = " @brief Check if IPv4 address is one of the routers configured"]
-    #[doc = " in the system."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to router information, NULL if cannot be found"]
-    pub fn net_if_ipv4_router_lookup(iface: *mut net_if, addr: *mut in_addr) -> *mut net_if_router;
-}
-extern "C" {
-    #[doc = " @brief Add IPv4 router to the system."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = " @param addr IPv4 address"]
-    #[doc = " @param is_default Is this router the default one"]
-    #[doc = " @param router_lifetime Lifetime of the router"]
-    #[doc = ""]
-    #[doc = " @return Pointer to router information, NULL if could not be added"]
-    pub fn net_if_ipv4_router_add(
-        iface: *mut net_if,
-        addr: *mut in_addr,
-        is_default: bool,
-        router_lifetime: u16_t,
-    ) -> *mut net_if_router;
-}
-extern "C" {
-    #[doc = " @brief Get a network interface that should be used when sending"]
-    #[doc = " IPv4 network data to destination."]
-    #[doc = ""]
-    #[doc = " @param dst IPv4 destination address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to network interface to use, NULL if no suitable interface"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv4_select_src_iface(dst: *mut in_addr) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Get a IPv4 source address that should be used when sending"]
-    #[doc = " network data to destination."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use when sending the packet."]
-    #[doc = " If the interface is not known, then NULL can be given."]
-    #[doc = " @param dst IPv4 destination address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to IPv4 address to use, NULL if no IPv4 address"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv4_select_src_addr(iface: *mut net_if, dst: *mut in_addr) -> *const in_addr;
-}
-extern "C" {
-    #[doc = " @brief Get a IPv4 link local address in a given state."]
-    #[doc = ""]
-    #[doc = " @param iface Interface to use. Must be a valid pointer to an interface."]
-    #[doc = " @param addr_state IPv4 address state (preferred, tentative, deprecated)"]
-    #[doc = ""]
-    #[doc = " @return Pointer to link local IPv4 address, NULL if no proper IPv4 address"]
-    #[doc = " could be found."]
-    pub fn net_if_ipv4_get_ll(iface: *mut net_if, addr_state: net_addr_state) -> *mut in_addr;
-}
-extern "C" {
-    #[doc = " @brief Get a network interface that should be used when sending"]
-    #[doc = " IPv6 or IPv4 network data to destination."]
-    #[doc = ""]
-    #[doc = " @param dst IPv6 or IPv4 destination address"]
-    #[doc = ""]
-    #[doc = " @return Pointer to network interface to use. Note that the function"]
-    #[doc = " will return the default network interface if the best network interface"]
-    #[doc = " is not found."]
-    pub fn net_if_select_src_iface(dst: *const sockaddr) -> *mut net_if;
-}
-#[doc = " @typedef net_if_link_callback_t"]
-#[doc = " @brief Define callback that is called after a network packet"]
-#[doc = "        has been sent."]
-#[doc = " @param \"struct net_if *iface\" A pointer to a struct net_if to which the"]
-#[doc = "        the net_pkt was sent to."]
-#[doc = " @param \"struct net_linkaddr *dst\" Link layer address of the destination"]
-#[doc = "        where the network packet was sent."]
-#[doc = " @param \"int status\" Send status, 0 is ok, < 0 error."]
-pub type net_if_link_callback_t = ::core::option::Option<
-    unsafe extern "C" fn(iface: *mut net_if, dst: *mut net_linkaddr, status: cty::c_int),
->;
-#[doc = " @brief Link callback handler struct."]
-#[doc = ""]
-#[doc = " Stores the link callback information. Caller must make sure that"]
-#[doc = " the variable pointed by this is valid during the lifetime of"]
-#[doc = " registration. Typically this means that the variable cannot be"]
-#[doc = " allocated from stack."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_link_cb {
-    #[doc = " Node information for the slist."]
-    pub node: sys_snode_t,
-    #[doc = " Link callback"]
-    pub cb: net_if_link_callback_t,
-}
-#[test]
-fn bindgen_test_layout_net_if_link_cb() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_link_cb>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_if_link_cb))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_link_cb>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_link_cb))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_link_cb>())).node as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_link_cb),
-            "::",
-            stringify!(node)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_link_cb>())).cb as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_link_cb),
-            "::",
-            stringify!(cb)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Register a link callback."]
-    #[doc = ""]
-    #[doc = " @param link Caller specified handler for the callback."]
-    #[doc = " @param cb Callback to register."]
-    pub fn net_if_register_link_cb(link: *mut net_if_link_cb, cb: net_if_link_callback_t);
-}
-extern "C" {
-    #[doc = " @brief Unregister a link callback."]
-    #[doc = ""]
-    #[doc = " @param link Caller specified handler for the callback."]
-    pub fn net_if_unregister_link_cb(link: *mut net_if_link_cb);
-}
-extern "C" {
-    #[doc = " @brief Call a link callback function."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface."]
-    #[doc = " @param lladdr Destination link layer address"]
-    #[doc = " @param status 0 is ok, < 0 error"]
-    pub fn net_if_call_link_cb(iface: *mut net_if, lladdr: *mut net_linkaddr, status: cty::c_int);
-}
-extern "C" {
-    #[doc = " @brief Check if received network packet checksum calculation can be avoided"]
-    #[doc = " or not. For example many ethernet devices support network packet offloading"]
-    #[doc = " in which case the IP stack does not need to calculate the checksum."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = ""]
-    #[doc = " @return True if checksum needs to be calculated, false otherwise."]
-    pub fn net_if_need_calc_rx_checksum(iface: *mut net_if) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Check if network packet checksum calculation can be avoided or not"]
-    #[doc = " when sending the packet. For example many ethernet devices support network"]
-    #[doc = " packet offloading in which case the IP stack does not need to calculate the"]
-    #[doc = " checksum."]
-    #[doc = ""]
-    #[doc = " @param iface Network interface"]
-    #[doc = ""]
-    #[doc = " @return True if checksum needs to be calculated, false otherwise."]
-    pub fn net_if_need_calc_tx_checksum(iface: *mut net_if) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Get interface according to index"]
-    #[doc = ""]
-    #[doc = " @param index Interface index"]
-    #[doc = ""]
-    #[doc = " @return Pointer to interface or NULL if not found."]
-    pub fn net_if_get_by_index(index: u8_t) -> *mut net_if;
-}
-extern "C" {
-    #[doc = " @brief Get interface index according to pointer"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    #[doc = ""]
-    #[doc = " @return Interface index"]
-    pub fn net_if_get_by_iface(iface: *mut net_if) -> u8_t;
-}
-#[doc = " @typedef net_if_cb_t"]
-#[doc = " @brief Callback used while iterating over network interfaces"]
-#[doc = ""]
-#[doc = " @param iface Pointer to current network interface"]
-#[doc = " @param user_data A valid pointer to user data or NULL"]
-pub type net_if_cb_t =
-    ::core::option::Option<unsafe extern "C" fn(iface: *mut net_if, user_data: *mut cty::c_void)>;
-extern "C" {
-    #[doc = " @brief Go through all the network interfaces and call callback"]
-    #[doc = " for each interface."]
-    #[doc = ""]
-    #[doc = " @param cb User-supplied callback function to call"]
-    #[doc = " @param user_data User specified data"]
-    pub fn net_if_foreach(cb: net_if_cb_t, user_data: *mut cty::c_void);
-}
-extern "C" {
-    #[doc = " @brief Bring interface up"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    #[doc = ""]
-    #[doc = " @return 0 on success"]
-    pub fn net_if_up(iface: *mut net_if) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Bring interface down"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    #[doc = ""]
-    #[doc = " @return 0 on success"]
-    pub fn net_if_down(iface: *mut net_if) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Set network interface into promiscuous mode"]
-    #[doc = ""]
-    #[doc = " @details Note that not all network technologies will support this."]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    #[doc = ""]
-    #[doc = " @return 0 on success, <0 if error"]
-    pub fn net_if_set_promisc(iface: *mut net_if) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Set network interface into normal mode"]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    pub fn net_if_unset_promisc(iface: *mut net_if);
-}
-extern "C" {
-    #[doc = " @brief Check if promiscuous mode is set or not."]
-    #[doc = ""]
-    #[doc = " @param iface Pointer to network interface"]
-    #[doc = ""]
-    #[doc = " @return True if interface is in promisc mode,"]
-    #[doc = "         False if interface is not in in promiscuous mode."]
-    pub fn net_if_is_promisc(iface: *mut net_if) -> bool;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_if_api {
-    pub init: ::core::option::Option<unsafe extern "C" fn(iface: *mut net_if)>,
-}
-#[test]
-fn bindgen_test_layout_net_if_api() {
-    assert_eq!(
-        ::core::mem::size_of::<net_if_api>(),
-        4usize,
-        concat!("Size of: ", stringify!(net_if_api))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_if_api>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_if_api))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_if_api>())).init as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_if_api),
-            "::",
-            stringify!(init)
-        )
-    );
-}
-pub const net_context_state_NET_CONTEXT_IDLE: net_context_state = 0;
-pub const net_context_state_NET_CONTEXT_UNCONNECTED: net_context_state = 0;
-pub const net_context_state_NET_CONTEXT_CONFIGURING: net_context_state = 1;
-pub const net_context_state_NET_CONTEXT_CONNECTING: net_context_state = 1;
-pub const net_context_state_NET_CONTEXT_READY: net_context_state = 2;
-pub const net_context_state_NET_CONTEXT_CONNECTED: net_context_state = 2;
-pub const net_context_state_NET_CONTEXT_LISTENING: net_context_state = 3;
-#[doc = " State of the context (bits 1 & 2 in the flags)"]
-pub type net_context_state = u32;
-#[doc = " @typedef net_context_recv_cb_t"]
-#[doc = " @brief Network data receive callback."]
-#[doc = ""]
-#[doc = " @details The recv callback is called after a network data packet is"]
-#[doc = " received. This callback is called by RX thread so its stack and execution"]
-#[doc = " context is used here. Keep processing in the callback minimal to reduce the"]
-#[doc = " time spent blocked while handling packets."]
-#[doc = ""]
-#[doc = " @param context The context to use."]
-#[doc = " @param pkt Network buffer that is received. If the pkt is not NULL,"]
-#[doc = " then the callback will own the buffer and it needs to to unref the pkt"]
-#[doc = " as soon as it has finished working with it.  On EOF, pkt will be NULL."]
-#[doc = " @param status Value is set to 0 if some data or the connection is"]
-#[doc = " at EOF, <0 if there was an error receiving data, in this case the"]
-#[doc = " pkt parameter is set to NULL."]
-#[doc = " @param user_data The user data given in net_recv() call."]
-pub type net_context_recv_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        context: *mut net_context,
-        pkt: *mut net_pkt,
-        status: cty::c_int,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_context_send_cb_t"]
-#[doc = " @brief Network data send callback."]
-#[doc = ""]
-#[doc = " @details The send callback is called after a network data packet is sent."]
-#[doc = " This callback is called by TX thread so its stack and execution context is"]
-#[doc = " used here. Keep processing in the callback minimal to reduce the time spent"]
-#[doc = " blocked while handling packets."]
-#[doc = ""]
-#[doc = " @param context The context to use."]
-#[doc = " @param status Value is set to 0 if all data was sent ok, <0 if"]
-#[doc = " there was an error sending data. >0 amount of data that was"]
-#[doc = " sent when not all data was sent ok."]
-#[doc = " @param token User specified value specified in net_send() call."]
-#[doc = " @param user_data The user data given in net_send() call."]
-pub type net_context_send_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        context: *mut net_context,
-        status: cty::c_int,
-        token: *mut cty::c_void,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_tcp_accept_cb_t"]
-#[doc = " @brief Accept callback"]
-#[doc = ""]
-#[doc = " @details The accept callback is called after a successful connection was"]
-#[doc = " established or if there was an error while we were waiting for a connection"]
-#[doc = " attempt. This callback is called by RX thread so its stack and execution"]
-#[doc = " context is used here. Keep processing in the callback minimal to reduce the"]
-#[doc = " time spent blocked while handling packets."]
-#[doc = ""]
-#[doc = " @param context The context to use."]
-#[doc = " @param addr The peer address."]
-#[doc = " @param addrlen Length of the peer address."]
-#[doc = " @param status The status code, 0 on success, < 0 otherwise"]
-#[doc = " @param user_data The user data given in net_context_accept() call."]
-pub type net_tcp_accept_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        new_context: *mut net_context,
-        addr: *mut sockaddr,
-        addrlen: socklen_t,
-        status: cty::c_int,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_context_connect_cb_t"]
-#[doc = " @brief Connection callback."]
-#[doc = ""]
-#[doc = " @details The connect callback is called after a connection is being"]
-#[doc = " established."]
-#[doc = " For TCP connections, this callback is called by RX thread so its stack and"]
-#[doc = " execution context is used here. The callback is called after the TCP"]
-#[doc = " connection was established or if the connection failed. Keep processing in"]
-#[doc = " the callback minimal to reduce the time spent blocked while handling"]
-#[doc = " packets."]
-#[doc = " For UDP connections, this callback is called immediately by"]
-#[doc = " net_context_connect() function. UDP is a connectionless protocol so the"]
-#[doc = " connection can be thought of being established immediately."]
-#[doc = ""]
-#[doc = " @param context The context to use."]
-#[doc = " @param status Status of the connection establishment. This is 0"]
-#[doc = " if the connection was established successfully, <0 if there was an"]
-#[doc = " error."]
-#[doc = " @param user_data The user data given in net_context_connect() call."]
-pub type net_context_connect_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        context: *mut net_context,
-        status: cty::c_int,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_pkt_get_slab_func_t"]
-#[doc = ""]
-#[doc = " @brief Function that is called to get the slab that is used"]
-#[doc = " for net_pkt allocations."]
-#[doc = ""]
-#[doc = " @return Pointer to valid struct k_mem_slab instance."]
-pub type net_pkt_get_slab_func_t =
-    ::core::option::Option<unsafe extern "C" fn() -> *mut k_mem_slab>;
-#[doc = " @typedef net_pkt_get_pool_func_t"]
-#[doc = ""]
-#[doc = " @brief Function that is called to get the pool that is used"]
-#[doc = " for net_buf allocations."]
-#[doc = ""]
-#[doc = " @return Pointer to valid struct net_buf_pool instance."]
-pub type net_pkt_get_pool_func_t =
-    ::core::option::Option<unsafe extern "C" fn() -> *mut net_buf_pool>;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_tcp {
-    _unused: [u8; 0],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_conn_handle {
-    _unused: [u8; 0],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct tls_context {
-    _unused: [u8; 0],
-}
-#[doc = " @brief Network packet management library"]
-#[doc = " @defgroup net_pkt Network Packet Library"]
-#[doc = " @ingroup networking"]
-#[doc = " @{"]
-#[repr(C)]
-pub struct net_context {
-    #[doc = " User data."]
-    #[doc = ""]
-    #[doc = "  First member of the structure to let users either have user data"]
-    #[doc = "  associated with a context, or put contexts into a FIFO."]
-    pub user_data: *mut cty::c_void,
-    #[doc = " Reference count"]
-    pub refcount: atomic_t,
-    #[doc = " Local IP address. Note that the values are in network byte order."]
-    pub local: sockaddr_ptr,
-    #[doc = " Remote IP address. Note that the values are in network byte order."]
-    pub remote: sockaddr,
-    #[doc = " Connection handle"]
-    pub conn_handler: *mut net_conn_handle,
-    #[doc = " Receive callback to be called when desired packet"]
-    #[doc = " has been received."]
-    pub recv_cb: net_context_recv_cb_t,
-    #[doc = " Send callback to be called when the packet has been sent"]
-    #[doc = " successfully."]
-    pub send_cb: net_context_send_cb_t,
-    #[doc = " Connect callback to be called when a connection has been"]
-    #[doc = "  established."]
-    pub connect_cb: net_context_connect_cb_t,
-    #[doc = " TCP connection information"]
-    pub tcp: *mut net_tcp,
-    #[doc = " net_app connection information"]
-    pub net_app: *mut cty::c_void,
-    #[doc = " Semaphore to signal synchronous recv call completion."]
-    pub recv_data_wait: k_sem,
-    pub __bindgen_anon_1: net_context__bindgen_ty_1,
-    pub options: net_context__bindgen_ty_2,
-    #[doc = " Network interface assigned to this context"]
-    pub iface: u8_t,
-    #[doc = " Flags for the context"]
-    pub flags: u8_t,
-}
-#[doc = " Per-socket packet or connection queues"]
-#[repr(C)]
-pub struct net_context__bindgen_ty_1 {
-    pub recv_q: __BindgenUnionField<k_fifo>,
-    pub accept_q: __BindgenUnionField<k_fifo>,
-    pub bindgen_union_field: [u32; 4usize],
-}
-#[test]
-fn bindgen_test_layout_net_context__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_context__bindgen_ty_1>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_context__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_context__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_context__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_context__bindgen_ty_1>())).recv_q as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context__bindgen_ty_1),
-            "::",
-            stringify!(recv_q)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_context__bindgen_ty_1>())).accept_q as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context__bindgen_ty_1),
-            "::",
-            stringify!(accept_q)
-        )
-    );
-}
-#[doc = " Option values"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_context__bindgen_ty_2 {}
-#[test]
-fn bindgen_test_layout_net_context__bindgen_ty_2() {
-    assert_eq!(
-        ::core::mem::size_of::<net_context__bindgen_ty_2>(),
-        0usize,
-        concat!("Size of: ", stringify!(net_context__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_context__bindgen_ty_2>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_context__bindgen_ty_2))
-    );
-}
-#[test]
-fn bindgen_test_layout_net_context() {
-    assert_eq!(
-        ::core::mem::size_of::<net_context>(),
-        92usize,
-        concat!("Size of: ", stringify!(net_context))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_context>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_context))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).user_data as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(user_data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).refcount as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(refcount)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).local as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(local)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).remote as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(remote)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).conn_handler as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(conn_handler)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).recv_cb as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(recv_cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).send_cb as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(send_cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).connect_cb as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(connect_cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).tcp as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(tcp)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).net_app as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(net_app)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).recv_data_wait as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(recv_data_wait)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).options as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(options)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).iface as *const _ as usize },
-        88usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(iface)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_context>())).flags as *const _ as usize },
-        89usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_context),
-            "::",
-            stringify!(flags)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Get network context."]
-    #[doc = ""]
-    #[doc = " @details Network context is used to define the connection 5-tuple"]
-    #[doc = " (protocol, remote address, remote port, source address and source"]
-    #[doc = " port). Random free port number will be assigned to source port when"]
-    #[doc = " context is created. This is similar as BSD socket() function."]
-    #[doc = " The context will be created with a reference count of 1."]
-    #[doc = ""]
-    #[doc = " @param family IP address family (AF_INET or AF_INET6)"]
-    #[doc = " @param type Type of the socket, SOCK_STREAM or SOCK_DGRAM"]
-    #[doc = " @param ip_proto IP protocol, IPPROTO_UDP or IPPROTO_TCP"]
-    #[doc = " @param context The allocated context is returned to the caller."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_get(
-        family: sa_family_t,
-        type_: net_sock_type,
-        ip_proto: net_ip_protocol,
-        context: *mut *mut net_context,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Close and unref a network context."]
-    #[doc = ""]
-    #[doc = " @details This releases the context. It is not possible to send or"]
-    #[doc = " receive data via this context after this call.  This is similar as"]
-    #[doc = " BSD shutdown() function.  For legacy compatibility, this function"]
-    #[doc = " will implicitly decrement the reference count and possibly destroy"]
-    #[doc = " the context either now or when it reaches a final state."]
-    #[doc = ""]
-    #[doc = " @param context The context to be closed."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_put(context: *mut net_context) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Take a reference count to a net_context, preventing destruction"]
-    #[doc = ""]
-    #[doc = " @details Network contexts are not recycled until their reference"]
-    #[doc = " count reaches zero.  Note that this does not prevent any \"close\""]
-    #[doc = " behavior that results from errors or net_context_put.  It simply"]
-    #[doc = " prevents the context from being recycled for further use."]
-    #[doc = ""]
-    #[doc = " @param context The context on which to increment the reference count"]
-    #[doc = ""]
-    #[doc = " @return The new reference count"]
-    pub fn net_context_ref(context: *mut net_context) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Decrement the reference count to a network context"]
-    #[doc = ""]
-    #[doc = " @details Decrements the refcount.  If it reaches zero, the context"]
-    #[doc = " will be recycled.  Note that this does not cause any"]
-    #[doc = " network-visible \"close\" behavior (i.e. future packets to this"]
-    #[doc = " connection may see TCP RST or ICMP port unreachable responses).  See"]
-    #[doc = " net_context_put() for that."]
-    #[doc = ""]
-    #[doc = " @param context The context on which to decrement the reference count"]
-    #[doc = ""]
-    #[doc = " @return The new reference count, zero if the context was destroyed"]
-    pub fn net_context_unref(context: *mut net_context) -> cty::c_int;
-}
-extern "C" {
-    pub fn net_context_create_ipv4(
-        context: *mut net_context,
-        pkt: *mut net_pkt,
-        src: *const in_addr,
-        dst: *const in_addr,
-    ) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Assign a socket a local address."]
-    #[doc = ""]
-    #[doc = " @details This is similar as BSD bind() function."]
-    #[doc = ""]
-    #[doc = " @param context The context to be assigned."]
-    #[doc = " @param addr Address to assigned."]
-    #[doc = " @param addrlen Length of the address."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_bind(
-        context: *mut net_context,
-        addr: *const sockaddr,
-        addrlen: socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Mark the context as a listening one."]
-    #[doc = ""]
-    #[doc = " @details This is similar as BSD listen() function."]
-    #[doc = ""]
-    #[doc = " @param context The context to use."]
-    #[doc = " @param backlog The size of the pending connections backlog."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_listen(context: *mut net_context, backlog: cty::c_int) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief            Create a network connection."]
-    #[doc = ""]
-    #[doc = " @details          The net_context_connect function creates a network"]
-    #[doc = "                   connection to the host specified by addr. After the"]
-    #[doc = "                   connection is established, the user-supplied callback (cb)"]
-    #[doc = "                   is executed. cb is called even if the timeout was set to"]
-    #[doc = "                   K_FOREVER. cb is not called if the timeout expires."]
-    #[doc = "                   For datagram sockets (SOCK_DGRAM), this function only sets"]
-    #[doc = "                   the peer address."]
-    #[doc = "                   This function is similar to the BSD connect() function."]
-    #[doc = ""]
-    #[doc = " @param context    The network context."]
-    #[doc = " @param addr       The peer address to connect to."]
-    #[doc = " @param addrlen    Peer address length."]
-    #[doc = " @param cb         Callback function. Set to NULL if not required."]
-    #[doc = " @param timeout    The timeout value for the connection. Possible values:"]
-    #[doc = "                   * K_NO_WAIT: this function will return immediately,"]
-    #[doc = "                   * K_FOREVER: this function will block until the"]
-    #[doc = "                                      connection is established,"]
-    #[doc = "                   * >0: this function will wait the specified ms."]
-    #[doc = " @param user_data  Data passed to the callback function."]
-    #[doc = ""]
-    #[doc = " @return           0 on success."]
-    #[doc = " @return           -EINVAL if an invalid parameter is passed as an argument."]
-    #[doc = " @return           -ENOTSUP if the operation is not supported or implemented."]
-    #[doc = " @return           -ETIMEDOUT if the connect operation times out."]
-    pub fn net_context_connect(
-        context: *mut net_context,
-        addr: *const sockaddr,
-        addrlen: socklen_t,
-        cb: net_context_connect_cb_t,
-        timeout: s32_t,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Accept a network connection attempt."]
-    #[doc = ""]
-    #[doc = " @details Accept a connection being established. This function"]
-    #[doc = " will return immediately if the timeout is set to K_NO_WAIT."]
-    #[doc = " In this case the context will call the supplied callback when ever"]
-    #[doc = " there is a connection established to this context. This is \"a register"]
-    #[doc = " handler and forget\" type of call (async)."]
-    #[doc = " If the timeout is set to K_FOREVER, the function will wait"]
-    #[doc = " until the connection is established. Timeout value > 0, will wait as"]
-    #[doc = " many ms."]
-    #[doc = " After the connection is established a caller-supplied callback is called."]
-    #[doc = " The callback is called even if timeout was set to K_FOREVER, the"]
-    #[doc = " callback is called before this function will return in this case."]
-    #[doc = " The callback is not called if the timeout expires."]
-    #[doc = " This is similar as BSD accept() function."]
-    #[doc = ""]
-    #[doc = " @param context The context to use."]
-    #[doc = " @param cb Caller-supplied callback function."]
-    #[doc = " @param timeout Timeout for the connection. Possible values"]
-    #[doc = " are K_FOREVER, K_NO_WAIT, >0."]
-    #[doc = " @param user_data Caller-supplied user data."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_accept(
-        context: *mut net_context,
-        cb: net_tcp_accept_cb_t,
-        timeout: s32_t,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Send a network buffer to a peer."]
-    #[doc = ""]
-    #[doc = " @details This function can be used to send network data to a peer"]
-    #[doc = " connection. This function will return immediately if the timeout"]
-    #[doc = " is set to K_NO_WAIT. If the timeout is set to K_FOREVER, the function"]
-    #[doc = " will wait until the network buffer is sent. Timeout value > 0 will"]
-    #[doc = " wait as many ms. After the network buffer is sent,"]
-    #[doc = " a caller-supplied callback is called. The callback is called even"]
-    #[doc = " if timeout was set to K_FOREVER, the callback is called"]
-    #[doc = " before this function will return in this case. The callback is not"]
-    #[doc = " called if the timeout expires. For context of type SOCK_DGRAM,"]
-    #[doc = " the destination address must have been set by the call to"]
-    #[doc = " net_context_connect()."]
-    #[doc = " This is similar as BSD send() function."]
-    #[doc = ""]
-    #[doc = " @param pkt The network buffer to send."]
-    #[doc = " @param cb Caller-supplied callback function."]
-    #[doc = " @param timeout Timeout for the connection. Possible values"]
-    #[doc = " are K_FOREVER, K_NO_WAIT, >0."]
-    #[doc = " @param token Caller specified value that is passed as is to callback."]
-    #[doc = " @param user_data Caller-supplied user data."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_send(
-        pkt: *mut net_pkt,
-        cb: net_context_send_cb_t,
-        timeout: s32_t,
-        token: *mut cty::c_void,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Send a network buffer to a peer specified by address."]
-    #[doc = ""]
-    #[doc = " @details This function can be used to send network data to a peer"]
-    #[doc = " specified by address. This variant can only be used for datagram"]
-    #[doc = " connections of type SOCK_DGRAM. This function will return immediately"]
-    #[doc = " if the timeout is set to K_NO_WAIT. If the timeout is set to K_FOREVER,"]
-    #[doc = " the function will wait until the network buffer is sent. Timeout"]
-    #[doc = " value > 0 will wait as many ms. After the network buffer"]
-    #[doc = " is sent, a caller-supplied callback is called. The callback is called"]
-    #[doc = " even if timeout was set to K_FOREVER, the callback is called"]
-    #[doc = " before this function will return. The callback is not called if the"]
-    #[doc = " timeout expires."]
-    #[doc = " This is similar as BSD sendto() function."]
-    #[doc = ""]
-    #[doc = " @param pkt The network buffer to send."]
-    #[doc = " @param dst_addr Destination address. This will override the address"]
-    #[doc = " already set in network buffer."]
-    #[doc = " @param addrlen Length of the address."]
-    #[doc = " @param cb Caller-supplied callback function."]
-    #[doc = " @param timeout Timeout for the connection. Possible values"]
-    #[doc = " are K_FOREVER, K_NO_WAIT, >0."]
-    #[doc = " @param token Caller specified value that is passed as is to callback."]
-    #[doc = " @param user_data Caller-supplied user data."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_sendto(
-        pkt: *mut net_pkt,
-        dst_addr: *const sockaddr,
-        addrlen: socklen_t,
-        cb: net_context_send_cb_t,
-        timeout: s32_t,
-        token: *mut cty::c_void,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Receive network data from a peer specified by context."]
-    #[doc = ""]
-    #[doc = " @details This function can be used to register a callback function"]
-    #[doc = " that is called by the network stack when network data has been received"]
-    #[doc = " for this context. As this function registers a callback, then there"]
-    #[doc = " is no need to call this function multiple times if timeout is set to"]
-    #[doc = " K_NO_WAIT."]
-    #[doc = " If callback function or user data changes, then the function can be called"]
-    #[doc = " multiple times to register new values."]
-    #[doc = " This function will return immediately if the timeout is set to K_NO_WAIT."]
-    #[doc = " If the timeout is set to K_FOREVER, the function will wait until the"]
-    #[doc = " network buffer is received. Timeout value > 0 will wait as many ms."]
-    #[doc = " After the network buffer is received, a caller-supplied callback is"]
-    #[doc = " called. The callback is called even if timeout was set to K_FOREVER,"]
-    #[doc = " the callback is called before this function will return in this case."]
-    #[doc = " The callback is not called if the timeout expires. The timeout functionality"]
-    #[doc = " can be compiled out if synchronous behavior is not needed. The sync call"]
-    #[doc = " logic requires some memory that can be saved if only async way of call is"]
-    #[doc = " used. If CONFIG_NET_CONTEXT_SYNC_RECV is not set, then the timeout parameter"]
-    #[doc = " value is ignored."]
-    #[doc = " This is similar as BSD recv() function."]
-    #[doc = " Note that net_context_bind() should be called before net_context_recv()."]
-    #[doc = " Default random port number is assigned to local port. Only bind() will"]
-    #[doc = " update connection information from context. If recv() is called before"]
-    #[doc = " bind() call, it may refuse to bind to a context which already has"]
-    #[doc = " a connection associated."]
-    #[doc = ""]
-    #[doc = " @param context The network context to use."]
-    #[doc = " @param cb Caller-supplied callback function."]
-    #[doc = " @param timeout Caller-supplied timeout. Possible values"]
-    #[doc = " are K_FOREVER, K_NO_WAIT, >0."]
-    #[doc = " @param user_data Caller-supplied user data."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_recv(
-        context: *mut net_context,
-        cb: net_context_recv_cb_t,
-        timeout: s32_t,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Update TCP receive window for context."]
-    #[doc = ""]
-    #[doc = " @details This function should be used by an application which"]
-    #[doc = " doesn\'t fully process incoming data in its receive callback,"]
-    #[doc = " but for example, queues it. In this case, receive callback"]
-    #[doc = " should decrease the window (call this function with a negative"]
-    #[doc = " value) by the size of queued data, and function(s) which dequeue"]
-    #[doc = " data - with positive value corresponding to the dequeued size."]
-    #[doc = " For example, if receive callback gets a packet with the data"]
-    #[doc = " size of 256 and queues it, it should call this function with"]
-    #[doc = " delta of -256. If a function extracts 10 bytes of the queued"]
-    #[doc = " data, it should call it with delta of 10."]
-    #[doc = ""]
-    #[doc = " @param context The TCP network context to use."]
-    #[doc = " @param delta Size, in bytes, by which to increase TCP receive"]
-    #[doc = " window (negative value to decrease)."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, < 0 if error"]
-    pub fn net_context_update_recv_wnd(context: *mut net_context, delta: s32_t) -> cty::c_int;
-}
-pub const net_context_option_NET_OPT_PRIORITY: net_context_option = 1;
-pub type net_context_option = u32;
-extern "C" {
-    #[doc = " @brief Set an connection option for this context."]
-    #[doc = ""]
-    #[doc = " @param context The network context to use."]
-    #[doc = " @param option Option to set"]
-    #[doc = " @param value Option value"]
-    #[doc = " @param len Option length"]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_context_set_option(
-        context: *mut net_context,
-        option: net_context_option,
-        value: *const cty::c_void,
-        len: usize,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Get connection option value for this context."]
-    #[doc = ""]
-    #[doc = " @param context The network context to use."]
-    #[doc = " @param option Option to set"]
-    #[doc = " @param value Option value"]
-    #[doc = " @param len Option length (returned to caller)"]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error"]
-    pub fn net_context_get_option(
-        context: *mut net_context,
-        option: net_context_option,
-        value: *mut cty::c_void,
-        len: *mut usize,
-    ) -> cty::c_int;
-}
-#[doc = " @typedef net_context_cb_t"]
-#[doc = " @brief Callback used while iterating over network contexts"]
-#[doc = ""]
-#[doc = " @param context A valid pointer on current network context"]
-#[doc = " @param user_data A valid pointer on some user data or NULL"]
-pub type net_context_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(context: *mut net_context, user_data: *mut cty::c_void),
->;
-extern "C" {
-    #[doc = " @brief Go through all the network connections and call callback"]
-    #[doc = " for each network context."]
-    #[doc = ""]
-    #[doc = " @param cb User-supplied callback function to call."]
-    #[doc = " @param user_data User specified data."]
-    pub fn net_context_foreach(cb: net_context_cb_t, user_data: *mut cty::c_void);
-}
-pub const dns_query_type_DNS_QUERY_TYPE_A: dns_query_type = 1;
-pub const dns_query_type_DNS_QUERY_TYPE_AAAA: dns_query_type = 28;
-#[doc = " DNS query type enum"]
-pub type dns_query_type = u32;
-#[doc = " Address info struct is passed to callback that gets all the results."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct dns_addrinfo {
-    pub ai_addr: sockaddr,
-    pub ai_addrlen: socklen_t,
-    pub ai_family: u8_t,
-    pub ai_canonname: [cty::c_char; 21usize],
-}
-#[test]
-fn bindgen_test_layout_dns_addrinfo() {
-    assert_eq!(
-        ::core::mem::size_of::<dns_addrinfo>(),
-        36usize,
-        concat!("Size of: ", stringify!(dns_addrinfo))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<dns_addrinfo>(),
-        4usize,
-        concat!("Alignment of ", stringify!(dns_addrinfo))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_addrinfo>())).ai_addr as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_addrinfo),
-            "::",
-            stringify!(ai_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_addrinfo>())).ai_addrlen as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_addrinfo),
-            "::",
-            stringify!(ai_addrlen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_addrinfo>())).ai_family as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_addrinfo),
-            "::",
-            stringify!(ai_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_addrinfo>())).ai_canonname as *const _ as usize },
-        13usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_addrinfo),
-            "::",
-            stringify!(ai_canonname)
-        )
-    );
-}
-pub const dns_resolve_status_DNS_EAI_BADFLAGS: dns_resolve_status = -1;
-pub const dns_resolve_status_DNS_EAI_NONAME: dns_resolve_status = -2;
-pub const dns_resolve_status_DNS_EAI_AGAIN: dns_resolve_status = -3;
-pub const dns_resolve_status_DNS_EAI_FAIL: dns_resolve_status = -4;
-pub const dns_resolve_status_DNS_EAI_NODATA: dns_resolve_status = -5;
-pub const dns_resolve_status_DNS_EAI_FAMILY: dns_resolve_status = -6;
-pub const dns_resolve_status_DNS_EAI_SOCKTYPE: dns_resolve_status = -7;
-pub const dns_resolve_status_DNS_EAI_SERVICE: dns_resolve_status = -8;
-pub const dns_resolve_status_DNS_EAI_ADDRFAMILY: dns_resolve_status = -9;
-pub const dns_resolve_status_DNS_EAI_MEMORY: dns_resolve_status = -10;
-pub const dns_resolve_status_DNS_EAI_SYSTEM: dns_resolve_status = -11;
-pub const dns_resolve_status_DNS_EAI_OVERFLOW: dns_resolve_status = -12;
-pub const dns_resolve_status_DNS_EAI_INPROGRESS: dns_resolve_status = -100;
-pub const dns_resolve_status_DNS_EAI_CANCELED: dns_resolve_status = -101;
-pub const dns_resolve_status_DNS_EAI_NOTCANCELED: dns_resolve_status = -102;
-pub const dns_resolve_status_DNS_EAI_ALLDONE: dns_resolve_status = -103;
-pub const dns_resolve_status_DNS_EAI_IDN_ENCODE: dns_resolve_status = -105;
-#[doc = " Status values for the callback."]
-pub type dns_resolve_status = i32;
-#[doc = " @typedef dns_resolve_cb_t"]
-#[doc = " @brief DNS resolve callback"]
-#[doc = ""]
-#[doc = " @details The DNS resolve callback is called after a successful"]
-#[doc = " DNS resolving. The resolver can call this callback multiple times, one"]
-#[doc = " for each resolved address."]
-#[doc = ""]
-#[doc = " @param status The status of the query:"]
-#[doc = "  DNS_EAI_INPROGRESS returned for each resolved address"]
-#[doc = "  DNS_EAI_ALLDONE    mark end of the resolving, info is set to NULL in"]
-#[doc = "                     this case"]
-#[doc = "  DNS_EAI_CANCELED   if the query was canceled manually or timeout happened"]
-#[doc = "  DNS_EAI_FAIL       if the name cannot be resolved by the server"]
-#[doc = "  DNS_EAI_NODATA     if there is no such name"]
-#[doc = "  other values means that an error happened."]
-#[doc = " @param info Query results are stored here."]
-#[doc = " @param user_data The user data given in dns_resolve_name() call."]
-pub type dns_resolve_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        status: dns_resolve_status,
-        info: *mut dns_addrinfo,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " DNS resolve context structure."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct dns_resolve_context {
-    pub servers: [dns_resolve_context__bindgen_ty_1; 1usize],
-    #[doc = " This timeout is also used when a buffer is required from the"]
-    #[doc = " buffer pools."]
-    pub buf_timeout: s32_t,
-    pub queries: [dns_resolve_context_dns_pending_query; 1usize],
-    #[doc = " Is this context in use"]
-    pub is_used: bool,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct dns_resolve_context__bindgen_ty_1 {
-    #[doc = " DNS server information"]
-    pub dns_server: sockaddr,
-    #[doc = " Connection to the DNS server"]
-    pub net_ctx: *mut net_context,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: [u8; 3usize],
-}
-#[test]
-fn bindgen_test_layout_dns_resolve_context__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<dns_resolve_context__bindgen_ty_1>(),
-        16usize,
-        concat!("Size of: ", stringify!(dns_resolve_context__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<dns_resolve_context__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(dns_resolve_context__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context__bindgen_ty_1>())).dns_server as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context__bindgen_ty_1),
-            "::",
-            stringify!(dns_server)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context__bindgen_ty_1>())).net_ctx as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context__bindgen_ty_1),
-            "::",
-            stringify!(net_ctx)
-        )
-    );
-}
-impl dns_resolve_context__bindgen_ty_1 {
-    #[inline]
-    pub fn is_mdns(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_mdns(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_llmnr(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_llmnr(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_mdns: u8_t,
-        is_llmnr: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_mdns: u8 = unsafe { ::core::mem::transmute(is_mdns) };
-            is_mdns as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_llmnr: u8 = unsafe { ::core::mem::transmute(is_llmnr) };
-            is_llmnr as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[doc = " Result callbacks. We have multiple callbacks here so that it is"]
-#[doc = " possible to do multiple queries at the same time."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct dns_resolve_context_dns_pending_query {
-    #[doc = " Timeout timer"]
-    pub timer: k_delayed_work,
-    #[doc = " Back pointer to ctx, needed in timeout handler"]
-    pub ctx: *mut dns_resolve_context,
-    #[doc = " Result callback"]
-    pub cb: dns_resolve_cb_t,
-    #[doc = " User data"]
-    pub user_data: *mut cty::c_void,
-    #[doc = " TX timeout"]
-    pub timeout: s32_t,
-    #[doc = " String containing the thing to resolve like www.example.com"]
-    pub query: *const cty::c_char,
-    #[doc = " Query type"]
-    pub query_type: dns_query_type,
-    #[doc = " DNS id of this query"]
-    pub id: u16_t,
-}
-#[test]
-fn bindgen_test_layout_dns_resolve_context_dns_pending_query() {
-    assert_eq!(
-        ::core::mem::size_of::<dns_resolve_context_dns_pending_query>(),
-        60usize,
-        concat!(
-            "Size of: ",
-            stringify!(dns_resolve_context_dns_pending_query)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<dns_resolve_context_dns_pending_query>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(dns_resolve_context_dns_pending_query)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).timer as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(timer)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).ctx as *const _
-                as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(ctx)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).cb as *const _
-                as usize
-        },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(cb)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).user_data as *const _
-                as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(user_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).timeout as *const _
-                as usize
-        },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(timeout)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).query as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(query)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).query_type
-                as *const _ as usize
-        },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(query_type)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context_dns_pending_query>())).id as *const _
-                as usize
-        },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context_dns_pending_query),
-            "::",
-            stringify!(id)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_dns_resolve_context() {
-    assert_eq!(
-        ::core::mem::size_of::<dns_resolve_context>(),
-        84usize,
-        concat!("Size of: ", stringify!(dns_resolve_context))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<dns_resolve_context>(),
-        4usize,
-        concat!("Alignment of ", stringify!(dns_resolve_context))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_resolve_context>())).servers as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context),
-            "::",
-            stringify!(servers)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<dns_resolve_context>())).buf_timeout as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context),
-            "::",
-            stringify!(buf_timeout)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_resolve_context>())).queries as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context),
-            "::",
-            stringify!(queries)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<dns_resolve_context>())).is_used as *const _ as usize },
-        80usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(dns_resolve_context),
-            "::",
-            stringify!(is_used)
-        )
-    );
-}
-extern "C" {
-    #[doc = " @brief Init DNS resolving context."]
-    #[doc = ""]
-    #[doc = " @details This function sets the DNS server address and initializes the"]
-    #[doc = " DNS context that is used by the actual resolver. DNS server addresses"]
-    #[doc = " can be specified either in textual form, or as struct sockaddr (or both)."]
-    #[doc = " Note that the recommended way to resolve DNS names is to use"]
-    #[doc = " the dns_get_addr_info() API. In that case user does not need to"]
-    #[doc = " call dns_resolve_init() as the DNS servers are already setup by the system."]
-    #[doc = ""]
-    #[doc = " @param ctx DNS context. If the context variable is allocated from"]
-    #[doc = " the stack, then the variable needs to be valid for the whole duration of"]
-    #[doc = " the resolving. Caller does not need to fill the variable beforehand or"]
-    #[doc = " edit the context afterwards."]
-    #[doc = " @param dns_servers_str DNS server addresses using textual strings. The"]
-    #[doc = " array is NULL terminated. The port number can be given in the string."]
-    #[doc = " Syntax for the server addresses with or without port numbers:"]
-    #[doc = "    IPv4        : 10.0.9.1"]
-    #[doc = "    IPv4 + port : 10.0.9.1:5353"]
-    #[doc = "    IPv6        : 2001:db8::22:42"]
-    #[doc = "    IPv6 + port : [2001:db8::22:42]:5353"]
-    #[doc = " @param dns_servers_sa DNS server addresses as struct sockaddr. The array"]
-    #[doc = " is NULL terminated. Port numbers are optional in struct sockaddr, the"]
-    #[doc = " default will be used if set to 0."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn dns_resolve_init(
-        ctx: *mut dns_resolve_context,
-        dns_servers_str: *mut *const cty::c_char,
-        dns_servers_sa: *mut *const sockaddr,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Close DNS resolving context."]
-    #[doc = ""]
-    #[doc = " @details This releases DNS resolving context and marks the context unusable."]
-    #[doc = " Caller must call the dns_resolve_init() again to make context usable."]
-    #[doc = ""]
-    #[doc = " @param ctx DNS context"]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn dns_resolve_close(ctx: *mut dns_resolve_context) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Cancel a pending DNS query."]
-    #[doc = ""]
-    #[doc = " @details This releases DNS resources used by a pending query."]
-    #[doc = ""]
-    #[doc = " @param ctx DNS context"]
-    #[doc = " @param dns_id DNS id of the pending query"]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn dns_resolve_cancel(ctx: *mut dns_resolve_context, dns_id: u16_t) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Resolve DNS name."]
-    #[doc = ""]
-    #[doc = " @details This function can be used to resolve e.g., IPv4 or IPv6 address."]
-    #[doc = " Note that this is asynchronous call, the function will return immediately"]
-    #[doc = " and system will call the callback after resolving has finished or timeout"]
-    #[doc = " has occurred."]
-    #[doc = " We might send the query to multiple servers (if there are more than one"]
-    #[doc = " server configured), but we only use the result of the first received"]
-    #[doc = " response."]
-    #[doc = ""]
-    #[doc = " @param ctx DNS context"]
-    #[doc = " @param query What the caller wants to resolve."]
-    #[doc = " @param type What kind of data the caller wants to get."]
-    #[doc = " @param dns_id DNS id is returned to the caller. This is needed if one"]
-    #[doc = " wishes to cancel the query. This can be set to NULL if there is no need"]
-    #[doc = " to cancel the query."]
-    #[doc = " @param cb Callback to call after the resolving has finished or timeout"]
-    #[doc = " has happened."]
-    #[doc = " @param user_data The user data."]
-    #[doc = " @param timeout The timeout value for the query. Possible values:"]
-    #[doc = " K_FOREVER: the query is tried forever, user needs to cancel it manually"]
-    #[doc = "            if it takes too long time to finish"]
-    #[doc = " >0: start the query and let the system timeout it after specified ms"]
-    #[doc = ""]
-    #[doc = " @return 0 if resolving was started ok, < 0 otherwise"]
-    pub fn dns_resolve_name(
-        ctx: *mut dns_resolve_context,
-        query: *const cty::c_char,
-        type_: dns_query_type,
-        dns_id: *mut u16_t,
-        cb: dns_resolve_cb_t,
-        user_data: *mut cty::c_void,
-        timeout: s32_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Get default DNS context."]
-    #[doc = ""]
-    #[doc = " @details The system level DNS context uses DNS servers that are"]
-    #[doc = " defined in project config file. If no DNS servers are defined by the"]
-    #[doc = " user, then resolving DNS names using default DNS context will do nothing."]
-    #[doc = " The configuration options are described in subsys/net/lib/dns/Kconfig file."]
-    #[doc = ""]
-    #[doc = " @return Default DNS context."]
-    pub fn dns_resolve_get_default() -> *mut dns_resolve_context;
-}
-extern "C" {
-    pub fn strtoul(
-        str: *const cty::c_char,
-        endptr: *mut *mut cty::c_char,
-        base: cty::c_int,
-    ) -> cty::c_ulong;
-}
-extern "C" {
-    pub fn strtol(
-        str: *const cty::c_char,
-        endptr: *mut *mut cty::c_char,
-        base: cty::c_int,
-    ) -> cty::c_long;
-}
-extern "C" {
-    pub fn atoi(s: *const cty::c_char) -> cty::c_int;
-}
-extern "C" {
-    pub fn malloc(size: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn free(ptr: *mut cty::c_void);
-}
-extern "C" {
-    pub fn calloc(nmemb: usize, size: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn realloc(ptr: *mut cty::c_void, size: usize) -> *mut cty::c_void;
-}
-extern "C" {
-    pub fn reallocarray(ptr: *mut cty::c_void, nmemb: usize, size: usize) -> *mut cty::c_void;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct zsock_pollfd {
-    pub fd: cty::c_int,
-    pub events: cty::c_short,
-    pub revents: cty::c_short,
-}
-#[test]
-fn bindgen_test_layout_zsock_pollfd() {
-    assert_eq!(
-        ::core::mem::size_of::<zsock_pollfd>(),
-        8usize,
-        concat!("Size of: ", stringify!(zsock_pollfd))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<zsock_pollfd>(),
-        4usize,
-        concat!("Alignment of ", stringify!(zsock_pollfd))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_pollfd>())).fd as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_pollfd),
-            "::",
-            stringify!(fd)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_pollfd>())).events as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_pollfd),
-            "::",
-            stringify!(events)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_pollfd>())).revents as *const _ as usize },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_pollfd),
-            "::",
-            stringify!(revents)
-        )
-    );
-}
-#[doc = " @}"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct zsock_addrinfo {
-    pub ai_next: *mut zsock_addrinfo,
-    pub ai_flags: cty::c_int,
-    pub ai_family: cty::c_int,
-    pub ai_socktype: cty::c_int,
-    pub ai_protocol: cty::c_int,
-    pub ai_addrlen: socklen_t,
-    pub ai_addr: *mut sockaddr,
-    pub ai_canonname: *mut cty::c_char,
-    pub _ai_addr: sockaddr,
-    pub _ai_canonname: [cty::c_char; 21usize],
-}
-#[test]
-fn bindgen_test_layout_zsock_addrinfo() {
-    assert_eq!(
-        ::core::mem::size_of::<zsock_addrinfo>(),
-        64usize,
-        concat!("Size of: ", stringify!(zsock_addrinfo))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<zsock_addrinfo>(),
-        4usize,
-        concat!("Alignment of ", stringify!(zsock_addrinfo))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_next as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_next)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_flags as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_flags)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_family as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_family)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_socktype as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_socktype)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_protocol as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_protocol)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_addrlen as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_addrlen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_addr as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>())).ai_canonname as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(ai_canonname)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>()))._ai_addr as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(_ai_addr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<zsock_addrinfo>()))._ai_canonname as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(zsock_addrinfo),
-            "::",
-            stringify!(_ai_canonname)
-        )
-    );
-}
-extern "C" {
-    pub fn zsock_getsockopt(
-        sock: cty::c_int,
-        level: cty::c_int,
-        optname: cty::c_int,
-        optval: *mut cty::c_void,
-        optlen: *mut socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn zsock_setsockopt(
-        sock: cty::c_int,
-        level: cty::c_int,
-        optname: cty::c_int,
-        optval: *const cty::c_void,
-        optlen: socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn zsock_getaddrinfo(
-        host: *const cty::c_char,
-        service: *const cty::c_char,
-        hints: *const zsock_addrinfo,
-        res: *mut *mut zsock_addrinfo,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_socket(
-        family: cty::c_int,
-        type_: cty::c_int,
-        proto: cty::c_int,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_close(sock: cty::c_int) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_bind(
-        sock: cty::c_int,
-        addr: *const sockaddr,
-        addrlen: socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_connect(
-        sock: cty::c_int,
-        addr: *const sockaddr,
-        addrlen: socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_listen(sock: cty::c_int, backlog: cty::c_int) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_accept(
-        sock: cty::c_int,
-        addr: *mut sockaddr,
-        addrlen: *mut socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_sendto(
-        sock: cty::c_int,
-        buf: *const cty::c_void,
-        len: usize,
-        flags: cty::c_int,
-        dest_addr: *const sockaddr,
-        addrlen: socklen_t,
-    ) -> isize;
-}
-extern "C" {
-    pub fn _impl_zsock_recvfrom(
-        sock: cty::c_int,
-        buf: *mut cty::c_void,
-        max_len: usize,
-        flags: cty::c_int,
-        src_addr: *mut sockaddr,
-        addrlen: *mut socklen_t,
-    ) -> isize;
-}
-extern "C" {
-    pub fn _impl_zsock_fcntl(sock: cty::c_int, cmd: cty::c_int, flags: cty::c_int) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_poll(
-        fds: *mut zsock_pollfd,
-        nfds: cty::c_int,
-        timeout: cty::c_int,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_zsock_inet_pton(
-        family: sa_family_t,
-        src: *const cty::c_char,
-        dst: *mut cty::c_void,
-    ) -> cty::c_int;
-}
-extern "C" {
-    pub fn _impl_z_zsock_getaddrinfo_internal(
-        host: *const cty::c_char,
-        service: *const cty::c_char,
-        hints: *const zsock_addrinfo,
-        res: *mut zsock_addrinfo,
-    ) -> cty::c_int;
-}
-#[doc = " @brief Precision Time Protocol Timestamp format."]
-#[doc = ""]
-#[doc = " This structure represents a timestamp according"]
-#[doc = " to the Precision Time Protocol standard."]
-#[doc = ""]
-#[doc = " Seconds are encoded as a 48 bits unsigned integer."]
-#[doc = " Nanoseconds are encoded as a 32 bits unsigned integer."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_ptp_time {
-    pub __bindgen_anon_1: net_ptp_time__bindgen_ty_1,
-    #[doc = " Nanoseconds."]
-    pub nanosecond: u32_t,
-}
-#[doc = " Seconds encoded on 48 bits."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_ptp_time__bindgen_ty_1 {
-    pub _sec: net_ptp_time__bindgen_ty_1__bindgen_ty_1,
-    pub second: u64_t,
-    _bindgen_union_align: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_ptp_time__bindgen_ty_1__bindgen_ty_1 {
-    pub low: u32_t,
-    pub high: u16_t,
-    pub unused: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_ptp_time__bindgen_ty_1__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_time__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(net_ptp_time__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_time__bindgen_ty_1__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_ptp_time__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_time__bindgen_ty_1__bindgen_ty_1>())).low as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(low)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_time__bindgen_ty_1__bindgen_ty_1>())).high as *const _
-                as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(high)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_time__bindgen_ty_1__bindgen_ty_1>())).unused as *const _
-                as usize
-        },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(unused)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_ptp_time__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_time__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_ptp_time__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_time__bindgen_ty_1>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_ptp_time__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_time__bindgen_ty_1>()))._sec as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time__bindgen_ty_1),
-            "::",
-            stringify!(_sec)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_time__bindgen_ty_1>())).second as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time__bindgen_ty_1),
-            "::",
-            stringify!(second)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_ptp_time() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_time>(),
-        12usize,
-        concat!("Size of: ", stringify!(net_ptp_time))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_time>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_ptp_time))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_ptp_time>())).nanosecond as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_time),
-            "::",
-            stringify!(nanosecond)
-        )
-    );
-}
-#[doc = " @brief Precision Time Protocol Extended Timestamp format."]
-#[doc = ""]
-#[doc = " This structure represents an extended timestamp according"]
-#[doc = " to the Precision Time Protocol standard."]
-#[doc = ""]
-#[doc = " Seconds are encoded as 48 bits unsigned integer."]
-#[doc = " Fractional nanoseconds are encoded as 48 bits, their unit"]
-#[doc = " is 2*(-16) ns."]
-#[repr(C, packed)]
-#[derive(Copy, Clone)]
-pub struct net_ptp_extended_time {
-    pub __bindgen_anon_1: net_ptp_extended_time__bindgen_ty_1,
-    pub __bindgen_anon_2: net_ptp_extended_time__bindgen_ty_2,
-}
-#[doc = " Seconds encoded on 48 bits."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_ptp_extended_time__bindgen_ty_1 {
-    pub _sec: net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1,
-    pub second: u64_t,
-    _bindgen_union_align: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1 {
-    pub low: u32_t,
-    pub high: u16_t,
-    pub unused: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1>())).low
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(low)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1>())).high
-                as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(high)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1>())).unused
-                as *const _ as usize
-        },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1__bindgen_ty_1),
-            "::",
-            stringify!(unused)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_ptp_extended_time__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_extended_time__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_ptp_extended_time__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_extended_time__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_1>()))._sec as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1),
-            "::",
-            stringify!(_sec)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_1>())).second as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_1),
-            "::",
-            stringify!(second)
-        )
-    );
-}
-#[doc = " Fractional nanoseconds on 48 bits."]
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_ptp_extended_time__bindgen_ty_2 {
-    pub _fns: net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1,
-    pub fract_nsecond: u64_t,
-    _bindgen_union_align: [u32; 2usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1 {
-    pub low: u32_t,
-    pub high: u16_t,
-    pub unused: u16_t,
-}
-#[test]
-fn bindgen_test_layout_net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1>(),
-        8usize,
-        concat!(
-            "Size of: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1>())).low
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(low)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1>())).high
-                as *const _ as usize
-        },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(high)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1>())).unused
-                as *const _ as usize
-        },
-        6usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2__bindgen_ty_1),
-            "::",
-            stringify!(unused)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_ptp_extended_time__bindgen_ty_2() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_extended_time__bindgen_ty_2>(),
-        8usize,
-        concat!("Size of: ", stringify!(net_ptp_extended_time__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_extended_time__bindgen_ty_2>(),
-        4usize,
-        concat!(
-            "Alignment of ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_2>()))._fns as *const _
-                as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2),
-            "::",
-            stringify!(_fns)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_ptp_extended_time__bindgen_ty_2>())).fract_nsecond
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_ptp_extended_time__bindgen_ty_2),
-            "::",
-            stringify!(fract_nsecond)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_ptp_extended_time() {
-    assert_eq!(
-        ::core::mem::size_of::<net_ptp_extended_time>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_ptp_extended_time))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_ptp_extended_time>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_ptp_extended_time))
-    );
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub struct net_pkt {
-    #[doc = " FIFO uses first 4 bytes itself, reserve space"]
-    pub _reserved: cty::c_int,
-    #[doc = " Internal variable that is used when packet is sent"]
-    pub work: k_work,
-    #[doc = " Slab pointer from where it belongs to"]
-    pub slab: *mut k_mem_slab,
-    #[doc = " List of buffer fragments holding the packet"]
-    pub frags: *mut net_buf,
-    #[doc = " Network connection context"]
-    pub context: *mut net_context,
-    #[doc = " Network context token that user can set. This is passed"]
-    #[doc = " to user callback when data has been sent."]
-    pub token: *mut cty::c_void,
-    #[doc = " Network interface"]
-    pub iface: *mut net_if,
-    pub appdata: *mut u8_t,
-    pub next_hdr: *mut u8_t,
-    pub lladdr_src: net_linkaddr,
-    pub lladdr_dst: net_linkaddr,
-    pub data_len: u16_t,
-    pub appdatalen: u16_t,
-    pub ll_reserve: u8_t,
-    pub ip_hdr_len: u8_t,
-    pub transport_proto: u8_t,
-    pub sent_list: sys_snode_t,
-    #[doc = " Reference counter"]
-    pub ref_: u8_t,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_anon_1: net_pkt__bindgen_ty_1,
-    pub _bitfield_2: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_anon_2: net_pkt__bindgen_ty_2,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_pkt__bindgen_ty_1 {
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    _bindgen_union_align: u8,
-}
-#[test]
-fn bindgen_test_layout_net_pkt__bindgen_ty_1() {
-    assert_eq!(
-        ::core::mem::size_of::<net_pkt__bindgen_ty_1>(),
-        1usize,
-        concat!("Size of: ", stringify!(net_pkt__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_pkt__bindgen_ty_1>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_pkt__bindgen_ty_1))
-    );
-}
-impl net_pkt__bindgen_ty_1 {
-    #[inline]
-    pub fn pkt_queued(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_pkt_queued(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn gptp_pkt(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_gptp_pkt(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        pkt_queued: u8_t,
-        gptp_pkt: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let pkt_queued: u8 = unsafe { ::core::mem::transmute(pkt_queued) };
-            pkt_queued as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let gptp_pkt: u8 = unsafe { ::core::mem::transmute(gptp_pkt) };
-            gptp_pkt as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union net_pkt__bindgen_ty_2 {
-    pub ipv6_hop_limit: u8_t,
-    pub ipv4_ttl: u8_t,
-    _bindgen_union_align: u8,
-}
-#[test]
-fn bindgen_test_layout_net_pkt__bindgen_ty_2() {
-    assert_eq!(
-        ::core::mem::size_of::<net_pkt__bindgen_ty_2>(),
-        1usize,
-        concat!("Size of: ", stringify!(net_pkt__bindgen_ty_2))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_pkt__bindgen_ty_2>(),
-        1usize,
-        concat!("Alignment of ", stringify!(net_pkt__bindgen_ty_2))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::core::ptr::null::<net_pkt__bindgen_ty_2>())).ipv6_hop_limit as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt__bindgen_ty_2),
-            "::",
-            stringify!(ipv6_hop_limit)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt__bindgen_ty_2>())).ipv4_ttl as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt__bindgen_ty_2),
-            "::",
-            stringify!(ipv4_ttl)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_net_pkt() {
-    assert_eq!(
-        ::core::mem::size_of::<net_pkt>(),
-        80usize,
-        concat!("Size of: ", stringify!(net_pkt))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_pkt>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_pkt))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>()))._reserved as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(_reserved)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).work as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(work)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).slab as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(slab)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).frags as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(frags)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).context as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(context)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).token as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(token)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).iface as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(iface)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).appdata as *const _ as usize },
-        36usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(appdata)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).next_hdr as *const _ as usize },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(next_hdr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).lladdr_src as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(lladdr_src)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).lladdr_dst as *const _ as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(lladdr_dst)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).data_len as *const _ as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(data_len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).appdatalen as *const _ as usize },
-        62usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(appdatalen)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).ll_reserve as *const _ as usize },
-        64usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(ll_reserve)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).ip_hdr_len as *const _ as usize },
-        65usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(ip_hdr_len)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).transport_proto as *const _ as usize },
-        66usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(transport_proto)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).sent_list as *const _ as usize },
-        68usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(sent_list)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_pkt>())).ref_ as *const _ as usize },
-        72usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_pkt),
-            "::",
-            stringify!(ref_)
-        )
-    );
-}
-impl net_pkt {
-    #[inline]
-    pub fn sent_or_eof(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_sent_or_eof(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(sent_or_eof: u8_t) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let sent_or_eof: u8 = unsafe { ::core::mem::transmute(sent_or_eof) };
-            sent_or_eof as u64
-        });
-        __bindgen_bitfield_unit
-    }
-    #[inline]
-    pub fn forwarding(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_2.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_forwarding(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_2.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn family(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_2.get(1usize, 4u8) as u8) }
-    }
-    #[inline]
-    pub fn set_family(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_2.set(1usize, 4u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn ipv4_auto_arp_msg(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_2.get(5usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_ipv4_auto_arp_msg(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_2.set(5usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_2(
-        forwarding: u8_t,
-        family: u8_t,
-        ipv4_auto_arp_msg: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let forwarding: u8 = unsafe { ::core::mem::transmute(forwarding) };
-            forwarding as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 4u8, {
-            let family: u8 = unsafe { ::core::mem::transmute(family) };
-            family as u64
-        });
-        __bindgen_bitfield_unit.set(5usize, 1u8, {
-            let ipv4_auto_arp_msg: u8 = unsafe { ::core::mem::transmute(ipv4_auto_arp_msg) };
-            ipv4_auto_arp_msg as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-extern "C" {
-    #[doc = " @brief Get packet from the given packet slab."]
-    #[doc = ""]
-    #[doc = " @details Get network packet from the specific packet slab."]
-    #[doc = ""]
-    #[doc = " @param slab Network packet slab."]
-    #[doc = " @param reserve_head How many bytes to reserve for headroom."]
-    #[doc = " @param timeout Affects the action taken should the net pkt slab be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_get_reserve(
-        slab: *mut k_mem_slab,
-        reserve_head: u16_t,
-        timeout: s32_t,
-    ) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get packet from the RX packet slab."]
-    #[doc = ""]
-    #[doc = " @details Get network packet from RX packet slab. You must have"]
-    #[doc = " network context before able to use this function."]
-    #[doc = ""]
-    #[doc = " @param context Network context that will be related to this packet."]
-    #[doc = " @param timeout Affects the action taken should the net pkt slab be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_get_rx(context: *mut net_context, timeout: s32_t) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get packet from the TX packets slab."]
-    #[doc = ""]
-    #[doc = " @details Get network packet from TX packet slab. You must have"]
-    #[doc = " network context before able to use this function."]
-    #[doc = ""]
-    #[doc = " @param context Network context that will be related to"]
-    #[doc = " this packet."]
-    #[doc = " @param timeout Affects the action taken should the net pkt slab be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_get_tx(context: *mut net_context, timeout: s32_t) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get buffer from the DATA buffers pool."]
-    #[doc = ""]
-    #[doc = " @details Get network buffer from DATA buffer pool. You must have"]
-    #[doc = " network context before able to use this function."]
-    #[doc = ""]
-    #[doc = " @param context Network context that will be related to"]
-    #[doc = " this buffer."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network buffer if successful, NULL otherwise."]
-    pub fn net_pkt_get_data(context: *mut net_context, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Get RX packet from slab but also reserve headroom for"]
-    #[doc = " potential headers."]
-    #[doc = ""]
-    #[doc = " @details Normally this version is not useful for applications"]
-    #[doc = " but is mainly used by network fragmentation code."]
-    #[doc = ""]
-    #[doc = " @param reserve_head How many bytes to reserve for headroom."]
-    #[doc = " @param timeout Affects the action taken should the net pkt slab be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_get_reserve_rx(reserve_head: u16_t, timeout: s32_t) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get TX packet from slab but also reserve headroom for"]
-    #[doc = " potential headers."]
-    #[doc = ""]
-    #[doc = " @details Normally this version is not useful for applications"]
-    #[doc = " but is mainly used by network fragmentation code."]
-    #[doc = ""]
-    #[doc = " @param reserve_head How many bytes to reserve for headroom."]
-    #[doc = " @param timeout Affects the action taken should the net pkt slab be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_get_reserve_tx(reserve_head: u16_t, timeout: s32_t) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get RX DATA buffer from pool but also reserve headroom for"]
-    #[doc = " potential headers. Normally you should use net_pkt_get_frag() instead."]
-    #[doc = ""]
-    #[doc = " @details Normally this version is not useful for applications"]
-    #[doc = " but is mainly used by network fragmentation code."]
-    #[doc = ""]
-    #[doc = " @param reserve_head How many bytes to reserve for headroom."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network buffer if successful, NULL otherwise."]
-    pub fn net_pkt_get_reserve_rx_data(reserve_head: u16_t, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Get TX DATA buffer from pool but also reserve headroom for"]
-    #[doc = " potential headers. Normally you should use net_pkt_get_frag() instead."]
-    #[doc = ""]
-    #[doc = " @details Normally this version is not useful for applications"]
-    #[doc = " but is mainly used by network fragmentation code."]
-    #[doc = ""]
-    #[doc = " @param reserve_head How many bytes to reserve for headroom."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network buffer if successful, NULL otherwise."]
-    pub fn net_pkt_get_reserve_tx_data(reserve_head: u16_t, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Get a data fragment that might be from user specific"]
-    #[doc = " buffer pool or from global DATA pool."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Network buffer if successful, NULL otherwise."]
-    pub fn net_pkt_get_frag(pkt: *mut net_pkt, timeout: s32_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Place packet back into the available packets slab"]
-    #[doc = ""]
-    #[doc = " @details Releases the packet to other use. This needs to be"]
-    #[doc = " called by application after it has finished with the packet."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet to release."]
-    #[doc = ""]
-    pub fn net_pkt_unref(pkt: *mut net_pkt);
-}
-extern "C" {
-    #[doc = " @brief Increase the packet ref count"]
-    #[doc = ""]
-    #[doc = " @details Mark the packet to be used still."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet to ref."]
-    #[doc = ""]
-    #[doc = " @return Network packet if successful, NULL otherwise."]
-    pub fn net_pkt_ref(pkt: *mut net_pkt) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Increase the packet fragment ref count"]
-    #[doc = ""]
-    #[doc = " @details Mark the fragment to be used still."]
-    #[doc = ""]
-    #[doc = " @param frag Network fragment to ref."]
-    #[doc = ""]
-    #[doc = " @return a pointer on the referenced Network fragment."]
-    pub fn net_pkt_frag_ref(frag: *mut net_buf) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Decrease the packet fragment ref count"]
-    #[doc = ""]
-    #[doc = " @param frag Network fragment to unref."]
-    pub fn net_pkt_frag_unref(frag: *mut net_buf);
-}
-extern "C" {
-    #[doc = " @brief Delete existing fragment from a packet"]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet from which frag belongs to."]
-    #[doc = " @param parent parent fragment of frag, or NULL if none."]
-    #[doc = " @param frag Fragment to delete."]
-    #[doc = ""]
-    #[doc = " @return Pointer to the following fragment, or NULL if it had no"]
-    #[doc = "         further fragments."]
-    pub fn net_pkt_frag_del(
-        pkt: *mut net_pkt,
-        parent: *mut net_buf,
-        frag: *mut net_buf,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Add a fragment to a packet at the end of its fragment list"]
-    #[doc = ""]
-    #[doc = " @param pkt pkt Network packet where to add the fragment"]
-    #[doc = " @param frag Fragment to add"]
-    pub fn net_pkt_frag_add(pkt: *mut net_pkt, frag: *mut net_buf);
-}
-extern "C" {
-    #[doc = " @brief Insert a fragment to a packet at the beginning of its fragment list"]
-    #[doc = ""]
-    #[doc = " @param pkt pkt Network packet where to insert the fragment"]
-    #[doc = " @param frag Fragment to insert"]
-    pub fn net_pkt_frag_insert(pkt: *mut net_pkt, frag: *mut net_buf);
-}
-extern "C" {
-    #[doc = " @brief Copy a packet fragment list while reserving some extra space"]
-    #[doc = " in destination buffer before a copy."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet."]
-    #[doc = " @param amount Max amount of data to be copied."]
-    #[doc = " @param reserve Amount of extra data (this is not link layer header) in the"]
-    #[doc = " first data fragment that is returned. The function will copy the original"]
-    #[doc = " buffer right after the reserved bytes in the first destination fragment."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return New fragment list if successful, NULL otherwise."]
-    pub fn net_pkt_copy(
-        pkt: *mut net_pkt,
-        amount: usize,
-        reserve: usize,
-        timeout: s32_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Copy len bytes from src starting from\toffset to dst"]
-    #[doc = ""]
-    #[doc = " This routine assumes that dst is formed of one fragment with enough space"]
-    #[doc = " to store @a len bytes starting from offset at src."]
-    #[doc = ""]
-    #[doc = " @param dst Destination buffer"]
-    #[doc = " @param src Source buffer that may be fragmented"]
-    #[doc = " @param offset Starting point to copy from"]
-    #[doc = " @param len Number of bytes to copy"]
-    #[doc = " @return 0 on success"]
-    #[doc = " @return -ENOMEM on error"]
-    pub fn net_frag_linear_copy(
-        dst: *mut net_buf,
-        src: *mut net_buf,
-        offset: u16_t,
-        len: u16_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Copy len bytes from src starting from offset to dst buffer"]
-    #[doc = ""]
-    #[doc = " This routine assumes that dst is large enough to store @a len bytes"]
-    #[doc = " starting from offset at src."]
-    #[doc = ""]
-    #[doc = " @param dst Destination buffer"]
-    #[doc = " @param dst_len Destination buffer max length"]
-    #[doc = " @param src Source buffer that may be fragmented"]
-    #[doc = " @param offset Starting point to copy from"]
-    #[doc = " @param len Number of bytes to copy"]
-    #[doc = " @return number of bytes copied if everything is ok"]
-    #[doc = " @return -ENOMEM on error"]
-    pub fn net_frag_linearize(
-        dst: *mut u8_t,
-        dst_len: usize,
-        src: *mut net_pkt,
-        offset: u16_t,
-        len: u16_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Compact the fragment list of a packet."]
-    #[doc = ""]
-    #[doc = " @details After this there is no more any free space in individual fragments."]
-    #[doc = " @param pkt Network packet."]
-    #[doc = ""]
-    #[doc = " @return True if compact success, False otherwise."]
-    pub fn net_pkt_compact(pkt: *mut net_pkt) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Append data to fragment list of a packet"]
-    #[doc = ""]
-    #[doc = " @details Append data to last fragment. If there is not enough space in"]
-    #[doc = " last fragment then more data fragments will be added, unless there are"]
-    #[doc = " no free fragments and timeout occurs."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet."]
-    #[doc = " @param len Total length of input data"]
-    #[doc = " @param data Data to be added"]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Length of data actually added. This may be less than input"]
-    #[doc = "         length if other timeout than K_FOREVER was used, and there"]
-    #[doc = "         were no free fragments in a pool to accommodate all data."]
-    pub fn net_pkt_append(
-        pkt: *mut net_pkt,
-        len: u16_t,
-        data: *const u8_t,
-        timeout: s32_t,
-    ) -> u16_t;
-}
-extern "C" {
-    #[doc = " @brief Append fixed bytes of data to fragment list of a packet"]
-    #[doc = ""]
-    #[doc = " @details Append data to last fragment. If there is not enough space in"]
-    #[doc = " last fragment then more data fragments will be added, unless there are"]
-    #[doc = " no free fragments and timeout occurs."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet."]
-    #[doc = " @param len Total length of input data"]
-    #[doc = " @param data Byte to initialize fragment with"]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Length of data actually added. This may be less than input"]
-    #[doc = "         length if other timeout than K_FOREVER was used, and there"]
-    #[doc = "         were no free fragments in a pool to accommodate all data."]
-    pub fn net_pkt_append_memset(
-        pkt: *mut net_pkt,
-        len: u16_t,
-        data: u8_t,
-        timeout: s32_t,
-    ) -> u16_t;
-}
-extern "C" {
-    #[doc = " @brief Get data from buffer"]
-    #[doc = ""]
-    #[doc = " @details Get N number of bytes starting from fragment\'s offset. If the total"]
-    #[doc = " length of data is placed in multiple fragments, this function will read from"]
-    #[doc = " all fragments until it reaches N number of bytes. Caller has to take care of"]
-    #[doc = " endianness if needed."]
-    #[doc = ""]
-    #[doc = " @param frag Network buffer fragment."]
-    #[doc = " @param offset Offset of input buffer."]
-    #[doc = " @param pos Pointer to position of offset after reading n number of bytes,"]
-    #[doc = "            this is with respect to return buffer(fragment)."]
-    #[doc = " @param len Total length of data to be read."]
-    #[doc = " @param data Data will be copied here."]
-    #[doc = ""]
-    #[doc = " @return Pointer to the fragment or"]
-    #[doc = "         NULL and pos is 0 after successful read,"]
-    #[doc = "         NULL and pos is 0xffff otherwise."]
-    pub fn net_frag_read(
-        frag: *mut net_buf,
-        offset: u16_t,
-        pos: *mut u16_t,
-        len: u16_t,
-        data: *mut u8_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Get 16 bit big endian value from fragmented buffer"]
-    #[doc = ""]
-    #[doc = " @param frag Network buffer fragment."]
-    #[doc = " @param offset Offset of input buffer."]
-    #[doc = " @param pos Pointer to position of offset after reading 2 bytes,"]
-    #[doc = "            this is with respect to return buffer(fragment)."]
-    #[doc = " @param value Value is returned"]
-    #[doc = ""]
-    #[doc = " @return Pointer to fragment after successful read,"]
-    #[doc = "         NULL otherwise (if pos is 0, NULL is not a failure case)."]
-    pub fn net_frag_read_be16(
-        frag: *mut net_buf,
-        offset: u16_t,
-        pos: *mut u16_t,
-        value: *mut u16_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Get 32 bit big endian value from fragmented buffer"]
-    #[doc = ""]
-    #[doc = " @param frag Network buffer fragment."]
-    #[doc = " @param offset Offset of input buffer."]
-    #[doc = " @param pos Pointer to position of offset after reading 4 bytes,"]
-    #[doc = "            this is with respect to return buffer(fragment)."]
-    #[doc = " @param value Value is returned"]
-    #[doc = ""]
-    #[doc = " @return Pointer to fragment after successful read,"]
-    #[doc = "         NULL otherwise (if pos is 0, NULL is not a failure case)."]
-    pub fn net_frag_read_be32(
-        frag: *mut net_buf,
-        offset: u16_t,
-        pos: *mut u16_t,
-        value: *mut u32_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Write data to an arbitrary offset in fragments list of a packet."]
-    #[doc = ""]
-    #[doc = " @details Write data to an arbitrary offset in a series of fragments."]
-    #[doc = " Offset is based on fragment \'size\' and calculates from input fragment"]
-    #[doc = " starting position."]
-    #[doc = ""]
-    #[doc = " Size in this context refers the fragment full size without link layer header"]
-    #[doc = " part. The fragment might have user written data in it, the amount of such"]
-    #[doc = " data is stored in frag->len variable (the frag->len is always <= frag->size)."]
-    #[doc = " If using this API, the tailroom in the fragments will be taken into use."]
-    #[doc = ""]
-    #[doc = " If offset is more than already allocated length in fragment, then empty space"]
-    #[doc = " or extra empty fragments is created to reach proper offset."]
-    #[doc = " If there is any data present on input fragment offset, then it will be"]
-    #[doc = " \'overwritten\'. Use net_pkt_insert() api if you don\'t want to overwrite."]
-    #[doc = ""]
-    #[doc = " Offset is calculated from starting point of data area in input fragment."]
-    #[doc = " e.g. Pkt(Tx/Rx) - Frag1 - Frag2 - Frag3 - Frag4"]
-    #[doc = "      (Assume FRAG DATA SIZE is 100 bytes after link layer header)"]
-    #[doc = ""]
-    #[doc = "      1) net_pkt_write(pkt, frag2, 20, &pos, 20, data, K_FOREVER)"]
-    #[doc = "         In this case write starts from \"frag2->data + 20\","]
-    #[doc = "         returns frag2, pos = 40"]
-    #[doc = ""]
-    #[doc = "      2) net_pkt_write(pkt, frag1, 150, &pos, 60, data, K_FOREVER)"]
-    #[doc = "         In this case write starts from \"frag2->data + 50\""]
-    #[doc = "         returns frag3, pos = 10"]
-    #[doc = ""]
-    #[doc = "      3) net_pkt_write(pkt, frag1, 350, &pos, 30, data, K_FOREVER)"]
-    #[doc = "         In this case write starts from \"frag4->data + 50\""]
-    #[doc = "         returns frag4, pos = 80"]
-    #[doc = ""]
-    #[doc = "      4) net_pkt_write(pkt, frag2, 110, &pos, 90, data, K_FOREVER)"]
-    #[doc = "         In this case write starts from \"frag3->data + 10\""]
-    #[doc = "         returns frag4, pos = 0"]
-    #[doc = ""]
-    #[doc = "      5) net_pkt_write(pkt, frag4, 110, &pos, 20, data, K_FOREVER)"]
-    #[doc = "         In this case write creates new data fragment and starts from"]
-    #[doc = "         \"frag5->data + 10\""]
-    #[doc = "         returns frag5, pos = 30"]
-    #[doc = ""]
-    #[doc = " If input argument frag is NULL, it will create new data fragment"]
-    #[doc = " and append at the end of fragment list."]
-    #[doc = ""]
-    #[doc = " @param pkt    Network packet."]
-    #[doc = " @param frag   Network buffer fragment."]
-    #[doc = " @param offset Offset"]
-    #[doc = " @param pos    Position of offset after write completed (this will be"]
-    #[doc = "               relative to return fragment)"]
-    #[doc = " @param len    Length of the data to be written."]
-    #[doc = " @param data   Data to be written"]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return Pointer to the fragment and position (*pos) where write ended,"]
-    #[doc = "         NULL and pos is 0xffff otherwise."]
-    pub fn net_pkt_write(
-        pkt: *mut net_pkt,
-        frag: *mut net_buf,
-        offset: u16_t,
-        pos: *mut u16_t,
-        len: u16_t,
-        data: *mut u8_t,
-        timeout: s32_t,
-    ) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Insert data at an arbitrary offset in a series of fragments."]
-    #[doc = ""]
-    #[doc = " @details Insert data at an arbitrary offset in a series of fragments. Offset"]
-    #[doc = " is based on fragment length (only user written data length, any tailroom"]
-    #[doc = " in fragments does not come to consideration unlike net_pkt_write()) and"]
-    #[doc = " calculates from input fragment starting position."]
-    #[doc = " If the data pointer is NULL, insert a sequence of zeros with the given"]
-    #[doc = " length."]
-    #[doc = ""]
-    #[doc = " Offset examples can be considered from net_pkt_write() api."]
-    #[doc = " If the offset is more than already allocated fragments length then it is an"]
-    #[doc = " error case."]
-    #[doc = ""]
-    #[doc = " @param pkt    Network packet."]
-    #[doc = " @param frag   Network buffer fragment."]
-    #[doc = " @param offset Offset of fragment where insertion will start."]
-    #[doc = " @param len    Length of the data to be inserted."]
-    #[doc = " @param data   Data to be inserted, can be NULL."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = "        If K_NO_WAIT, then return immediately. If K_FOREVER, then"]
-    #[doc = "        wait as long as necessary. Otherwise, wait up to the specified"]
-    #[doc = "        number of milliseconds before timing out."]
-    #[doc = ""]
-    #[doc = " @return True on success, False otherwise."]
-    pub fn net_pkt_insert(
-        pkt: *mut net_pkt,
-        frag: *mut net_buf,
-        offset: u16_t,
-        len: u16_t,
-        data: *mut u8_t,
-        timeout: s32_t,
-    ) -> bool;
-}
-extern "C" {
-    #[doc = " @brief Split a fragment into two parts at arbitrary offset."]
-    #[doc = ""]
-    #[doc = " @details This will split packet into two parts. Original packet will be"]
-    #[doc = " modified. Offset is relative position with input fragment. Input fragment"]
-    #[doc = " contains first part of the split. Rest of the fragment chain is in \"rest\""]
-    #[doc = " parameter provided by caller."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet"]
-    #[doc = " @param frag Original network buffer fragment which is to be split."]
-    #[doc = " @param offset Offset relative to input fragment."]
-    #[doc = " @param rest Rest of the fragment chain after split."]
-    #[doc = " @param timeout Affects the action taken should the net buf pool be empty."]
-    #[doc = " If K_NO_WAIT, then return immediately. If K_FOREVER, then wait as long as"]
-    #[doc = " necessary. Otherwise, wait up to the specified number of milliseconds before"]
-    #[doc = " timing out."]
-    #[doc = ""]
-    #[doc = " @return 0 on success, <0 otherwise."]
-    pub fn net_pkt_split(
-        pkt: *mut net_pkt,
-        frag: *mut net_buf,
-        offset: u16_t,
-        rest: *mut *mut net_buf,
-        timeout: s32_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Remove data from the packet at arbitrary offset."]
-    #[doc = ""]
-    #[doc = " @details This will remove the data from arbitrary offset. Original packet"]
-    #[doc = " will be modified."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet"]
-    #[doc = " @param offset Arbitrary offset to packet"]
-    #[doc = " @param len Number of bytes to be removed"]
-    #[doc = ""]
-    #[doc = " @return 0 on success, <0 otherwise"]
-    #[doc = ""]
-    pub fn net_pkt_pull(pkt: *mut net_pkt, offset: u16_t, len: u16_t) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Return the fragment and offset within it according to network"]
-    #[doc = " packet offset."]
-    #[doc = ""]
-    #[doc = " @details This is typically used to get the protocol header pointer when"]
-    #[doc = " we know the offset. According to this information, the corresponding fragment"]
-    #[doc = " and position within that fragment is returned."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet"]
-    #[doc = " @param offset Offset of desired location in network packet. For example, if"]
-    #[doc = " we want to know where UDP header is located after the IPv6 header,"]
-    #[doc = " the offset could have a value of sizeof(struct net_ipv6_hdr). Note that this"]
-    #[doc = " is a simplified example that does not take into account the possible IPv6"]
-    #[doc = " extension headers."]
-    #[doc = " @param pos Pointer to position within result fragment corresponding to"]
-    #[doc = " offset param. For example, if the IPv6 header is split between two fragments,"]
-    #[doc = " then if we want to know the start of UDP header, the returned pos variable"]
-    #[doc = " would indicate how many bytes from second fragment the UDP header starts."]
-    #[doc = ""]
-    #[doc = " @return Pointer to the fragment where the the offset is located or"]
-    #[doc = "         NULL if there is not enough bytes in the packet"]
-    pub fn net_frag_get_pos(pkt: *mut net_pkt, offset: u16_t, pos: *mut u16_t) -> *mut net_buf;
-}
-extern "C" {
-    #[doc = " @brief Clone pkt and its fragment chain."]
-    #[doc = ""]
-    #[doc = " @param pkt Original pkt to be cloned"]
-    #[doc = " @param timeout Timeout to wait for free net_buf"]
-    #[doc = ""]
-    #[doc = " @return NULL if error, clone fragment chain otherwise."]
-    pub fn net_pkt_clone(pkt: *mut net_pkt, timeout: s32_t) -> *mut net_pkt;
-}
-extern "C" {
-    #[doc = " @brief Get information about predefined RX, TX and DATA pools."]
-    #[doc = ""]
-    #[doc = " @param rx Pointer to RX pool is returned."]
-    #[doc = " @param tx Pointer to TX pool is returned."]
-    #[doc = " @param rx_data Pointer to RX DATA pool is returned."]
-    #[doc = " @param tx_data Pointer to TX DATA pool is returned."]
-    pub fn net_pkt_get_info(
-        rx: *mut *mut k_mem_slab,
-        tx: *mut *mut k_mem_slab,
-        rx_data: *mut *mut net_buf_pool,
-        tx_data: *mut *mut net_buf_pool,
-    );
-}
-extern "C" {
-    #[doc = " @brief Get source socket address."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet"]
-    #[doc = " @param addr Source socket address"]
-    #[doc = " @param addrlen The length of source socket address"]
-    #[doc = " @return 0 on success, <0 otherwise."]
-    pub fn net_pkt_get_src_addr(
-        pkt: *mut net_pkt,
-        addr: *mut sockaddr,
-        addrlen: socklen_t,
-    ) -> cty::c_int;
-}
-extern "C" {
-    #[doc = " @brief Get destination socket address."]
-    #[doc = ""]
-    #[doc = " @param pkt Network packet"]
-    #[doc = " @param addr Destination socket address"]
-    #[doc = " @param addrlen The length of destination socket address"]
-    #[doc = " @return 0 on success, <0 otherwise."]
-    pub fn net_pkt_get_dst_addr(
-        pkt: *mut net_pkt,
-        addr: *mut sockaddr,
-        addrlen: socklen_t,
-    ) -> cty::c_int;
-}
-pub const net_app_type_NET_APP_UNSPEC: net_app_type = 0;
-pub const net_app_type_NET_APP_SERVER: net_app_type = 1;
-pub const net_app_type_NET_APP_CLIENT: net_app_type = 2;
-#[doc = " @brief Network application library"]
-#[doc = " @defgroup net_app Network Application Library"]
-#[doc = " @ingroup networking"]
-#[doc = " @{"]
-pub type net_app_type = u8;
-#[doc = " @typedef net_app_recv_cb_t"]
-#[doc = " @brief Network data receive callback."]
-#[doc = ""]
-#[doc = " @details The recv callback is called after a network data is"]
-#[doc = " received."]
-#[doc = ""]
-#[doc = " @param ctx The context to use."]
-#[doc = " @param pkt Network buffer that is received. If the pkt is not NULL,"]
-#[doc = " then the callback will own the buffer and it needs to to unref the pkt"]
-#[doc = " as soon as it has finished working with it.  On EOF, pkt will be NULL."]
-#[doc = " @param status Value is set to 0 if some data or the connection is"]
-#[doc = " at EOF, <0 if there was an error receiving data, in this case the"]
-#[doc = " pkt parameter is set to NULL."]
-#[doc = " @param user_data The user data given in init call."]
-pub type net_app_recv_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        ctx: *mut net_app_ctx,
-        pkt: *mut net_pkt,
-        status: cty::c_int,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_app_connect_cb_t"]
-#[doc = " @brief Connection callback."]
-#[doc = ""]
-#[doc = " @details The connect callback is called after a connection is being"]
-#[doc = " established."]
-#[doc = ""]
-#[doc = " @param ctx The context to use."]
-#[doc = " @param status Status of the connection establishment. This is 0"]
-#[doc = " if the connection was established successfully, <0 if there was an"]
-#[doc = " error."]
-#[doc = " @param user_data The user data given in init call."]
-pub type net_app_connect_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(ctx: *mut net_app_ctx, status: cty::c_int, user_data: *mut cty::c_void),
->;
-#[doc = " @typedef net_app_send_cb_t"]
-#[doc = " @brief Network data send callback."]
-#[doc = ""]
-#[doc = " @details The send callback is called after a network data is"]
-#[doc = " sent."]
-#[doc = ""]
-#[doc = " @param ctx The context to use."]
-#[doc = " @param status Value is set to 0 if all data was sent ok, <0 if"]
-#[doc = " there was an error sending data. >0 amount of data that was"]
-#[doc = " sent when not all data was sent ok."]
-#[doc = " @param user_data_send The user data given in net_app_send() call."]
-#[doc = " @param user_data The user data given in init call."]
-pub type net_app_send_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        ctx: *mut net_app_ctx,
-        status: cty::c_int,
-        user_data_send: *mut cty::c_void,
-        user_data: *mut cty::c_void,
-    ),
->;
-#[doc = " @typedef net_app_close_cb_t"]
-#[doc = " @brief Close callback."]
-#[doc = ""]
-#[doc = " @details The close callback is called after a connection is being"]
-#[doc = " shutdown."]
-#[doc = ""]
-#[doc = " @param ctx The context to use."]
-#[doc = " @param status Error code for the closing."]
-#[doc = " @param user_data The user data given in init call."]
-pub type net_app_close_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(ctx: *mut net_app_ctx, status: cty::c_int, user_data: *mut cty::c_void),
->;
-#[doc = " Network application callbacks"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_app_cb {
-    #[doc = " Function that is called when a connection is established."]
-    pub connect: net_app_connect_cb_t,
-    #[doc = " Function that is called when data is received from network."]
-    pub recv: net_app_recv_cb_t,
-    #[doc = " Function that is called when net_pkt is sent."]
-    pub send: net_app_send_cb_t,
-    #[doc = " Function that is called when connection is shutdown."]
-    pub close: net_app_close_cb_t,
-}
-#[test]
-fn bindgen_test_layout_net_app_cb() {
-    assert_eq!(
-        ::core::mem::size_of::<net_app_cb>(),
-        16usize,
-        concat!("Size of: ", stringify!(net_app_cb))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_app_cb>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_app_cb))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_cb>())).connect as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_cb),
-            "::",
-            stringify!(connect)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_cb>())).recv as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_cb),
-            "::",
-            stringify!(recv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_cb>())).send as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_cb),
-            "::",
-            stringify!(send)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_cb>())).close as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_cb),
-            "::",
-            stringify!(close)
-        )
-    );
-}
-pub type net_app_send_data_t = ::core::option::Option<
-    unsafe extern "C" fn(
-        pkt: *mut net_pkt,
-        dst_addr: *const sockaddr,
-        addrlen: socklen_t,
-        cb: net_context_send_cb_t,
-        timeout: s32_t,
-        token: *mut cty::c_void,
-        user_data: *mut cty::c_void,
-    ) -> cty::c_int,
->;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_app_endpoint {
-    #[doc = " Network context."]
-    pub ctx: *mut net_context,
-    #[doc = " Local address"]
-    pub local: sockaddr,
-    #[doc = " Remote address"]
-    pub remote: sockaddr,
-}
-#[test]
-fn bindgen_test_layout_net_app_endpoint() {
-    assert_eq!(
-        ::core::mem::size_of::<net_app_endpoint>(),
-        20usize,
-        concat!("Size of: ", stringify!(net_app_endpoint))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_app_endpoint>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_app_endpoint))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_endpoint>())).ctx as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_endpoint),
-            "::",
-            stringify!(ctx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_endpoint>())).local as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_endpoint),
-            "::",
-            stringify!(local)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_endpoint>())).remote as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_endpoint),
-            "::",
-            stringify!(remote)
-        )
-    );
-}
-#[doc = " Network application context."]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct net_app_ctx {
-    pub ipv4: net_app_endpoint,
-    #[doc = " What is the default endpoint for this context."]
-    pub default_ctx: *mut net_app_endpoint,
-    #[doc = " Internal function that is called when user data is sent to"]
-    #[doc = " network. By default this is set to net_context_sendto() but"]
-    #[doc = " is overridden for TLS as it requires special handling."]
-    pub send_data: net_app_send_data_t,
-    #[doc = " Connection callbacks"]
-    pub cb: net_app_cb,
-    #[doc = " Internal function that is called when data is received from"]
-    #[doc = " network. This will do what ever needed and then pass data to"]
-    #[doc = " application."]
-    pub recv_cb: net_context_recv_cb_t,
-    #[doc = " User data pointer"]
-    pub user_data: *mut cty::c_void,
-    #[doc = " Type of the connection (stream or datagram)"]
-    pub sock_type: net_sock_type,
-    #[doc = " IP protocol type (UDP or TCP)"]
-    pub proto: net_ip_protocol,
-    #[doc = " Application type (client or server) of this instance"]
-    pub app_type: net_app_type,
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
-    pub __bindgen_padding_0: u16,
-}
-#[test]
-fn bindgen_test_layout_net_app_ctx() {
-    assert_eq!(
-        ::core::mem::size_of::<net_app_ctx>(),
-        64usize,
-        concat!("Size of: ", stringify!(net_app_ctx))
-    );
-    assert_eq!(
-        ::core::mem::align_of::<net_app_ctx>(),
-        4usize,
-        concat!("Alignment of ", stringify!(net_app_ctx))
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).ipv4 as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(ipv4)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).default_ctx as *const _ as usize },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(default_ctx)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).send_data as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(send_data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).cb as *const _ as usize },
-        28usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).recv_cb as *const _ as usize },
-        44usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(recv_cb)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).user_data as *const _ as usize },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(user_data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).sock_type as *const _ as usize },
-        52usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(sock_type)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).proto as *const _ as usize },
-        56usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(proto)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::core::ptr::null::<net_app_ctx>())).app_type as *const _ as usize },
-        60usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(net_app_ctx),
-            "::",
-            stringify!(app_type)
-        )
-    );
-}
-impl net_app_ctx {
-    #[inline]
-    pub fn is_init(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_init(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_tls(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_tls(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn is_enabled(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u8) }
-    }
-    #[inline]
-    pub fn set_is_enabled(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(2usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn _padding(&self) -> u8_t {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 5u8) as u8) }
-    }
-    #[inline]
-    pub fn set__padding(&mut self, val: u8_t) {
-        unsafe {
-            let val: u8 = ::core::mem::transmute(val);
-            self._bitfield_1.set(3usize, 5u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        is_init: u8_t,
-        is_tls: u8_t,
-        is_enabled: u8_t,
-        _padding: u8_t,
-    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
-            Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let is_init: u8 = unsafe { ::core::mem::transmute(is_init) };
-            is_init as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 1u8, {
-            let is_tls: u8 = unsafe { ::core::mem::transmute(is_tls) };
-            is_tls as u64
-        });
-        __bindgen_bitfield_unit.set(2usize, 1u8, {
-            let is_enabled: u8 = unsafe { ::core::mem::transmute(is_enabled) };
-            is_enabled as u64
-        });
-        __bindgen_bitfield_unit.set(3usize, 5u8, {
-            let _padding: u8 = unsafe { ::core::mem::transmute(_padding) };
-            _padding as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-extern "C" {
-    #[doc = " @brief Set various network application callbacks."]
-    #[doc = ""]
-    #[doc = " @param ctx Network app context."]
-    #[doc = " @param connect_cb Connect callback."]
-    #[doc = " @param recv_cb Data receive callback."]
-    #[doc = " @param send_cb Data sent callback."]
-    #[doc = " @param close_cb Close callback."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_set_cb(
-        ctx: *mut net_app_ctx,
-        connect_cb: net_app_connect_cb_t,
-        recv_cb: net_app_recv_cb_t,
-        send_cb: net_app_send_cb_t,
-        close_cb: net_app_close_cb_t,
-    ) -> cty::c_int;
-}
 extern "C" {
-    #[doc = " @brief Send data that is found in net_pkt to peer."]
-    #[doc = ""]
-    #[doc = " @details If the function return < 0, then it is caller responsibility"]
-    #[doc = " to unref the pkt. If the packet was sent successfully, then the lower"]
-    #[doc = " IP stack will release the network pkt."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param pkt Network packet to send."]
-    #[doc = " @param dst Destination address where to send packet. This is"]
-    #[doc = " ignored for TCP data."]
-    #[doc = " @param dst_len Destination address structure size"]
-    #[doc = " @param timeout How long to wait the send before giving up."]
-    #[doc = " @param user_data_send User data specific to this send call."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_send_pkt(
-        ctx: *mut net_app_ctx,
-        pkt: *mut net_pkt,
-        dst: *const sockaddr,
-        dst_len: socklen_t,
-        timeout: s32_t,
-        user_data_send: *mut cty::c_void,
-    ) -> cty::c_int;
+    pub fn _impl_uart_irq_tx_disable(dev: *mut device);
 }
 extern "C" {
-    #[doc = " @brief Send data that is found in user specified buffer to peer."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param buf Buffer to send."]
-    #[doc = " @param buf_len Amount of data to send."]
-    #[doc = " @param dst Destination address where to send packet. This is"]
-    #[doc = " ignored for TCP data."]
-    #[doc = " @param dst_len Destination address structure size"]
-    #[doc = " @param timeout How long to wait the send before giving up."]
-    #[doc = " @param user_data_send User data specific to this send call."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_send_buf(
-        ctx: *mut net_app_ctx,
-        buf: *mut u8_t,
-        buf_len: usize,
-        dst: *const sockaddr,
-        dst_len: socklen_t,
-        timeout: s32_t,
-        user_data_send: *mut cty::c_void,
-    ) -> cty::c_int;
+    pub fn _impl_uart_irq_rx_enable(dev: *mut device);
 }
 extern "C" {
-    #[doc = " @brief Create network packet."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param family What kind of network packet to get (AF_INET or AF_INET6)"]
-    #[doc = " @param timeout How long to wait the send before giving up."]
-    #[doc = ""]
-    #[doc = " @return valid net_pkt if ok, NULL if error."]
-    pub fn net_app_get_net_pkt(
-        ctx: *mut net_app_ctx,
-        family: sa_family_t,
-        timeout: s32_t,
-    ) -> *mut net_pkt;
+    pub fn _impl_uart_irq_rx_disable(dev: *mut device);
 }
 extern "C" {
-    #[doc = " @brief Create network packet based on dst address."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param dst Destination address to select net_context"]
-    #[doc = " @param timeout How long to wait the send before giving up."]
-    #[doc = ""]
-    #[doc = " @return valid net_pkt if ok, NULL if error."]
-    pub fn net_app_get_net_pkt_with_dst(
-        ctx: *mut net_app_ctx,
-        dst: *const sockaddr,
-        timeout: s32_t,
-    ) -> *mut net_pkt;
+    pub fn _impl_uart_irq_err_enable(dev: *mut device);
 }
 extern "C" {
-    #[doc = " @brief Create network buffer that will hold network data."]
-    #[doc = ""]
-    #[doc = " @details The returned net_buf is automatically appended to the"]
-    #[doc = " end of network packet fragment chain."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param pkt Network packet to where the data buf is appended."]
-    #[doc = " @param timeout How long to wait the send before giving up."]
-    #[doc = ""]
-    #[doc = " @return valid net_pkt if ok, NULL if error."]
-    pub fn net_app_get_net_buf(
-        ctx: *mut net_app_ctx,
-        pkt: *mut net_pkt,
-        timeout: s32_t,
-    ) -> *mut net_buf;
+    pub fn _impl_uart_irq_err_disable(dev: *mut device);
 }
 extern "C" {
-    #[doc = " @brief Close a network connection to peer."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_close(ctx: *mut net_app_ctx) -> cty::c_int;
+    pub fn _impl_uart_irq_is_pending(dev: *mut device) -> cty::c_int;
 }
 extern "C" {
-    #[doc = " @brief Close a specific network connection."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = " @param net_ctx Network context."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_close2(ctx: *mut net_app_ctx, net_ctx: *mut net_context) -> cty::c_int;
+    pub fn _impl_uart_irq_update(dev: *mut device) -> cty::c_int;
 }
 extern "C" {
-    #[doc = " @brief Release this network application context."]
-    #[doc = ""]
-    #[doc = " @details No network data will be received via this context after this"]
-    #[doc = " call."]
-    #[doc = ""]
-    #[doc = " @param ctx Network application context."]
-    #[doc = ""]
-    #[doc = " @return 0 if ok, <0 if error."]
-    pub fn net_app_release(ctx: *mut net_app_ctx) -> cty::c_int;
+    pub fn _impl_uart_line_ctrl_set(dev: *mut device, ctrl: u32_t, val: u32_t) -> cty::c_int;
 }
-#[doc = " @}"]
-pub type net_app_ctx_cb_t = ::core::option::Option<
-    unsafe extern "C" fn(ctx: *mut net_app_ctx, user_data: *mut cty::c_void),
->;
 extern "C" {
-    pub fn net_app_server_foreach(cb: net_app_ctx_cb_t, user_data: *mut cty::c_void);
+    pub fn _impl_uart_line_ctrl_get(dev: *mut device, ctrl: u32_t, val: *mut u32_t) -> cty::c_int;
 }
 extern "C" {
-    pub fn net_app_client_foreach(cb: net_app_ctx_cb_t, user_data: *mut cty::c_void);
+    pub fn _impl_uart_drv_cmd(dev: *mut device, cmd: u32_t, p: u32_t) -> cty::c_int;
 }
 pub type __builtin_va_list = *mut cty::c_char;

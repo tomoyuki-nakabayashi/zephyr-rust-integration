@@ -18,7 +18,7 @@ impl fmt::Write for DebugWriter {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         // safe: `fwrite` does not need to guarantee the atomicity.
         unsafe {
-            zephyr::fwrite(s.as_ptr() as *const cty::c_void, s.len(), 1, stdout_as_ptr_mut());
+            zephyr::fwrite(s.as_ptr() as *const cty::c_void, s.len() as u32, 1, stdout_as_ptr_mut());
         }
         Ok(())
     }
