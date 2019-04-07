@@ -13,8 +13,7 @@ unsafe extern "C" fn my_init(_device: *mut Device) -> cty::c_int {
     0
 }
 
-unsafe extern "C" fn rust_poll_out(_dev: *mut device, out_char: cty::c_uchar)
-{
+unsafe extern "C" fn rust_poll_out(_dev: *mut device, out_char: cty::c_uchar) {
     *(zephyr::UART_0_BASE_ADDRESS as *mut u32) = out_char as u32;
 }
 
