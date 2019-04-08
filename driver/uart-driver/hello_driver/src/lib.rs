@@ -1,4 +1,5 @@
 #![no_std]
+#![allow(dead_code)]
 
 use zephyr_ffi::{print, println};
 use bindings::{Device, DeviceConfig};
@@ -49,6 +50,18 @@ static UART_API: uart_driver_api = uart_driver_api {
     config_get: None,
 };
 
+#[macro_export]
+macro_rules! device_config {
+    ($dev_name:ident, $name:expr, $init:expr, $info:expr) => {
+        #[link_section = ".devconfig.init"]
+        static $dev_name: DeviceConfig = DeviceConfig {
+            name: $name,
+            init: $init,
+            config_info: $info
+        };
+    }
+}
+
 #[link_section = ".init_POST_KERNEL40"]
 static __DEVICE_MY_DEVICE: Device = Device {
     config: &__CONFIG_MY_DEVICE,
@@ -56,9 +69,4 @@ static __DEVICE_MY_DEVICE: Device = Device {
     driver_data: 0
 };
 
-#[link_section = ".devconfig.init"]
-static __CONFIG_MY_DEVICE: DeviceConfig = DeviceConfig {
-    name: zephyr::CONFIG_UART_CONSOLE_ON_DEV_NAME,
-    init: my_init,
-    config_info: 0
-};
+device_config!(__CONFIG_MY_DEVICE, zephyr::CONFIG_UART_CONSOLE_ON_DEV_NAME, my_init, 0);
