@@ -62,11 +62,17 @@ macro_rules! device_config {
     }
 }
 
-#[link_section = ".init_POST_KERNEL40"]
-static __DEVICE_MY_DEVICE: Device = Device {
-    config: &__CONFIG_MY_DEVICE,
-    driver_api: &UART_API,
-    driver_data: 0
-};
+#[macro_export]
+macro_rules! device_init {
+    ($dev_name:ident, $config:expr, $api:expr, $data:expr) => {
+        #[link_section = ".init_POST_KERNEL40"]
+        static $dev_name: Device = Device {
+            config: $config,
+            driver_api: $api,
+            driver_data: $data
+        };
+    }
+}
 
 device_config!(__CONFIG_MY_DEVICE, zephyr::CONFIG_UART_CONSOLE_ON_DEV_NAME, my_init, 0);
+device_init!(__DEVICE_MY_DEVICE, &__CONFIG_MY_DEVICE, &UART_API, 0);
