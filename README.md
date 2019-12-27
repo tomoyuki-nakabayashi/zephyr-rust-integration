@@ -8,6 +8,7 @@
 git clone https://github.com/tomoyuki-nakabayashi/zephyr-rust-integration.git
 cd zephyr-rust-integration/hello_rust
 mkdir build && cd build
+(cd ../hello; make)
 cmake -GNinja -DBOARD=qemu_cortex_m3 ..
 ninja run
 ```
