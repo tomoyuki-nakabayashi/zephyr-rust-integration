@@ -28,12 +28,12 @@ Hello from Rust.
 First of all, you must setup Zephyr development environment to build application targeting `qemu_cortex_m3`.
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) will help you to setup the development environment.
 
-I tested this sample using zephyr-sdk-0.9.5.
+I tested this sample using zephyr-sdk-0.10.3.
 I recommend you use the same version of zephyr-sdk.
 
 ### Rust side
 
-- Rust 1.32.0 stable channel.
+- Rust 1.40.0 stable channel.
 - cargo-binutils
 
 ```
