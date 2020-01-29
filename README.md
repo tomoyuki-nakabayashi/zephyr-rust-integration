@@ -17,8 +17,8 @@ Then, you can finally see:
 
 ```
 ***** Booting Zephyr OS zephyr-v1.13.0-3321-g7f956a9 *****
-Hello World! qemu_cortex_m3
-Hello from Rust.
+*** Booting Zephyr OS build zephyr-v2.1.0  ***
+Hello Rust
 ```
 
 ## prerequisite
@@ -28,7 +28,7 @@ Hello from Rust.
 First of all, you must setup Zephyr development environment to build application targeting `qemu_cortex_m3`.
 [Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) will help you to setup the development environment.
 
-I tested this sample using zephyr-sdk-0.10.3.
+I tested this sample using Zephyr v2.1.0 with zephyr-sdk-0.10.3.
 I recommend you use the same version of zephyr-sdk.
 
 ### Rust side
